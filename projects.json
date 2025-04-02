@@ -1,65 +1,76 @@
 {
-    "programacao": [
-      {
-        "id": "cave-generator",
-        "titulo": "Cave Generator (interactive)",
-        "descricao": "A procedural cave generator powered by cellular automata. Click to watch the dynamic cave formation process and explore different generation parameters.",
-        "tipo": "pagina",
-        "url": "projetos/cave generator/index.html",
-        "tecnologias": ["HTML", "JavaScript", "P5.js"],
-        "tamanho": {
-          "width": 650,
-          "height": 650
+  "coding": [
+    {
+      "id": "cave-generator",
+      "title": "Cave Generator (Interactive)",
+      "description": "A procedural cave generator powered by cellular automata. Click to watch the dynamic cave formation process and explore different generation parameters.",
+      "type": "page",
+      "url": "projetos/cave generator/index.html",
+      "technologies": ["HTML", "JavaScript", "P5.js"],
+      "size": {
+        "width": 650,
+        "height": 650
+      },
+      "variables": [
+        {
+          "name": "whiteNeighboursCount",
+          "label": "Required White Neighbors",
+          "type": "range",
+          "initialValue": 4,
+          "min": 1,
+          "max": 8,
+          "step": 1
         },
-        "variaveis": [
-          {
-            "nome": "whiteNeighboursCount",
-            "label": "Vizinhos Brancos Necessários",
-            "tipo": "range",
-            "valorInicial": 4,
-            "min": 1,
-            "max": 8,
-            "step": 1
-          },
-          {
-            "nome": "blackNeighboursCount",
-            "label": "Vizinhos Pretos Necessários",
-            "tipo": "range",
-            "valorInicial": 4,
-            "min": 1,
-            "max": 8,
-            "step": 1
-          },
-          {
-            "nome": "chanceWhite",
-            "label": "Chance de Pixel Branco (%)",
-            "tipo": "range",
-            "valorInicial": 50,
-            "min": 0,
-            "max": 100,
-            "step": 1
-          }
-        ]
-      }
-    ],
-    "modelagem": [
-      {
-        "id": "model1",
-        "titulo": "Drone",
-        "descricao": "Drone modelado e texturizado em Blender",
-        "imagem": "projetos/drone3D/drone3D.jpg",
-        "tecnologias": ["Blender", "Photoshop"],
-        "link": "https://www.artstation.com/artwork/5X3Vvg"
-      }
-    ],
-    "mecanico": [
-      {
-        "id": "mec1",
-        "titulo": "Projeto Braço Robótico",
-        "descricao": "Braço robótico projetado em SolidWorks com 6 graus de liberdade",
-        "imagem": "path/to/mec1.jpg",
-        "tecnologias": ["SolidWorks", "Arduino", "Impressão 3D"],
-        "link": "https://link-do-projeto"
-      }
-    ]
-  }
+        {
+          "name": "blackNeighboursCount",
+          "label": "Required Black Neighbors",
+          "type": "range",
+          "initialValue": 4,
+          "min": 1,
+          "max": 8,
+          "step": 1
+        },
+        {
+          "name": "chanceWhite",
+          "label": "White Pixel Chance (%)",
+          "type": "range",
+          "initialValue": 50,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        }
+      ]
+    }
+  ],
+  "modeling": [
+    {
+      "id": "model1",
+      "title": "Drone",
+      "description": "Drone modeled and textured in Blender",
+      "image": "projetos/drone3D/drone3D.jpg",
+      "technologies": ["Blender", "Photoshop"],
+      "link": "https://www.artstation.com/artwork/5X3Vvg"
+    }
+  ],
+  "hardware": [
+    {
+      "id": "mec1",
+      "title": "Robotic Arm Project",
+      "description": "6 degrees of freedom robotic arm designed in SolidWorks",
+      "image": "path/to/mec1.jpg",
+      "technologies": ["SolidWorks", "Arduino", "3D Printing"],
+      "link": "https://link-to-project"
+    }
+  ],
+  "experiences": [
+    {
+      "id": "exp1",
+      "title": "Rumo Logística (2025 - Present)",
+      "description": "Developer: Responsible for developing and maintaining internal web systems, creating modern and responsive interfaces using HTML, CSS, JavaScript, and MySQL.\n\nDesigner: Specialized in 3D modeling and logo creation using Blender, delivering high-quality assets for various projects.",
+      "image": "projetos/rumo/rumo-logo.jpg",
+      "technologies": ["HTML", "CSS", "JavaScript", "Web Development"],
+      "no_link": true,
+      "link": "#"
+    }
+  ]
+}
