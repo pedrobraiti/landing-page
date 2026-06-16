@@ -1,0 +1,10 @@
+# Normalize line endings: text files stored with LF in the repo.
+* text=auto eol=lf
+
+# Treat binary assets as binary (never normalized or diffed as text).
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.svg binary
+*.zip binary

@@ -1,0 +1,14 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+
+# Logs and dependency dirs (in case sub-projects add them)
+node_modules/
+*.log
+
+# Environment files (never commit secrets)
+.env
+.env.*
+!.env.example

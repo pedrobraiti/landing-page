@@ -52,16 +52,6 @@
       "link": "https://www.artstation.com/artwork/5X3Vvg"
     }
   ],
-  "hardware": [
-    {
-      "id": "mec1",
-      "title": "Robotic Arm Project",
-      "description": "6 degrees of freedom robotic arm designed in SolidWorks",
-      "image": "path/to/mec1.jpg",
-      "technologies": ["SolidWorks", "Arduino", "3D Printing"],
-      "link": "https://link-to-project"
-    }
-  ],
   "experiences": [
     {
       "id": "exp1",

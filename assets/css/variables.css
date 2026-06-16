@@ -1,0 +1,15 @@
+/* Design tokens and global reset */
+
+:root {
+    --matrix-color: #00ff95;
+    --bg-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --accent-color: #00ff95;
+    --overlay-color: rgba(0, 0, 0, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
