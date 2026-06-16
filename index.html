@@ -3,7 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Portfolio - Computer Engineering</title>
+        <title>Pedro Braiti — Computer Engineer</title>
+        <meta name="description" content="Portfolio of Pedro Braiti, a Computer Engineer passionate about technology and innovation — turning complex problems into elegant solutions through code.">
+        <meta name="author" content="Pedro Braiti">
+        <meta name="theme-color" content="#00ff95">
+        <link rel="canonical" href="https://pedrobraiti.com/">
+        <link rel="icon" type="image/jpeg" href="profile_picture.jpg">
+        <link rel="apple-touch-icon" href="profile_picture.jpg">
+
+        <!-- Open Graph / social sharing -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Pedro Braiti — Computer Engineer">
+        <meta property="og:description" content="Computer Engineer passionate about technology and innovation. Transforming complex problems into elegant solutions through code.">
+        <meta property="og:url" content="https://pedrobraiti.com/">
+        <meta property="og:image" content="https://pedrobraiti.com/profile_picture.jpg">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Pedro Braiti — Computer Engineer">
+        <meta name="twitter:description" content="Computer Engineer passionate about technology and innovation. Transforming complex problems into elegant solutions through code.">
+        <meta name="twitter:image" content="https://pedrobraiti.com/profile_picture.jpg">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -19,13 +36,16 @@
     </head>
     <body>
         <!-- Matrix animated background -->
-        <canvas id="matrix-background"></canvas>
+        <canvas id="matrix-background" aria-hidden="true"></canvas>
 
         <!-- Header navigation -->
         <header>
             <nav class="container">
                 <h1 class="site-title">Pedro Alessandrini Braiti</h1>
-                <ul>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul id="primary-nav">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#about">About <i class="fas fa-chevron-down nav-caret"></i></a></li>
@@ -47,7 +67,7 @@
                             Based in Brazil
                         </div>
 
-                        <div id="ghost">
+                        <div id="ghost" aria-hidden="true">
                             <div id="shadow"></div>
                             <div id="red">
                                 <div id="top0"></div>
@@ -123,7 +143,7 @@
                                 <span>HTML</span>
                             </div>
                             <div class="tech-card">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender Logo" width="24">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender Logo" width="24" loading="lazy">
                                 <span>Blender</span>
                             </div>
                         </div>
@@ -140,14 +160,12 @@
                 <div class="category-buttons">
                     <button class="category-btn active" data-category="coding">Coding</button>
                     <button class="category-btn" data-category="modeling">3D Modeling</button>
-                    <button class="category-btn" data-category="hardware">Hardware</button>
                     <button class="category-btn" data-category="experiences">Professional Experiences</button>
                 </div>
 
                 <!-- Project grids populated from projects.json -->
                 <div class="project-grid" id="coding"></div>
                 <div class="project-grid" id="modeling" style="display: none;"></div>
-                <div class="project-grid" id="hardware" style="display: none;"></div>
                 <div class="project-grid" id="experiences" style="display: none;"></div>
             </div>
         </section>

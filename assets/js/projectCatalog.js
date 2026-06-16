@@ -9,7 +9,6 @@
 
 const CATALOG_URL = 'projects.json';
 const DEFAULT_FRAME = { width: 800, height: 600 };
-const RESTART_MESSAGE = { variable: 'chanceWhite', value: '50' };
 
 export async function initProjectCatalog() {
     setupCategorySwitcher();
@@ -68,7 +67,7 @@ function techStackMarkup(technologies = []) {
 
 function renderStandardCard(card, project) {
     const imageMarkup = project.image
-        ? `<div class="project-image"><img src="${project.image}" alt="${project.title}"></div>`
+        ? `<div class="project-image"><img src="${project.image}" alt="${project.title}" loading="lazy"></div>`
         : '';
 
     const linkMarkup = project.no_link
@@ -150,12 +149,12 @@ function wireInteractiveCard(card, project) {
     });
 
     restartButton.addEventListener('click', () => {
-        postVariable(frame, RESTART_MESSAGE.variable, RESTART_MESSAGE.value);
+        postToFrame(frame, { type: 'restart' });
     });
 
     card.querySelectorAll('.variable-controls input').forEach((input) => {
         input.addEventListener('change', () => {
-            postVariable(frame, input.dataset.variable, input.value);
+            postToFrame(frame, { type: 'updateVariable', variable: input.dataset.variable, value: input.value });
             if (input.type === 'range') {
                 const display = input.nextElementSibling;
                 if (display) display.textContent = `Value: ${input.value}`;
@@ -164,6 +163,6 @@ function wireInteractiveCard(card, project) {
     });
 }
 
-function postVariable(frame, variable, value) {
-    frame?.contentWindow?.postMessage({ type: 'updateVariable', variable, value }, '*');
+function postToFrame(frame, message) {
+    frame?.contentWindow?.postMessage(message, '*');
 }

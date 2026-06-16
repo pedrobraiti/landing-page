@@ -47,6 +47,21 @@ nav a:hover {
     margin-left: 5px;
 }
 
+/* Hidden on desktop; revealed as a hamburger on small screens */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-toggle:hover {
+    color: var(--matrix-color);
+}
+
 /* Hero */
 .hero {
     height: 100vh;
@@ -181,8 +196,24 @@ nav a:hover {
         text-align: center;
     }
 
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
     nav ul {
         display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        padding: 1rem 0 0.5rem;
+    }
+
+    nav ul.open {
+        display: flex;
     }
 
     .hero h1 {

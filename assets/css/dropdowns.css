@@ -163,37 +163,41 @@
     transition-delay: 0.3s;
 }
 
-.dropdown-section.active .contact-card:nth-child(1) {
+/*
+ * Each contact card is wrapped at runtime by the tilt effect, so the stagger
+ * targets the wrappers (the real grid children) rather than the cards.
+ */
+.dropdown-section.active .tilt-wrapper-contact:nth-child(1) .contact-card {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.6s;
 }
 
-.dropdown-section.active .contact-card:nth-child(2) {
+.dropdown-section.active .tilt-wrapper-contact:nth-child(2) .contact-card {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.8s;
 }
 
-.dropdown-section.active .contact-card:nth-child(3) {
+.dropdown-section.active .tilt-wrapper-contact:nth-child(3) .contact-card {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1s;
 }
 
-.dropdown-section.active .contact-card:nth-child(4) {
+.dropdown-section.active .tilt-wrapper-contact:nth-child(4) .contact-card {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1.2s;
 }
 
-.dropdown-section.active .contact-card:nth-child(5) {
+.dropdown-section.active .tilt-wrapper-contact:nth-child(5) .contact-card {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1.4s;
 }
 
-.dropdown-section.active .contact-card:nth-child(6) {
+.dropdown-section.active .tilt-wrapper-contact:nth-child(6) .contact-card {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1.6s;
