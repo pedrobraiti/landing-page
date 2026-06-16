@@ -1,0 +1,218 @@
+/* About / Contact dropdown panels and their entrance animations */
+
+.dropdown-section {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 35px);
+    background: rgba(0, 0, 0, 0.98);
+    z-index: 999;
+    transition: top 0.5s ease;
+    overflow-y: auto;
+}
+
+.dropdown-section.active {
+    top: 35px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: 1px solid var(--matrix-color);
+    color: var(--matrix-color);
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.close-btn:hover {
+    background: var(--matrix-color);
+    color: var(--bg-color);
+}
+
+.about-content,
+.contact-content {
+    position: relative;
+    padding-top: 3rem;
+}
+
+/* Shared section heading inside dropdowns */
+.dropdown-title {
+    color: var(--matrix-color);
+    margin-bottom: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 2.5rem;
+}
+
+/* About */
+.about-text {
+    margin-bottom: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+.about-section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.about-card {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 149, 0.2);
+}
+
+.about-card h3 {
+    color: var(--matrix-color);
+    margin-bottom: 1rem;
+}
+
+.about-card ul {
+    list-style: none;
+}
+
+/* Contact */
+.contact-description {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.contact-card {
+    background: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    z-index: 1;
+    min-height: 200px;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 149, 0.2);
+    text-decoration: none;
+    color: var(--text-color);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    display: block;
+}
+
+.contact-card i {
+    font-size: 2rem;
+    color: var(--matrix-color);
+    margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+    color: var(--matrix-color);
+}
+
+.contact-card i,
+.contact-card h3,
+.contact-card p {
+    transform: translateZ(30px);
+    position: relative;
+}
+
+/* Entrance animations -------------------------------------------------- */
+.about-title,
+.contact-title {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.contact-description {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.about-card,
+.contact-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.dropdown-section.active .about-title,
+.dropdown-section.active .contact-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-section.active .contact-description {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.dropdown-section.active .contact-card:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.dropdown-section.active .contact-card:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+.dropdown-section.active .contact-card:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s;
+}
+
+.dropdown-section.active .contact-card:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.2s;
+}
+
+.dropdown-section.active .contact-card:nth-child(5) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.4s;
+}
+
+.dropdown-section.active .contact-card:nth-child(6) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.6s;
+}
+
+.dropdown-section.active .about-card:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.dropdown-section.active .about-card:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s;
+}
+
+.dropdown-section.active .about-card:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.5s;
+}
