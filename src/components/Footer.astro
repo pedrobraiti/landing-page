@@ -1,0 +1,72 @@
+---
+import { useTranslations, localizePath, type Locale } from '../lib/i18n';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = 2026;
+
+const elsewhere = [
+  { href: 'https://github.com/pedrobraiti', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/pedrobraiti', label: 'LinkedIn' },
+  { href: 'https://www.artstation.com/pedrotyppe', label: 'ArtStation' },
+  { href: 'https://www.instagram.com/pbyte.dev', label: 'Instagram' },
+];
+---
+
+<footer id="contato" class="border-t border-line bg-surface/40">
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+    <div class="grid gap-12 md:grid-cols-[1.2fr_1fr]">
+      <div>
+        <h2 class="text-section">{t('contact.title')}</h2>
+        <p class="mt-5 max-w-md text-lg text-dim">{t('contact.lede')}</p>
+
+        <a
+          href="mailto:braitipedro17@gmail.com"
+          class="mt-8 inline-block border border-measure px-6 py-3 font-mono text-sm text-measure transition-colors hover:bg-measure hover:text-page"
+          translate="no"
+        >
+          braitipedro17@gmail.com
+        </a>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <p class="rule text-ref">Curitiba, Brasil</p>
+        <ul class="mt-2 flex flex-col gap-2">
+          {
+            elsewhere.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  rel="noopener"
+                  target="_blank"
+                  class="font-mono text-sm text-dim transition-colors hover:text-measure"
+                  translate="no"
+                >
+                  {item.label} ↗
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-16 flex flex-col gap-2 border-t border-line pt-6 text-xs text-dim sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p class="font-mono">© {year} Pedro Alessandrini Braiti</p>
+      <a
+        href="https://github.com/pedrobraiti/landing-page"
+        rel="noopener"
+        target="_blank"
+        class="font-mono transition-colors hover:text-measure"
+      >
+        {t('footer.built')}
+      </a>
+    </div>
+  </div>
+</footer>

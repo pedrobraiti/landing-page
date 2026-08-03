@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+
+@import '@fontsource-variable/archivo';
+@import '@fontsource-variable/newsreader';
+@import '@fontsource-variable/jetbrains-mono';
+
+/*
+  Direção visual: instrumento de medição.
+  O trabalho do Pedro é medir — SNR por escala, mAP real vs decorado, speedup com
+  paridade dentro do ruído. A página herda o vocabulário de um aparelho: grafite frio
+  de corpo de instrumento, âmbar de LED para o valor medido, ciano para a referência.
+  Duas cores de acento porque os dados dele são sempre comparação.
+*/
+@theme {
+  /* `page` e não `base`: `--color-base` geraria `text-base`, que colide com o
+     utilitário de tamanho de fonte do próprio Tailwind. */
+  --color-page: #0e1116;
+  --color-surface: #151a21;
+  --color-raised: #1d242d;
+  --color-line: #2a333f;
+  --color-ink: #e8ecf1;
+  --color-dim: #97a3b2;
+  --color-measure: #ffb02e;
+  --color-ref: #4dd4e0;
+
+  --font-display: 'Archivo Variable', system-ui, sans-serif;
+  --font-body: 'Newsreader Variable', Georgia, serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  --text-hero: clamp(2.5rem, 6.2vw, 5.25rem);
+  --text-section: clamp(1.75rem, 4.5vw, 3.25rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-page);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-optical-sizing: auto;
+    line-height: 1.65;
+    overflow-x: hidden;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-measure);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-measure);
+    color: var(--color-page);
+  }
+
+  h2[id], h3[id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@layer components {
+  /*
+    Papel milimetrado. Aparece só onde há medição, nunca como textura de fundo global —
+    a grade é o instrumento, não o papel de parede.
+  */
+  .grid-paper {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .rule {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-ink-dim);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

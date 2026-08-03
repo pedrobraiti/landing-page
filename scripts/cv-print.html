@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pedro Alessandrini Braiti — Currículo</title>
+    <style>
+      /*
+        Documento para impressão em A4. Claro, não escuro: currículo é impresso e
+        encaminhado por e-mail, e fundo escuro vira mancha de tinta ou anexo ilegível.
+        A identidade fica no âmbar e na monoespaçada dos rótulos.
+      */
+      @page {
+        size: A4;
+        margin: 14mm 15mm;
+      }
+
+      :root {
+        --ink: #14181f;
+        --dim: #5b6672;
+        --line: #d5dae0;
+        --measure: #b76e00;
+        --ref: #0d6f7a;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        color: var(--ink);
+        font-size: 9.6pt;
+        line-height: 1.45;
+        background: #fff;
+      }
+
+      .label {
+        font-family: 'Consolas', 'Courier New', monospace;
+        font-size: 6.9pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ref);
+      }
+
+      header {
+        display: flex;
+        gap: 14mm;
+        align-items: flex-start;
+        border-bottom: 2.5px solid var(--ink);
+        padding-bottom: 5mm;
+      }
+
+      .photo {
+        width: 27mm;
+        height: 27mm;
+        object-fit: cover;
+        border-radius: 1.5mm;
+        flex-shrink: 0;
+      }
+
+      h1 {
+        font-family: 'Arial Black', 'Helvetica', sans-serif;
+        font-size: 25pt;
+        line-height: 0.95;
+        letter-spacing: -0.028em;
+      }
+
+      .role {
+        font-size: 10.5pt;
+        color: var(--measure);
+        font-weight: bold;
+        margin-top: 1.5mm;
+      }
+
+      .contact {
+        margin-top: 3mm;
+        font-family: 'Consolas', 'Courier New', monospace;
+        font-size: 7.8pt;
+        color: var(--dim);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5mm 4mm;
+      }
+
+      .contact a {
+        color: var(--dim);
+        text-decoration: none;
+      }
+
+      .summary {
+        margin-top: 5mm;
+        font-size: 10pt;
+        line-height: 1.5;
+      }
+
+      h2 {
+        font-family: 'Consolas', 'Courier New', monospace;
+        font-size: 7.4pt;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--measure);
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 1.5mm;
+        margin: 6.5mm 0 3.5mm;
+      }
+
+      .entry {
+        display: grid;
+        grid-template-columns: 29mm 1fr;
+        gap: 4mm;
+        margin-bottom: 3.6mm;
+        page-break-inside: avoid;
+      }
+
+      .period {
+        font-family: 'Consolas', 'Courier New', monospace;
+        font-size: 7.2pt;
+        color: var(--dim);
+        padding-top: 0.7mm;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .org {
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        font-size: 10.2pt;
+      }
+
+      .rel {
+        font-weight: normal;
+        color: var(--measure);
+        font-size: 8.6pt;
+      }
+
+      .title {
+        font-size: 9.4pt;
+        font-style: italic;
+        color: var(--dim);
+      }
+
+      .desc {
+        margin-top: 1.2mm;
+        font-size: 9.1pt;
+      }
+
+      .skills .entry {
+        margin-bottom: 2.2mm;
+      }
+
+      .skills .period {
+        font-size: 6.9pt;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ref);
+      }
+
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6mm;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      li {
+        margin-bottom: 1.1mm;
+        font-size: 9.1pt;
+      }
+
+      li::before {
+        content: '—';
+        color: var(--measure);
+        margin-right: 2mm;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img class="photo" src="pedro-small.jpg" alt="Pedro Alessandrini Braiti" />
+      <div>
+        <h1>Pedro<br />Braiti</h1>
+        <p class="role">Engenheiro de computação · Sistemas autônomos e 3D</p>
+        <div class="contact">
+          <span>Curitiba, PR — Brasil</span>
+          <span>braitipedro17@gmail.com</span>
+          <span>(41) 99959-1221</span>
+          <a href="https://pedrobraiti.com">pedrobraiti.com</a>
+          <a href="https://github.com/pedrobraiti">github.com/pedrobraiti</a>
+          <a href="https://linkedin.com/in/pedrobraiti">linkedin.com/in/pedrobraiti</a>
+        </div>
+      </div>
+    </header>
+
+    <p class="summary">
+      Sócio em duas empresas e prestador de serviço em outras duas. Construo sistemas que
+      operam sozinhos — agentes com acesso a execução real, visão computacional aplicada e
+      pipelines de geração — e modelo em 3D profissionalmente desde 2019. Trabalho medindo:
+      todo resultado que eu afirmo vem com o número e a condição em que foi apurado.
+    </p>
+
+    <h2>Experiência</h2>
+
+    <div class="entry">
+      <p class="period">2026 — hoje</p>
+      <div>
+        <p class="org">Dark Marlin <span class="rel">· Sócio</span></p>
+        <p class="title">Sócio e desenvolvedor</p>
+        <p class="desc">
+          Dev-shop de quatro sócios. Software sob encomenda; o primeiro produto entregue foi a
+          plataforma da Emais Network, em produção com pagamentos reais desde maio de 2026.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <p class="period">fev 2025 — hoje</p>
+      <div>
+        <p class="org">Octus Forge <span class="rel">· Sócio</span></p>
+        <p class="title">Sócio e gerente de projetos de modelagem</p>
+        <p class="desc">
+          Peças personalizadas em impressão 3D de resina. Gerencio seis modeladores no Brasil,
+          nos Estados Unidos e na Índia, e reviso cada modelo antes da impressão. Escrevi
+          também o sistema interno que roda a operação, do pedido do cliente à embalagem.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <p class="period">mai 2025 — hoje</p>
+      <div>
+        <p class="org">Ecotechne <span class="rel">· Prestador de serviço</span></p>
+        <p class="title">Full stack em desenvolvimento de IA</p>
+        <p class="desc">
+          Responsável pela arquitetura e implementação da ecoAIx, uma IA que lê e analisa
+          documentos técnicos de engenharia elétrica: front-end, back-end, aprendizado de
+          máquina, geração automatizada de exemplos de treino e o banco de dados do zero.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <p class="period">2026 — hoje</p>
+      <div>
+        <p class="org">Datlaz <span class="rel">· Prestador de serviço</span></p>
+        <p class="title">Visão computacional e GeoAI</p>
+        <p class="desc">
+          Treinei o detector de painéis solares por imagem de satélite que a empresa adotou e
+          transformou em produto. Modelo RF-DETR em ONNX, mAP 0,887 após auditoria do conjunto
+          de teste.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <p class="period">fev 2025 — fev 2026</p>
+      <div>
+        <p class="org">Rumo <span class="rel">· Estágio</span></p>
+        <p class="title">Estagiário full stack e modelador 3D</p>
+        <p class="desc">
+          Desenvolvi e mantive sistemas web internos. Modelei em 3D os troféus da premiação
+          interna da Malha Sul, do conceito à peça preparada para produção física.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <p class="period">jan 2019 — hoje</p>
+      <div>
+        <p class="org">Modelagem 3D <span class="rel">· Freelance</span></p>
+        <p class="title">Modelador 3D independente</p>
+        <p class="desc">
+          Sete anos atendendo pessoas e grupos no Brasil e no exterior, em projetos mecânicos,
+          de impressão 3D e puramente artísticos. Trinta peças publicadas no ArtStation.
+        </p>
+      </div>
+    </div>
+
+    <h2>Projetos selecionados</h2>
+
+    <div class="entry">
+      <p class="period">Público · MIT</p>
+      <div>
+        <p class="org">Scout · Valet · Vizier</p>
+        <p class="desc">
+          Stack em três camadas que permite a um agente de IA pesquisar mercado, decidir e
+          executar ordens reais em corretora, com trava de segurança fechada por padrão.
+          Arquitetura hexagonal, 653 testes, CI e releases versionadas. Validado com ordem real.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <p class="period">Público</p>
+      <div>
+        <p class="org">pgsr-fast</p>
+        <p class="desc">
+          Treze patches que aceleram em 1,095× o treino de reconstrução de superfície por
+          Gaussian Splatting, com paridade numérica provada e benchmark A/B intercalado.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <p class="period">Público</p>
+      <div>
+        <p class="org">Pesquisa quantitativa</p>
+        <p class="desc">
+          Cinco estudos de hipóteses de mercado testadas em até 33 anos de dados, com
+          walk-forward fora da amostra, após custos e com testes de permutação e bootstrap.
+        </p>
+      </div>
+    </div>
+
+    <h2>Formação</h2>
+    <div class="entry">
+      <p class="period">2022 — 2027</p>
+      <div>
+        <p class="org">Engenharia de Computação</p>
+        <p class="title">PUCPR — Pontifícia Universidade Católica do Paraná, Curitiba</p>
+        <p class="desc">Cursando · conclusão prevista para 2027</p>
+      </div>
+    </div>
+
+    <div class="two">
+      <div>
+        <h2>Certificações</h2>
+        <ul>
+          <li>CC50 — Ciência da Computação, Harvard (64 h)</li>
+          <li>Repentina CBL — resolução de problemas em equipe (14 h)</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Idiomas</h2>
+        <ul>
+          <li>Português — nativo</li>
+          <li>Inglês — avançado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="skills">
+      <h2>Competências</h2>
+      <div class="entry">
+        <p class="period">Linguagens</p>
+        <p>Python · TypeScript · Rust · C · C++ · C# · Java · SQL</p>
+      </div>
+      <div class="entry">
+        <p class="period">Web</p>
+        <p>React · Next.js · Astro · Vite · Tailwind · FastAPI · Node.js</p>
+      </div>
+      <div class="entry">
+        <p class="period">IA e dados</p>
+        <p>MCP · RF-DETR · ONNX · PyTorch · OpenCV · pandas · NumPy</p>
+      </div>
+      <div class="entry">
+        <p class="period">Infraestrutura</p>
+        <p>AWS · Docker · PostgreSQL com RLS · Vercel · GitHub Actions</p>
+      </div>
+      <div class="entry">
+        <p class="period">3D</p>
+        <p>Blender · modelagem para impressão em resina · Gaussian Splatting</p>
+      </div>
+    </div>
+  </body>
+</html>
