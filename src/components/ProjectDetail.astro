@@ -1,0 +1,143 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Measure from './Measure.astro';
+import { useTranslations, localizePath, familyLabels, type Locale } from '../lib/i18n';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  next: CollectionEntry<'projects'> | undefined;
+  lang: Locale;
+}
+
+const { project, next, lang } = Astro.props;
+const t = useTranslations(lang);
+const { title, summary, measure, family, role, context, period, status, stack, links, cover } =
+  project.data;
+const { Content } = await render(project);
+
+const facts = [
+  { label: t('project.role'), value: role },
+  { label: t('project.context'), value: context },
+  { label: t('project.period'), value: period },
+  { label: t('project.status'), value: status },
+];
+---
+
+<article>
+  <header class="relative overflow-hidden border-b border-line">
+    <div class="grid-paper pointer-events-none absolute inset-0 opacity-30" aria-hidden="true">
+    </div>
+    <div class="relative mx-auto max-w-6xl px-5 pt-14 pb-16 sm:px-8 sm:pt-20 sm:pb-20">
+      <a
+        href={localizePath('/projetos', lang)}
+        class="rule inline-block transition-colors hover:text-measure"
+      >
+        ← {t('project.back')}
+      </a>
+
+      <p class="rule mt-10 text-ref">{familyLabels[lang][family]}</p>
+      <h1 class="mt-4 max-w-4xl text-section">{title}</h1>
+      <p class="mt-6 max-w-2xl text-xl text-dim">{summary}</p>
+
+      <dl class="mt-12 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          facts.map((fact) => (
+            <div class="min-w-0 border-t border-line pt-4">
+              <dt class="rule">{fact.label}</dt>
+              <dd class="mt-2 text-pretty text-ink">{fact.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </header>
+
+  {
+    cover && (
+      /*
+        `contain` e não `cover`: quase todas as capas são capturas de interface, e
+        recortar uma tela esconde exatamente o que ela deveria provar.
+      */
+      <div class="border-b border-line bg-surface">
+        <div class="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14">
+          <Image
+            src={cover}
+            alt={title}
+            widths={[640, 1024, 1600]}
+            sizes="(min-width: 1024px) 64rem, 100vw"
+            class="max-h-[68vh] w-full border border-line object-contain"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    )
+  }
+
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+    <div class="grid gap-14 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-16">
+      <div
+        class="prose-invert max-w-prose text-lg leading-relaxed [&_h2]:mt-12 [&_h2]:mb-5 [&_h2]:text-2xl [&_h2]:sm:text-3xl [&_p]:mb-6 [&_strong]:text-measure [&_strong]:font-semibold"
+      >
+        <Content />
+      </div>
+
+      <aside class="flex flex-col gap-8 lg:sticky lg:top-24 lg:self-start">
+        <Measure {...measure} lang={lang} />
+
+        <div>
+          <p class="rule text-ref">{t('project.stack')}</p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {
+              stack.map((item) => (
+                <li
+                  class="border border-line px-2.5 py-1 font-mono text-xs text-dim"
+                  translate="no"
+                >
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        {
+          links.length > 0 && (
+            <ul class="flex flex-col gap-2 border-t border-line pt-6">
+              {links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    rel="noopener"
+                    target="_blank"
+                    class="font-mono text-sm text-ref transition-colors hover:text-measure"
+                  >
+                    {link.label} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </aside>
+    </div>
+  </div>
+
+  {
+    next && (
+      <nav class="border-t border-line bg-surface/40">
+        <a
+          href={localizePath(`/projetos/${next.data.slug}`, lang)}
+          class="group mx-auto flex max-w-6xl flex-col gap-2 px-5 py-14 sm:px-8"
+        >
+          <span class="rule text-ref">{t('project.next')}</span>
+          <span class="font-display text-3xl font-extrabold tracking-tight transition-colors group-hover:text-measure sm:text-4xl">
+            {next.data.title} →
+          </span>
+        </a>
+      </nav>
+    )
+  }
+</article>

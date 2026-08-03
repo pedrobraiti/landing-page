@@ -1,0 +1,90 @@
+---
+import { useTranslations, localizePath, type Locale } from '../lib/i18n';
+import { getFeatured } from '../lib/content';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+/*
+  O painel do hero é a tese em forma de dado: cada linha é um projeto e o número que
+  eu apurei nele. É a prova aparecendo antes da promessa, não depois.
+*/
+const readings = (await getFeatured(lang)).map((p) => ({
+  value: p.data.measure.value,
+  label: p.data.title,
+  slug: p.data.slug,
+}));
+
+const headline = {
+  pt: { lead: 'Construo sistemas que rodam', accent: 'sozinhos.' },
+  en: { lead: 'I build systems that run', accent: 'on their own.' },
+}[lang];
+---
+
+<section class="relative overflow-hidden border-b border-line">
+  <div class="grid-paper pointer-events-none absolute inset-0 opacity-50" aria-hidden="true"></div>
+  <div
+    class="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-b from-transparent to-page"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-5 pt-16 pb-14 sm:px-8 sm:pt-24 sm:pb-20">
+    <div class="grid items-end gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
+      <div class="min-w-0">
+        <p class="rule text-ref">{t('hero.role')}</p>
+
+        <h1 class="mt-7 text-hero">
+          {headline.lead}<br /><span class="text-measure">{headline.accent}</span>
+        </h1>
+
+        <p class="mt-8 max-w-xl text-lg leading-relaxed text-dim sm:text-xl">
+          {t('hero.lede')}
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a
+            href={localizePath('/projetos', lang)}
+            class="border border-measure bg-measure px-6 py-3 font-mono text-sm text-page transition-colors hover:bg-transparent hover:text-measure"
+          >
+            {t('hero.cta.projects')}
+          </a>
+          <a
+            href="#contato"
+            class="border border-line px-6 py-3 font-mono text-sm text-ink transition-colors hover:border-measure hover:text-measure"
+          >
+            {t('hero.cta.contact')}
+          </a>
+        </div>
+      </div>
+
+      <dl class="min-w-0 border-t border-line lg:border-t-0 lg:border-l lg:pl-8">
+        <dt class="rule pt-6 text-measure lg:pt-0">{t('measure.eyebrow')}</dt>
+        {
+          readings.map((reading) => (
+            <dd class="border-b border-line last:border-b-0">
+              <a
+                href={localizePath(`/projetos/${reading.slug}`, lang)}
+                class="group flex items-baseline justify-between gap-4 py-3.5"
+              >
+                <span
+                  class="font-display text-xl font-extrabold tabular-nums text-ink transition-colors group-hover:text-measure sm:text-2xl"
+                  translate="no"
+                >
+                  {reading.value}
+                </span>
+                <span class="min-w-0 truncate text-right font-mono text-xs text-dim">
+                  {reading.label}
+                </span>
+              </a>
+            </dd>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>

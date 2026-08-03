@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations, localizePath, type Locale } from '../lib/i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Locale;
+  path?: string;
+}
+
+const { title, description, lang, path = '/' } = Astro.props;
+const t = useTranslations(lang);
+
+const canonical = new URL(localizePath(path, lang), Astro.site);
+const ogImage = new URL('/og.png', Astro.site);
+const altLang = lang === 'pt' ? 'en' : 'pt';
+const altHref = new URL(localizePath(path, altLang), Astro.site);
+---
+
+<!doctype html>
+<html lang={lang === 'pt' ? 'pt-BR' : 'en'} style="color-scheme: dark;">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={altLang} href={altHref} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+
+    <meta name="theme-color" content="#0e1116" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Pedro Alessandrini Braiti',
+        alternateName: 'Pedro Braiti',
+        url: 'https://pedrobraiti.com',
+        jobTitle: lang === 'pt' ? 'Engenheiro de computação' : 'Computer engineer',
+        address: { '@type': 'PostalAddress', addressLocality: 'Curitiba', addressRegion: 'PR', addressCountry: 'BR' },
+        alumniOf: { '@type': 'CollegeOrUniversity', name: 'Pontifícia Universidade Católica do Paraná' },
+        sameAs: [
+          'https://github.com/pedrobraiti',
+          'https://www.linkedin.com/in/pedrobraiti',
+          'https://www.artstation.com/pedrotyppe',
+        ],
+      })}
+    />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-measure focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-page"
+    >
+      {t('nav.skip')}
+    </a>
+    <Header lang={lang} path={path} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

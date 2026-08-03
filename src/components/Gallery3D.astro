@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import { useTranslations, type Locale } from '../lib/i18n';
+import cavalheiro from '../assets/3d/cavalheiro4.png';
+import general from '../assets/3d/general.png';
+import beyonce from '../assets/3d/beyonce.png';
+import cachorro from '../assets/3d/cachorro-humanoide.png';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const pieces = [
+  { src: cavalheiro, pt: 'Cavalheiro', en: 'Gentleman' },
+  { src: general, pt: 'General', en: 'General' },
+  { src: cachorro, pt: 'Cão humanoide', en: 'Humanoid dog' },
+  { src: beyonce, pt: 'Retrato', en: 'Portrait' },
+];
+
+const copy = {
+  pt: {
+    lede: 'Modelo em 3D desde os dezesseis anos. Hoje isso sustenta uma empresa: as peças abaixo saem do Blender, viram resina impressa e são pintadas à mão.',
+    artstation: 'Trinta peças no ArtStation',
+    forge: 'Na Octus Forge, reviso cada modelo antes de ele ir para a impressora — e gerencio seis modeladores no Brasil, nos Estados Unidos e na Índia.',
+  },
+  en: {
+    lede: 'I have been modeling in 3D since I was sixteen. Today it supports a company: the pieces below leave Blender, become printed resin, and are painted by hand.',
+    artstation: 'Thirty pieces on ArtStation',
+    forge: 'At Octus Forge I review every model before it reaches the printer — and I manage six modelers across Brazil, the United States and India.',
+  },
+}[lang];
+---
+
+<div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+  <header class="max-w-3xl">
+    <p class="rule text-ref">{t('section.3d')}</p>
+    <h1 class="mt-5 text-section">{t('nav.3d')}</h1>
+    <p class="mt-7 text-lg text-dim sm:text-xl">{copy.lede}</p>
+  </header>
+
+  <div class="mt-14 grid gap-5 sm:grid-cols-2">
+    {
+      pieces.map((piece, index) => (
+        <figure class="group overflow-hidden border border-line bg-surface">
+          <Image
+            src={piece.src}
+            alt={piece[lang]}
+            widths={[420, 700, 1000]}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            class="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading={index < 2 ? 'eager' : 'lazy'}
+          />
+          <figcaption class="rule border-t border-line px-4 py-3">{piece[lang]}</figcaption>
+        </figure>
+      ))
+    }
+  </div>
+
+  <p class="mt-12 max-w-2xl text-pretty text-dim">{copy.forge}</p>
+
+  <a
+    href="https://www.artstation.com/pedrotyppe"
+    rel="noopener"
+    target="_blank"
+    class="mt-8 inline-block border border-measure px-6 py-3 font-mono text-sm text-measure transition-colors hover:bg-measure hover:text-page"
+  >
+    {copy.artstation} ↗
+  </a>
+</div>

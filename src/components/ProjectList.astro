@@ -1,0 +1,62 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import { useTranslations, familyLabels, type Locale } from '../lib/i18n';
+import { getProjects } from '../lib/content';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const projects = await getProjects(lang);
+
+/*
+  Agrupa por frente em vez de listar tudo numa grade só: as quatro famílias contam
+  quatro histórias diferentes, e misturá-las esconde a amplitude do trabalho.
+*/
+const families = (['sistemas', 'pesquisa', 'fabricacao', 'ferramentas'] as const)
+  .map((family) => ({
+    family,
+    label: familyLabels[lang][family],
+    items: projects.filter((p) => p.data.family === family),
+  }))
+  .filter((group) => group.items.length > 0);
+---
+
+<div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+  <header class="max-w-3xl">
+    <p class="rule text-ref">
+      <span class="tabular-nums">{projects.length}</span>&nbsp;{t('projects.count')}
+    </p>
+    <h1 class="mt-5 text-section">{t('nav.projects')}</h1>
+  </header>
+
+  <nav class="mt-10 flex flex-wrap gap-2" aria-label={t('section.families')}>
+    {
+      families.map((group) => (
+        <a
+          href={`#${group.family}`}
+          class="rule border border-line px-3 py-1.5 transition-colors hover:border-measure hover:text-measure"
+        >
+          {group.label}
+        </a>
+      ))
+    }
+  </nav>
+
+  {
+    families.map((group) => (
+      <section class="mt-20">
+        <h2 id={group.family} class="border-b border-line pb-4 text-2xl sm:text-3xl">
+          {group.label}
+        </h2>
+        <div class="mt-8 grid gap-6 sm:gap-8 lg:grid-cols-2">
+          {group.items.map((project) => (
+            <ProjectCard project={project} lang={lang} />
+          ))}
+        </div>
+      </section>
+    ))
+  }
+</div>

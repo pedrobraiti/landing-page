@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import { localizePath, familyLabels, type Locale } from '../lib/i18n';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  lang: Locale;
+  featured?: boolean;
+}
+
+const { project, lang, featured = false } = Astro.props;
+const { title, slug, summary, measure, family, status, cover } = project.data;
+const href = localizePath(`/projetos/${slug}`, lang);
+---
+
+<article
+  class:list={[
+    'group relative flex flex-col border border-line bg-surface/50 transition-colors duration-300 hover:border-measure/60',
+    featured && 'md:flex-row',
+  ]}
+>
+  {
+    cover && (
+      <div class:list={['overflow-hidden border-line', featured ? 'md:w-1/2 md:border-r border-b md:border-b-0' : 'border-b']}>
+        <Image
+          src={cover}
+          alt={title}
+          widths={[480, 800, 1200]}
+          sizes="(min-width: 768px) 50vw, 100vw"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          loading="lazy"
+        />
+      </div>
+    )
+  }
+
+  <div class:list={['flex flex-1 flex-col p-6 sm:p-8', featured && 'md:justify-center']}>
+    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+      <span class="rule text-ref">{familyLabels[lang][family]}</span>
+      <span class="rule text-dim">
+        <span aria-hidden="true">·&nbsp;</span>{status}
+      </span>
+    </div>
+
+    <h3 class:list={['mt-4 tracking-tight', featured ? 'text-3xl sm:text-4xl' : 'text-2xl']}>
+      <a href={href} class="after:absolute after:inset-0 hover:text-measure">
+        {title}
+      </a>
+    </h3>
+
+    <p class="mt-4 flex-1 text-pretty text-dim">{summary}</p>
+
+    <p class="mt-6 flex items-baseline gap-3 border-t border-line pt-5">
+      <span
+        class="font-display text-2xl font-extrabold tabular-nums text-measure sm:text-3xl"
+        translate="no">{measure.value}</span
+      >
+      <span class="text-sm leading-snug text-dim">{measure.label}</span>
+    </p>
+  </div>
+</article>

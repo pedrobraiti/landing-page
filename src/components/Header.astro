@@ -1,0 +1,91 @@
+---
+import { useTranslations, localizePath, type Locale } from '../lib/i18n';
+
+interface Props {
+  lang: Locale;
+  path?: string;
+}
+
+const { lang, path = '/' } = Astro.props;
+const t = useTranslations(lang);
+const altLang: Locale = lang === 'pt' ? 'en' : 'pt';
+
+const links = [
+  { href: localizePath('/trabalho', lang), label: t('nav.work') },
+  { href: localizePath('/projetos', lang), label: t('nav.projects') },
+  { href: localizePath('/3d', lang), label: t('nav.3d') },
+  { href: localizePath('/sobre', lang), label: t('nav.about') },
+  { href: localizePath('/cv', lang), label: t('nav.cv') },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-line bg-page/85 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+    <a
+      href={localizePath('/', lang)}
+      class="font-mono text-sm font-medium tracking-tight text-ink transition-colors hover:text-measure"
+      translate="no"
+    >
+      Pedro&nbsp;Braiti
+    </a>
+
+    <nav aria-label={t('nav.projects')} class="hidden items-center gap-6 md:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            aria-current={path === link.href.replace('/en', '') ? 'page' : undefined}
+            class="rule transition-colors hover:text-measure aria-[current=page]:text-measure"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href={localizePath(path, altLang)}
+        class="rule border border-line px-2.5 py-1 transition-colors hover:border-measure hover:text-measure"
+        lang={altLang}
+      >
+        {t('lang.switch')}
+      </a>
+    </nav>
+
+    <details class="relative md:hidden">
+      <summary
+        class="rule flex cursor-pointer list-none items-center gap-2 border border-line px-3 py-2 marker:hidden"
+        aria-label={t('nav.projects')}
+      >
+        <span aria-hidden="true">≡</span>
+      </summary>
+      <div
+        class="absolute right-0 z-50 mt-2 flex w-56 flex-col gap-1 border border-line bg-surface p-2 shadow-xl"
+      >
+        {
+          links.map((link) => (
+            <a href={link.href} class="rule px-3 py-2.5 transition-colors hover:bg-raised hover:text-measure">
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          href={localizePath(path, altLang)}
+          lang={altLang}
+          class="rule mt-1 border-t border-line px-3 py-2.5 pt-3 transition-colors hover:bg-raised hover:text-measure"
+        >
+          {t('lang.switch')}
+        </a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<style>
+  /* `list-style: none` cobre o Firefox; o pseudo-elemento cobre os WebKit. */
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

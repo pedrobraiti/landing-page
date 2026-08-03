@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import { useTranslations, localizePath, type Locale } from '../lib/i18n';
+import pedro from '../assets/pedro.jpg';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const copy = {
+  pt: {
+    title: 'Sobre',
+    lede: 'Engenharia de computação na PUCPR, em Curitiba. Duas empresas minhas, dois contratos, e uma teimosia com medir as coisas.',
+    body: [
+      'Comecei modelando em 3D aos dezesseis anos, atendendo gente de fora do Brasil antes de escrever qualquer linha de código para valer. Essa habilidade nunca virou hobby — ela virou a Octus Forge, onde hoje reviso o trabalho de seis modeladores em três países.',
+      'O software veio depois, e veio junto. Hoje construo sistemas que operam sozinhos: um agente que executa ordens numa corretora de verdade, um detector que encontra painéis solares em imagem de satélite, um pipeline que monta um vídeo inteiro sem ninguém no meio.',
+      'A parte que me interessa nesses três não é a inteligência artificial — é o que acontece quando ela erra. Um agente com acesso a dinheiro precisa de uma trava que feche por padrão. Um modelo com métrica alta demais precisa de alguém desconfiado o suficiente para conferir o próprio conjunto de teste. Um vídeo com números na tela não pode deixar o gerador de imagem inventar os números.',
+      'Foi por isso que a página inicial deste site mostra medidas em vez de adjetivos. Todo projeto aqui tem um número que eu apurei, e a condição em que apurei — porque número sem condição é propaganda.',
+    ],
+    systemTitle: 'Como eu trabalho',
+    system:
+      'Eu opero uma estrutura de agentes de IA com áreas separadas: cada frente do meu trabalho tem um contexto próprio, um registro de decisões e um backlog, e um canal por onde essas frentes conversam entre si. Este site foi construído dentro dela. É a razão de uma pessoa só conseguir tocar tudo o que está listado aqui.',
+    cta: 'Ver o currículo',
+  },
+  en: {
+    title: 'About',
+    lede: 'Computer engineering at PUCPR, in Curitiba, Brazil. Two companies of my own, two contracts, and a stubborn habit of measuring things.',
+    body: [
+      'I started modeling in 3D at sixteen, working for clients outside Brazil before writing any code that mattered. That skill never became a hobby — it became Octus Forge, where I now review the work of six modelers across three countries.',
+      'Software came later, and came alongside it. Today I build systems that operate on their own: an agent that places orders at a real broker, a detector that finds solar panels in satellite imagery, a pipeline that assembles an entire video with nobody in the middle.',
+      'What interests me in all three is not the artificial intelligence — it is what happens when it gets things wrong. An agent with access to money needs a guard that closes by default. A model with suspiciously high metrics needs someone distrustful enough to audit their own test set. A video with numbers on screen cannot let the image generator invent the numbers.',
+      'That is why the front page of this site shows measurements instead of adjectives. Every project here has a number I measured, and the conditions I measured it under — because a number without conditions is advertising.',
+    ],
+    systemTitle: 'How I work',
+    system:
+      'I run a structure of AI agents with separate areas: each front of my work has its own context, a decision log and a backlog, plus a channel where those fronts talk to each other. This site was built inside it. It is the reason one person can keep everything listed here running.',
+    cta: 'See the résumé',
+  },
+}[lang];
+---
+
+<div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+  <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
+    <div>
+      <header class="max-w-2xl">
+        <p class="rule text-ref">{t('hero.role')}</p>
+        <h1 class="mt-5 text-section">{copy.title}</h1>
+        <p class="mt-7 text-lg text-dim sm:text-xl">{copy.lede}</p>
+      </header>
+
+      <div class="mt-12 max-w-prose space-y-6 text-lg leading-relaxed">
+        {copy.body.map((paragraph) => <p class="text-pretty">{paragraph}</p>)}
+      </div>
+
+      <section class="grid-paper mt-14 max-w-prose border border-line bg-surface/50 p-6 sm:p-8">
+        <h2 class="text-xl sm:text-2xl">{copy.systemTitle}</h2>
+        <p class="mt-4 text-pretty text-dim">{copy.system}</p>
+      </section>
+
+      <a
+        href={localizePath('/cv', lang)}
+        class="mt-12 inline-block border border-measure px-6 py-3 font-mono text-sm text-measure transition-colors hover:bg-measure hover:text-page"
+      >
+        {copy.cta} →
+      </a>
+    </div>
+
+    <aside class="lg:sticky lg:top-24 lg:self-start">
+      <Image
+        src={pedro}
+        alt="Pedro Braiti"
+        widths={[320, 640]}
+        sizes="(min-width: 1024px) 20rem, 60vw"
+        class="w-full max-w-xs border border-line object-cover"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </aside>
+  </div>
+</div>

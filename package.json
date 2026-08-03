@@ -1,0 +1,21 @@
+{
+  "name": "pedrobraiti-site",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.1.6",
+    "@astrojs/sitemap": "^3.7.3",
+    "tailwindcss": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "@fontsource-variable/archivo": "^5.2.5",
+    "@fontsource-variable/newsreader": "^5.2.5",
+    "@fontsource-variable/jetbrains-mono": "^5.2.5"
+  }
+}

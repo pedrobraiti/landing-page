@@ -1,0 +1,44 @@
+---
+/*
+  A ficha de medida — o elemento que assina o site inteiro.
+  Todo projeto do Pedro tem um número que ele apurou e a condição em que apurou.
+  Mostrar a condição junto do valor é o ponto: número sem condição é propaganda.
+*/
+import { useTranslations, type Locale } from '../lib/i18n';
+
+interface Props {
+  value: string;
+  label: string;
+  condition: string;
+  lang: Locale;
+  size?: 'md' | 'lg';
+}
+
+const { value, label, condition, lang, size = 'md' } = Astro.props;
+const t = useTranslations(lang);
+const valueSize = size === 'lg' ? 'text-5xl sm:text-6xl md:text-7xl' : 'text-4xl sm:text-5xl';
+---
+
+<figure class="grid-paper relative border border-line bg-surface/70 p-6 sm:p-8">
+  <span class="absolute -top-px left-6 h-px w-16 bg-measure" aria-hidden="true"></span>
+
+  <figcaption class="rule mb-4 text-measure">{t('measure.eyebrow')}</figcaption>
+
+  <p
+    class={`font-display font-extrabold leading-none tracking-tight text-measure tabular-nums ${valueSize}`}
+    translate="no"
+  >
+    {value}
+  </p>
+
+  <p class="mt-4 max-w-prose text-base leading-relaxed text-ink sm:text-lg">
+    {label}
+  </p>
+
+  <dl class="mt-6 border-t border-line pt-4">
+    <dt class="rule text-ref">{t('measure.condition')}</dt>
+    <dd class="mt-2 font-mono text-xs leading-relaxed break-words text-dim sm:text-sm">
+      {condition}
+    </dd>
+  </dl>
+</figure>

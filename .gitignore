@@ -12,3 +12,11 @@ node_modules/
 .env
 .env.*
 !.env.example
+
+# Astro
+dist/
+.astro/
+
+# Artefatos locais de geracao do PDF/OG (a foto grande vive em src/assets)
+scripts/pedro.jpg
+scripts/pedro-small.jpg

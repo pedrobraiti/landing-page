@@ -1,0 +1,111 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import { useTranslations, localizePath, type Locale } from '../lib/i18n';
+import { getFeatured, getProjects, getRoles, formatPeriod } from '../lib/content';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const featured = await getFeatured(lang);
+const roles = await getRoles(lang);
+const research = (await getProjects(lang)).filter(
+  (p) => p.data.family === 'pesquisa' && p.data.tier === 2
+);
+---
+
+<section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+  <header class="max-w-3xl">
+    <p class="rule text-ref">{t('section.selected')}</p>
+    <h2 class="mt-5 text-section">{t('section.selected.lede')}</h2>
+  </header>
+
+  <div class="mt-14 grid gap-6 sm:gap-8 lg:grid-cols-2">
+    {
+      featured.map((project, index) => (
+        <div class:list={[index === 0 && 'lg:col-span-2']}>
+          <ProjectCard project={project} lang={lang} featured={index === 0} />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<section class="border-y border-line bg-surface/30">
+  <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+    <header class="max-w-3xl">
+      <p class="rule text-ref">{t('section.work')}</p>
+      <h2 class="mt-5 text-section">{t('section.work.lede')}</h2>
+    </header>
+
+    <ol class="mt-14 flex flex-col">
+      {
+        roles.map((role) => (
+          <li class="grid gap-2 border-t border-line py-7 sm:grid-cols-[minmax(0,13rem)_1fr] sm:gap-8">
+            <div class="flex flex-col gap-1">
+              <p class="font-display text-xl font-bold tracking-tight" translate="no">
+                {role.data.org}
+              </p>
+              <p class="rule tabular-nums">
+                {formatPeriod(role.data.start, role.data.end, role.data.current, lang)}
+              </p>
+            </div>
+            <div class="min-w-0">
+              <p class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span class="text-lg text-ink">{role.data.title}</span>
+                <span class="rule border border-line px-2 py-0.5 text-measure">
+                  {role.data.relation}
+                </span>
+              </p>
+              <p class="mt-3 text-pretty text-dim">{role.data.summary}</p>
+              {role.data.href && (
+                <a
+                  href={role.data.href}
+                  rel="noopener"
+                  target="_blank"
+                  class="mt-3 inline-block font-mono text-xs text-ref transition-colors hover:text-measure"
+                >
+                  {role.data.href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')} ↗
+                </a>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+{
+  research.length > 0 && (
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <header class="max-w-3xl">
+        <p class="rule text-ref">{t('section.research')}</p>
+        <h2 class="mt-5 text-section">{t('section.research.lede')}</h2>
+      </header>
+      <div class="mt-14 grid gap-6 sm:gap-8 lg:grid-cols-2">
+        {research.map((project) => (
+          <ProjectCard project={project} lang={lang} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<section class="border-t border-line bg-surface/30">
+  <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+    <header class="max-w-3xl">
+      <p class="rule text-ref">{t('section.3d')}</p>
+      <h2 class="mt-5 text-section">{t('section.3d.lede')}</h2>
+    </header>
+    <a
+      href={localizePath('/3d', lang)}
+      class="mt-10 inline-block border border-line px-6 py-3 font-mono text-sm transition-colors hover:border-measure hover:text-measure"
+    >
+      {t('nav.3d')} →
+    </a>
+  </div>
+</section>

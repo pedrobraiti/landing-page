@@ -1,0 +1,36 @@
+---
+title: WhatsApp chatbot for lead qualification
+lang: en
+slug: chatbot-whatsapp
+tier: 2
+family: sistemas
+role: Developer, in a pair
+context: Dark Marlin
+period: '2025'
+status: Delivered
+order: 140
+summary: >-
+  Automated WhatsApp support that answers the customer, qualifies the lead, and only
+  pulls in a person when it's worth it.
+measure:
+  value: triage
+  label: the lead arrives qualified, and a person only steps in when it's worth it
+  condition: automated WhatsApp support, with escalation to a human
+stack:
+  - Python
+  - WhatsApp Business API
+  - LLM
+  - Webhooks
+---
+
+A WhatsApp bot that handles the customer from the first message, answers the repetitive
+questions, and asks what's needed to qualify the lead before handing the conversation to a
+human. The goal was never to automate support end to end — it was to make sure that when
+someone from the team joins the conversation, the context is already gathered and the lead
+is already filtered.
+
+It was built **in a pair**, at Dark Marlin. I split the implementation with another
+person; this isn't a project I wrote alone and I won't present it as one.
+
+This is the project I have the least technical detail on record to show — it was
+delivered, it worked, and the code isn't public.

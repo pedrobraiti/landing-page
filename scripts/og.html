@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=JetBrains+Mono:wght@400&display=swap');
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        width: 1200px;
+        height: 630px;
+        background: #0e1116;
+        background-image:
+          linear-gradient(to right, #2a333f8c 1px, transparent 1px),
+          linear-gradient(to bottom, #2a333f8c 1px, transparent 1px);
+        background-size: 60px 60px;
+        color: #e8ecf1;
+        font-family: 'Archivo', system-ui, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 74px 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .eyebrow {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 17px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #4dd4e0;
+      }
+
+      h1 {
+        font-size: 92px;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        line-height: 0.94;
+        margin-top: 30px;
+      }
+
+      .accent { color: #ffb02e; }
+
+      .readings {
+        margin-top: 52px;
+        display: flex;
+        gap: 46px;
+        border-top: 1px solid #2a333f;
+        padding-top: 24px;
+      }
+
+      .reading { display: flex; flex-direction: column; gap: 5px; }
+
+      .value {
+        font-size: 34px;
+        font-weight: 800;
+        color: #ffb02e;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .caption {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        color: #97a3b2;
+      }
+
+      .name {
+        position: absolute;
+        top: 74px;
+        right: 80px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 17px;
+        color: #97a3b2;
+      }
+    </style>
+  </head>
+  <body>
+    <span class="name">pedrobraiti.com</span>
+    <p class="eyebrow">Engenharia de computação · Curitiba, Brasil</p>
+    <h1>Construo sistemas<br />que rodam <span class="accent">sozinhos.</span></h1>
+    <div class="readings">
+      <div class="reading">
+        <span class="value">US$ 2</span>
+        <span class="caption">a ordem real que achou o bug</span>
+      </div>
+      <div class="reading">
+        <span class="value">0,887</span>
+        <span class="caption">mAP, depois de auditar o teste</span>
+      </div>
+      <div class="reading">
+        <span class="value">1,095×</span>
+        <span class="caption">treino mais rápido, mesma geometria</span>
+      </div>
+    </div>
+  </body>
+</html>

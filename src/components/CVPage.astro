@@ -1,0 +1,144 @@
+---
+import { useTranslations, type Locale } from '../lib/i18n';
+import { getRoles, formatPeriod } from '../lib/content';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const roles = await getRoles(lang);
+
+const copy = {
+  pt: {
+    summary:
+      'Engenheiro de computação em formação, sócio em duas empresas e prestador de serviço em outras duas. Construo sistemas que operam sozinhos — agentes com acesso a execução real, visão computacional aplicada e pipelines de geração — e modelo em 3D profissionalmente desde 2019.',
+    educationTitle: 'Formação',
+    education: [
+      {
+        course: 'Engenharia de Computação',
+        school: 'PUCPR — Pontifícia Universidade Católica do Paraná',
+        detail: 'Curitiba · conclusão prevista para 2027',
+      },
+    ],
+    certsTitle: 'Certificações',
+    certs: ['CC50 — Ciência da Computação, Harvard (64 h)', 'Repentina CBL — resolução de problemas em equipe (14 h)'],
+    skillsTitle: 'Competências',
+    skills: [
+      { group: 'Linguagens', items: 'Python · TypeScript · Rust · C · C++ · C# · Java · SQL' },
+      { group: 'Web', items: 'React · Next.js · Astro · Vite · Tailwind · FastAPI · Node.js' },
+      { group: 'IA e dados', items: 'MCP · RF-DETR · ONNX · PyTorch · OpenCV · pandas · NumPy' },
+      { group: 'Infraestrutura', items: 'AWS · Docker · PostgreSQL com RLS · Vercel · GitHub Actions' },
+      { group: '3D', items: 'Blender · modelagem para impressão em resina · Gaussian Splatting' },
+    ],
+    langsTitle: 'Idiomas',
+    langs: ['Português — nativo', 'Inglês — avançado'],
+    experienceTitle: 'Experiência',
+  },
+  en: {
+    summary:
+      'Computer engineering student, partner in two companies and contractor for two more. I build systems that operate on their own — agents with real execution access, applied computer vision and generation pipelines — and I have modeled in 3D professionally since 2019.',
+    educationTitle: 'Education',
+    education: [
+      {
+        course: 'Computer Engineering',
+        school: 'PUCPR — Pontifical Catholic University of Paraná',
+        detail: 'Curitiba, Brazil · expected 2027',
+      },
+    ],
+    certsTitle: 'Certifications',
+    certs: ['CC50 — Introduction to Computer Science, Harvard (64 h)', 'Repentina CBL — team problem solving (14 h)'],
+    skillsTitle: 'Skills',
+    skills: [
+      { group: 'Languages', items: 'Python · TypeScript · Rust · C · C++ · C# · Java · SQL' },
+      { group: 'Web', items: 'React · Next.js · Astro · Vite · Tailwind · FastAPI · Node.js' },
+      { group: 'AI & data', items: 'MCP · RF-DETR · ONNX · PyTorch · OpenCV · pandas · NumPy' },
+      { group: 'Infrastructure', items: 'AWS · Docker · PostgreSQL with RLS · Vercel · GitHub Actions' },
+      { group: '3D', items: 'Blender · modeling for resin printing · Gaussian Splatting' },
+    ],
+    langsTitle: 'Languages',
+    langs: ['Portuguese — native', 'English — advanced'],
+    experienceTitle: 'Experience',
+  },
+}[lang];
+---
+
+<div class="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
+  <header class="flex flex-wrap items-end justify-between gap-6 border-b border-line pb-8">
+    <div>
+      <p class="rule text-ref">Pedro Alessandrini Braiti</p>
+      <h1 class="mt-4 text-section">{t('cv.title')}</h1>
+    </div>
+    <a
+      href="/cv-pedro-braiti.pdf"
+      download
+      class="border border-measure px-5 py-3 font-mono text-sm text-measure transition-colors hover:bg-measure hover:text-page"
+    >
+      ↓ {t('cv.download')}
+    </a>
+  </header>
+
+  <p class="mt-10 max-w-prose text-lg leading-relaxed text-pretty">{copy.summary}</p>
+
+  <section class="mt-14">
+    <h2 class="rule border-b border-line pb-3 text-measure">{copy.experienceTitle}</h2>
+    <ol class="mt-6 flex flex-col gap-7">
+      {
+        roles.map((role) => (
+          <li class="grid gap-1 sm:grid-cols-[minmax(0,11rem)_1fr] sm:gap-6">
+            <p class="rule tabular-nums pt-1">
+              {formatPeriod(role.data.start, role.data.end, role.data.current, lang)}
+            </p>
+            <div class="min-w-0">
+              <p class="font-display text-lg font-bold" translate="no">
+                {role.data.org} · <span class="font-body font-normal text-dim">{role.data.relation}</span>
+              </p>
+              <p class="text-ink">{role.data.title}</p>
+              <p class="mt-2 text-pretty text-sm text-dim">{role.data.summary}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="mt-14">
+    <h2 class="rule border-b border-line pb-3 text-measure">{copy.educationTitle}</h2>
+    {
+      copy.education.map((item) => (
+        <div class="mt-6">
+          <p class="font-display text-lg font-bold">{item.course}</p>
+          <p class="text-ink">{item.school}</p>
+          <p class="rule mt-1">{item.detail}</p>
+        </div>
+      ))
+    }
+    <ul class="mt-6 flex flex-col gap-1.5">
+      {copy.certs.map((cert) => <li class="text-sm text-dim">{cert}</li>)}
+    </ul>
+  </section>
+
+  <section class="mt-14">
+    <h2 class="rule border-b border-line pb-3 text-measure">{copy.skillsTitle}</h2>
+    <dl class="mt-6 flex flex-col gap-4">
+      {
+        copy.skills.map((skill) => (
+          <div class="grid gap-1 sm:grid-cols-[minmax(0,11rem)_1fr] sm:gap-6">
+            <dt class="rule pt-0.5">{skill.group}</dt>
+            <dd class="text-pretty text-dim" translate="no">
+              {skill.items}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="mt-14">
+    <h2 class="rule border-b border-line pb-3 text-measure">{copy.langsTitle}</h2>
+    <ul class="mt-6 flex flex-col gap-1.5">
+      {copy.langs.map((item) => <li class="text-dim">{item}</li>)}
+    </ul>
+  </section>
+</div>

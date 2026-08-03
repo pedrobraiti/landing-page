@@ -1,0 +1,99 @@
+---
+import { useTranslations, localizePath, type Locale } from '../lib/i18n';
+import { getRoles, getProjects, formatPeriod } from '../lib/content';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const roles = await getRoles(lang);
+const projects = await getProjects(lang);
+
+const copy = {
+  pt: {
+    lede: 'Duas empresas que eu toco como sócio, dois contratos como prestador de serviço, um estágio encerrado e sete anos de freelance em 3D. Abaixo, o que cada vínculo produziu.',
+    related: 'O que saiu daqui',
+    owner: 'Sócio',
+  },
+  en: {
+    lede: 'Two companies I run as a partner, two contract engagements, one internship now finished, and seven years of freelance 3D work. Below, what each one produced.',
+    related: 'What came out of it',
+    owner: 'Partner',
+  },
+}[lang];
+
+/*
+  Liga cada vínculo aos projetos que nasceram dele pelo texto de `context`, para a
+  página responder "e o que saiu disso?" em vez de só listar cargos.
+*/
+const relatedTo = (org: string) =>
+  projects.filter((p) => p.data.context.toLowerCase().includes(org.toLowerCase()));
+---
+
+<div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+  <header class="max-w-3xl">
+    <p class="rule text-ref">{t('section.work')}</p>
+    <h1 class="mt-5 text-section">{t('nav.work')}</h1>
+    <p class="mt-7 text-lg text-dim sm:text-xl">{copy.lede}</p>
+  </header>
+
+  <ol class="mt-16 flex flex-col gap-4">
+    {
+      roles.map((role) => {
+        const related = relatedTo(role.data.org);
+        return (
+          <li class="grid-paper border border-line bg-surface/40 p-6 sm:p-8">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+              <h2 class="text-2xl sm:text-3xl" translate="no">
+                {role.data.org}
+              </h2>
+              <p class="rule tabular-nums">
+                {formatPeriod(role.data.start, role.data.end, role.data.current, lang)}
+              </p>
+            </div>
+
+            <p class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span class="text-lg text-ink">{role.data.title}</span>
+              <span class="rule border border-line px-2 py-0.5 text-measure">
+                {role.data.relation}
+              </span>
+            </p>
+
+            <p class="mt-4 max-w-2xl text-pretty text-dim">{role.data.summary}</p>
+
+            {related.length > 0 && (
+              <div class="mt-6 border-t border-line pt-5">
+                <p class="rule text-ref">{copy.related}</p>
+                <ul class="mt-3 flex flex-wrap gap-2">
+                  {related.map((project) => (
+                    <li>
+                      <a
+                        href={localizePath(`/projetos/${project.data.slug}`, lang)}
+                        class="inline-block border border-line px-3 py-1.5 font-mono text-xs transition-colors hover:border-measure hover:text-measure"
+                      >
+                        {project.data.title} →
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {role.data.href && (
+              <a
+                href={role.data.href}
+                rel="noopener"
+                target="_blank"
+                class="mt-5 inline-block font-mono text-xs text-ref transition-colors hover:text-measure"
+              >
+                {role.data.href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')} ↗
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</div>
