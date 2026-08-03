@@ -80,6 +80,11 @@ const links = [
 </header>
 
 <style>
+  /* `list-style: none` cobre o Firefox; o pseudo-elemento cobre os WebKit. */
+  summary {
+    list-style: none;
+  }
+
   summary::-webkit-details-marker {
     display: none;
   }

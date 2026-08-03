@@ -56,15 +56,22 @@ const facts = [
 
   {
     cover && (
-      <div class="border-b border-line">
-        <Image
-          src={cover}
-          alt={title}
-          widths={[640, 1024, 1600]}
-          sizes="100vw"
-          class="max-h-[70vh] w-full object-cover"
-          loading="eager"
-        />
+      /*
+        `contain` e não `cover`: quase todas as capas são capturas de interface, e
+        recortar uma tela esconde exatamente o que ela deveria provar.
+      */
+      <div class="border-b border-line bg-surface">
+        <div class="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14">
+          <Image
+            src={cover}
+            alt={title}
+            widths={[640, 1024, 1600]}
+            sizes="(min-width: 1024px) 64rem, 100vw"
+            class="max-h-[68vh] w-full border border-line object-contain"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
       </div>
     )
   }
