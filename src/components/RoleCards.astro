@@ -39,6 +39,17 @@ const relatedLabel = { pt: 'O que saiu daqui', en: 'What came out of it' }[lang]
       const asset = orgAssets[role.data.slug];
       const related = relatedTo(role.data.org);
 
+      /*
+        A marca vira link quando há destino. Tag dinâmica em vez de dois blocos quase
+        iguais: `<a>` quando existe `link`, `<span>` quando não — é o caso da Rumo,
+        cujo LinkedIn eu não tenho confirmado, e do controle do desenvolvimento de
+        jogos, que não aponta para lugar nenhum.
+      */
+      const Tile = asset?.link ? 'a' : 'span';
+      const tileProps = asset?.link
+        ? { href: asset.link, rel: 'noopener', target: '_blank', 'aria-label': role.data.org }
+        : {};
+
       return (
         <li class="group flex flex-col border border-line bg-surface/40 transition-colors duration-300 hover:border-measure/50">
           {asset?.photo && (
@@ -59,19 +70,24 @@ const relatedLabel = { pt: 'O que saiu daqui', en: 'What came out of it' }[lang]
               Sem marca — caso da modelagem 3D e do desenvolvimento de jogos, que não
               são empresa — entra a inicial. Inventar um logotipo ali seria pior.
             */}
-            <span
+            <Tile
+              {...tileProps}
               class:list={[
-                'flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden border border-line',
+                'flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden border border-line transition-colors duration-300',
                 asset?.tile === 'light' ? 'bg-white' : 'bg-page',
+                asset?.link && 'hover:border-measure',
               ]}
             >
-              {asset ? (
+              {/* Sem padding: a marca ocupa o ladrilho inteiro, que foi o pedido. */}
+              {typeof asset?.logo === 'string' ? (
+                <img src={asset.logo} alt={role.data.org} class="h-full w-full object-contain" loading="lazy" />
+              ) : asset ? (
                 <Image
                   src={asset.logo}
                   alt={role.data.org}
                   widths={[56, 112]}
                   sizes="3.5rem"
-                  class="h-full w-full object-contain p-1.5"
+                  class="h-full w-full object-contain"
                   loading="lazy"
                 />
               ) : (
@@ -79,7 +95,7 @@ const relatedLabel = { pt: 'O que saiu daqui', en: 'What came out of it' }[lang]
                   {role.data.org.charAt(0)}
                 </span>
               )}
-            </span>
+            </Tile>
 
             <div class="min-w-0 flex-1">
               <p class="rule tabular-nums text-dim">

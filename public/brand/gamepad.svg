@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 18 60 36" fill="none" role="img" aria-label="Controle de videogame">
+  <!--
+    Desenho de linha, feito para esta página. O desenvolvimento de jogos não é empresa
+    e não tem marca; um ícone de banco de imagem destoaria dos logotipos de verdade que
+    estão nos outros cartões. Traço fino e ciano, o mesmo vocabulário do cubo de arame.
+  -->
+  <g stroke="#4dd4e0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+    <path d="M22 24h20c8.8 0 16 7.2 16 16 0 4.4-3.6 8-8 8-2.9 0-5.5-1.6-6.9-4.1L41.4 41H22.6l-1.7 2.9C19.5 46.4 16.9 48 14 48c-4.4 0-8-3.6-8-8 0-8.8 7.2-16 16-16Z" />
+    <path d="M19 32v8M15 36h8" />
+    <circle cx="43.5" cy="34.5" r="2.1" />
+    <circle cx="49.5" cy="40.5" r="2.1" />
+  </g>
+</svg>
