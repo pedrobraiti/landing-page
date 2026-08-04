@@ -28,7 +28,7 @@ export const ui = {
     'section.families': 'Frentes',
     'section.timeline': 'Trajetória',
     'section.timeline.lede':
-      'De jogos feitos sozinho em 2015 a quatro vínculos rodando ao mesmo tempo.',
+      'De jogos feitos sozinho em 2015 a cinco frentes rodando ao mesmo tempo.',
     'timeline.cta': 'Ver cada vínculo em detalhe',
     'companies.eyebrow': 'Minhas empresas',
     'roles.group.own': 'Minhas empresas',
@@ -36,7 +36,7 @@ export const ui = {
     'roles.group.independent': 'Por conta própria',
     'section.work': 'Onde eu trabalho',
     'section.work.lede':
-      'Duas empresas que eu toco como sócio e dois contratos como PJ.',
+      'Duas empresas que eu toco como sócio e dois contratos como prestador de serviço.',
     'section.research': 'Pesquisa quantitativa',
     'section.research.lede':
       'Hipóteses de mercado testadas até o fim. Quando a técnica não sobrevive aos custos, o resultado é esse — e ele conta.',
@@ -60,7 +60,7 @@ export const ui = {
       'Se você chegou até aqui, provavelmente quer saber se eu resolvo o seu problema. Escreva e eu respondo.',
     'contact.email': 'Copiar e-mail',
     'contact.copied': 'E-mail copiado',
-    'footer.built': 'Feito em Astro. Código aberto no GitHub.',
+    'footer.built': 'Feito com Astro. Código aberto no GitHub.',
     'lang.switch': 'English',
     'notfound.title': 'Página não encontrada',
     'notfound.lede': 'O endereço não existe ou mudou de lugar.',
@@ -87,7 +87,7 @@ export const ui = {
     'section.families': 'Tracks',
     'section.timeline': 'Track record',
     'section.timeline.lede':
-      'From games I built alone in 2015 to four engagements running at the same time.',
+      'From games I made on my own in 2015 to five tracks running at once.',
     'timeline.cta': 'See each role in detail',
     'companies.eyebrow': 'My companies',
     'roles.group.own': 'My companies',

@@ -74,7 +74,7 @@ produção que caiu para setenta centavos de dólar por peça.
 
 Não é produto e não está publicado. Roda com COLMAP, uma GPU e alguém que entende o que
 está fazendo. O motor de splatting é de terceiros — PGSR, da ZJU — e nenhum algoritmo
-aqui é novo; meu é o que está em volta: o controle de captura, a medição e o
+aqui é novo; o meu é o que está em volta: o controle de captura, a medição e o
 acabamento. E tudo o que está escrito acima foi apurado em **uma peça e uma captura**.
 Ainda não sei o que acontece com vidro, com preto fosco ou com uma peça três vezes
 maior.

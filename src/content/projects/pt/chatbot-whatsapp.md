@@ -23,12 +23,12 @@ stack:
   - Webhooks
 ---
 
-Um bot de WhatsApp que atende o cliente na primeira mensagem, responde as dúvidas
+Um bot de WhatsApp que atende o cliente na primeira mensagem, responde às dúvidas
 repetidas e faz as perguntas que qualificam o lead antes de passar a conversa para um
 humano. O ponto não era automatizar o atendimento inteiro — era garantir que, quando
 alguém do time entra na conversa, o contexto já está levantado e o lead já foi filtrado.
 
-Foi feito **em dupla**, pela [Dark Marlin](https://www.instagram.com/darkmarlin.dev). Dividi a implementação com outra pessoa; não é
+Foi feito **em dupla** pela [Dark Marlin](https://www.instagram.com/darkmarlin.dev). Dividi a implementação com outra pessoa; não é
 um projeto que eu tenha escrito sozinho e não vou apresentar assim.
 
 Este é o projeto sobre o qual tenho menos detalhe técnico registrado para mostrar — foi

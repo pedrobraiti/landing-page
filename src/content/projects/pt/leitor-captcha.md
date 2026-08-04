@@ -58,9 +58,9 @@ modelos votando.
 pode tentar de novo, na prática o arquivo sempre desce: a conta dá cerca de 1,2
 tentativas por captcha, contra as até cinquenta de antes.
 
-Roda em **26 MB de modelo e uns 10 milissegundos por captcha em um núcleo de CPU**, sem
+São **26 MB de modelo e uns 10 milissegundos por captcha em um núcleo de CPU**, sem
 GPU em produção. O modelo roda dentro da infraestrutura da empresa, em ONNX — nenhuma
-chamada a serviço de terceiro, nenhum serviço de resolução paga. São duas consequências
+chamada a serviço de terceiro, nenhum serviço pago de resolução. São duas consequências
 diretas: o custo por captcha é zero depois do treino, e nenhuma imagem sai da rede de
 quem opera o sistema.
 
@@ -72,7 +72,7 @@ ruído. Não precisava de rede neural — bastava comparar mapas de bits e escol
 próximo. **26 KB de gabarito, 92% de acerto em 200 tentativas, cerca de 1 milissegundo
 por captcha.**
 
-Vale registrar a armadilha que eu quase comi ali. No conjunto auto-rotulado, a validação
+Vale registrar a armadilha em que eu quase caí ali. No conjunto auto-rotulado, a validação
 cruzada marcava 99%. É mentira: aquele conjunto só contém captchas que algum modelo já
 tinha acertado, então ele mede o fácil. O número que vale é o 92% medido contra o
 servidor, com os difíceis dentro.

@@ -15,7 +15,7 @@ summary: >-
   sincroniza a legenda, anima o mascote e entrega o MP4 pronto para publicar.
 measure:
   value: zero
-  label: números financeiros vindos da IA de imagem — a regra que impede o vídeo de mentir
+  label: "números financeiros vindos da IA de imagem: a regra que impede o vídeo de mentir"
   condition: todo gráfico é renderizado por código, nunca desenhado por modelo generativo
 stack:
   - Python 3.12
@@ -31,7 +31,7 @@ stack:
 
 Vídeo curto de finanças é um formato com uma armadilha: se o número na tela estiver
 errado, o vídeo inteiro vira desinformação. E modelos generativos de imagem são
-exatamente ruins nisso — eles desenham algo que *parece* um gráfico, com eixos que
+justamente ruins nisso — eles desenham algo que *parece* um gráfico, com eixos que
 *parecem* números.
 
 O sistema recebe um tema e monta o vídeo sozinho: escreve o roteiro, narra com voz

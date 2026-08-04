@@ -27,8 +27,8 @@ stack:
 ---
 
 A [Octus Forge](https://www.instagram.com/octusforge) é minha empresa, e este é o sistema que ela usa para funcionar. Um pedido
-entra e percorre sete etapas até virar caixa fechada — modelagem, aprovação, produção,
-pintura, embalagem — e cada etapa tem responsável e checklist. Em volta do fluxo estão o
+entra e percorre sete etapas até virar caixa fechada — fluxo, modelagem, aprovação, produção,
+pintura, embalagem e expedição — e cada etapa tem responsável e checklist. Em volta do fluxo estão o
 financeiro, o estoque, o catálogo de produtos e uma trilha de auditoria de quem mudou o
 quê. O front é React + Vite na Vercel; atrás está a AWS: Cognito para identidade, Lambda,
 e Postgres no RDS com *row-level security*. Começou no Supabase e migrou. Upload de STL

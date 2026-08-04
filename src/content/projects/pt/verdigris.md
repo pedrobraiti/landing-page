@@ -14,7 +14,7 @@ summary: >-
   emergem das propriedades dos materiais.
 measure:
   value: '93'
-  label: testes de invariante — a física precisa continuar obedecendo as próprias leis
+  label: testes de invariante — a física precisa continuar obedecendo às próprias leis
   condition: núcleo de simulação isolado do jogo, testável sem abrir uma janela
 stack:
   - Rust
@@ -33,7 +33,7 @@ para trapacear.
 O princípio de design é o que torna o projeto interessante para mim: **definir leis, nunca
 artefatos.** Não existe um `lanca_chamas.rs`. Existe combustão, existe propagação de calor,
 existe um material inflamável — e um lança-chamas é o que acontece quando você aponta os
-três na mesma direção. Ácido não tem uma lista de "coisas que dissolve"; ele reage com o
+três na mesma direção. O ácido não tem uma lista de "coisas que dissolve"; ele reage com o
 que a tabela de materiais disser que reage. A consequência prática é que mecânicas
 aparecem sem que eu as tenha escrito, o que é ótimo, e bugs também, o que é menos ótimo.
 

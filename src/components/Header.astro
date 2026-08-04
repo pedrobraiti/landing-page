@@ -34,7 +34,7 @@ const links = [
         links.map((link) => (
           <a
             href={link.href}
-            aria-current={path === link.href.replace('/en', '') ? 'page' : undefined}
+            aria-current={path === link.href.replace(`/${lang}`, '') ? 'page' : undefined}
             class="rule transition-colors hover:text-measure aria-[current=page]:text-measure"
           >
             {link.label}
