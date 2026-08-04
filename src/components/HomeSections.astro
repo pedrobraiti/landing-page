@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import ProjectCard from './ProjectCard.astro';
-import Timeline from './Timeline.astro';
+import RoleCards from './RoleCards.astro';
 import Companies from './Companies.astro';
 import Wireframe from './Wireframe.astro';
 import { useTranslations, localizePath, type Locale } from '../lib/i18n';
@@ -60,7 +60,7 @@ const artstation = {
       <h2 class="mt-5 text-section">{t('section.timeline.lede')}</h2>
     </header>
 
-    <Timeline lang={lang} />
+    <RoleCards lang={lang} />
 
     <Companies lang={lang} />
 

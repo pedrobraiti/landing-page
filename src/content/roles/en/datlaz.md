@@ -12,5 +12,5 @@ summary: >-
   Territorial intelligence startup — geospatial layers and dashboards for energy,
   infrastructure and the environment. I trained the satellite-imagery solar panel
   detector that the company adopted and turned into a product.
-href: https://www.datlaz.com/
+href: https://www.linkedin.com/company/datlaz/
 ---

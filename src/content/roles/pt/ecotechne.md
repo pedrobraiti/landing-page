@@ -8,6 +8,7 @@ start: '2025-05'
 end: null
 current: true
 order: 30
+href: https://www.linkedin.com/company/ecotechnee/
 summary: >-
   Empresa de projetos de energias renováveis — subestações, linhas de transmissão e
   armazenamento. Sou o responsável pela arquitetura e implementação da ecoAIx, uma IA

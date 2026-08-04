@@ -78,14 +78,30 @@
 
 @layer components {
   /*
-    Papel milimetrado. Aparece só onde há medição, nunca como textura de fundo global —
-    a grade é o instrumento, não o papel de parede.
+    Papel milimetrado, versão pontilhada.
+
+    A primeira versão desenhava a grade inteira, linha a linha, e o Pedro achou
+    quadriculado demais. Ficaram só os vértices: os cruzamentos viram pontos e as
+    linhas somem. É a mesma referência de instrumento, com um décimo da tinta.
+
+    São duas malhas sobrepostas de propósito. A fina dá a textura; a grossa, quatro
+    vezes mais espaçada e um pouco mais clara, entra deslocada por meia célula e
+    quebra a regularidade — sem ela o padrão fica mecânico demais.
+
+    Aparece só onde há medição, nunca como textura de fundo global.
   */
   .grid-paper {
+    --paper-dot: color-mix(in oklab, var(--color-line) 85%, transparent);
+    --paper-mark: color-mix(in oklab, var(--color-ref) 22%, transparent);
     background-image:
-      linear-gradient(to right, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px);
-    background-size: 44px 44px;
+      radial-gradient(circle at center, var(--paper-dot) 0 1px, transparent 1.4px),
+      radial-gradient(circle at center, var(--paper-mark) 0 1.6px, transparent 2.1px);
+    background-size:
+      38px 38px,
+      152px 152px;
+    background-position:
+      0 0,
+      19px 19px;
   }
 
   .rule {

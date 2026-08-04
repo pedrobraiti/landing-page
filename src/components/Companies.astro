@@ -1,12 +1,10 @@
 ---
 /*
-  As duas empresas do Pedro, com a marca de cada uma.
+  As duas empresas do Pedro, com a marca oficial de cada uma.
 
-  As duas marcas entram como silhueta clara e não na cor original. O motivo é
-  técnico antes de ser estético: o polvo da Octus Forge é azul-marinho (#16307E no
-  render), que sobre o fundo #0e1116 do site fica praticamente invisível. Passar as
-  duas para monocromático resolve o contraste e ainda deixa a fileira coerente, já
-  que o marlin já vinha branco.
+  As duas vêm claras sobre fundo transparente, que é o que o site precisa: o polvo em
+  azul-marinho (#16307E, a cor de marca) desaparece contra o #0e1116 do fundo. O selo
+  branco resolve sem eu ter que recolorir nada.
 
   O `self-start` na imagem não é enfeite: sem ele o flex de coluna estica a marca até
   a largura do rótulo de texto. O marlin, que é 2,33:1, chegou a renderizar em 8,6:1.
@@ -14,7 +12,7 @@
 import { Image } from 'astro:assets';
 import { useTranslations, type Locale } from '../lib/i18n';
 import darkMarlin from '../assets/logos/dark-marlin.png';
-import octusForge from '../assets/logos/octus-forge.png';
+import octusForge from '../assets/logos/octus-forge-selo.png';
 
 interface Props {
   lang: Locale;
@@ -34,7 +32,7 @@ const companies = [
   {
     name: 'Octus Forge',
     logo: octusForge,
-    href: 'https://octusforge.com',
+    href: 'https://www.instagram.com/octusforge',
     label: { pt: 'Impressão 3D em resina', en: 'Resin 3D printing' }[lang],
     height: 'h-12 sm:h-14',
   },

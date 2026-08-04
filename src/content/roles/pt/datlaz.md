@@ -12,5 +12,5 @@ summary: >-
   Startup de inteligência territorial — camadas geoespaciais e dashboards para energia,
   infraestrutura e meio ambiente. Treinei o detector de painéis solares por imagem de
   satélite que a empresa adotou e transformou em produto.
-href: https://www.datlaz.com/
+href: https://www.linkedin.com/company/datlaz/
 ---

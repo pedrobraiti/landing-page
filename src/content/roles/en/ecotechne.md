@@ -8,6 +8,7 @@ start: '2025-05'
 end: null
 current: true
 order: 30
+href: https://www.linkedin.com/company/ecotechnee/
 summary: >-
   Renewable energy engineering company — substations, transmission lines and storage.
   I'm responsible for the architecture and implementation of ecoAIx, an AI that reads

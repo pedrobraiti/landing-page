@@ -1,6 +1,10 @@
 export const locales = ['pt', 'en'] as const;
 export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = 'pt';
+/*
+  Inglês é o padrão: quem recebe o link do Pedro costuma ser cliente ou parceiro
+  de fora. O português continua inteiro, sob /pt.
+*/
+export const defaultLocale: Locale = 'en';
 
 export const ui = {
   pt: {
@@ -25,8 +29,6 @@ export const ui = {
     'section.timeline': 'Trajetória',
     'section.timeline.lede':
       'De jogos feitos sozinho em 2015 a quatro vínculos rodando ao mesmo tempo.',
-    'timeline.legend.current': 'Em curso',
-    'timeline.legend.past': 'Encerrado',
     'timeline.cta': 'Ver cada vínculo em detalhe',
     'companies.eyebrow': 'Minhas empresas',
     'section.work': 'Onde eu trabalho',
@@ -83,8 +85,6 @@ export const ui = {
     'section.timeline': 'Trajectory',
     'section.timeline.lede':
       'From games I built alone in 2015 to four engagements running at the same time.',
-    'timeline.legend.current': 'Ongoing',
-    'timeline.legend.past': 'Finished',
     'timeline.cta': 'See each engagement in detail',
     'companies.eyebrow': 'My companies',
     'section.work': 'Where I work',
@@ -129,7 +129,7 @@ export function useTranslations(lang: Locale) {
 
 export function localizePath(path: string, lang: Locale): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
-  return lang === defaultLocale ? clean : `/en${clean === '/' ? '' : clean}`;
+  return lang === defaultLocale ? clean : `/${lang}${clean === '/' ? '' : clean}`;
 }
 
 export const familyLabels = {

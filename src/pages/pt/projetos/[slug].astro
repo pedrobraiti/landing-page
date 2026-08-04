@@ -4,7 +4,7 @@ import ProjectDetail from '../../../components/ProjectDetail.astro';
 import { getProjects } from '../../../lib/content';
 
 export async function getStaticPaths() {
-  const projects = await getProjects('en');
+  const projects = await getProjects('pt');
   return projects.map((project, index) => ({
     params: { slug: project.data.slug },
     props: { project, next: projects[(index + 1) % projects.length] },
@@ -15,10 +15,10 @@ const { project, next } = Astro.props;
 ---
 
 <Base
-  lang="en"
+  lang="pt"
   path={`/projetos/${project.data.slug}`}
   title={`${project.data.title} — Pedro Braiti`}
   description={project.data.summary}
 >
-  <ProjectDetail project={project} next={next} lang="en" />
+  <ProjectDetail project={project} next={next} lang="pt" />
 </Base>
