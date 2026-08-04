@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import ProjectCard from './ProjectCard.astro';
 import RoleCards from './RoleCards.astro';
-import Companies from './Companies.astro';
 import Wireframe from './Wireframe.astro';
 import { useTranslations, localizePath, type Locale } from '../lib/i18n';
 import { getFeatured, getProjects } from '../lib/content';
@@ -61,8 +60,6 @@ const artstation = {
     </header>
 
     <RoleCards lang={lang} />
-
-    <Companies lang={lang} />
 
     <a
       href={localizePath('/trabalho', lang)}

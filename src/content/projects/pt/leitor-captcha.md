@@ -59,7 +59,10 @@ pode tentar de novo, na prática o arquivo sempre desce: a conta dá cerca de 1,
 tentativas por captcha, contra as até cinquenta de antes.
 
 Roda em **26 MB de modelo e uns 10 milissegundos por captcha em um núcleo de CPU**, sem
-GPU em produção.
+GPU em produção. O modelo roda dentro da infraestrutura da empresa, em ONNX — nenhuma
+chamada a serviço de terceiro, nenhum serviço de resolução paga. São duas consequências
+diretas: o custo por captcha é zero depois do treino, e nenhuma imagem sai da rede de
+quem opera o sistema.
 
 ## O segundo, que não precisou de rede neural nenhuma
 

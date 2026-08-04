@@ -58,7 +58,10 @@ download can retry, in practice the file always comes through: that works out to
 1.2 attempts per CAPTCHA, against the up-to-fifty of before.
 
 It runs on **26 MB of model and about 10 milliseconds per CAPTCHA on a single CPU
-core**, with no GPU in production.
+core**, with no GPU in production. The model runs inside the company's own
+infrastructure, in ONNX — no third-party service call, no paid solving service. Two
+direct consequences: the cost per CAPTCHA is zero once training is done, and no image
+ever leaves the operator's network.
 
 ## The second one, which needed no neural network at all
 
