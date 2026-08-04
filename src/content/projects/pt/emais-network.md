@@ -8,7 +8,6 @@ role: Desenvolvedor, com o João Moreti
 context: Cliente da Dark Marlin, minha dev-shop
 period: '2026'
 status: Em produção, com pagamentos reais
-cover: ../../../assets/projects/emais.png
 order: 10
 summary: >-
   Plataforma de gestão de networking empresarial presencial — eventos, ingressos,
@@ -17,6 +16,15 @@ measure:
   value: 28 mai 2026
   label: no ar recebendo pagamentos reais desde então, sem interrupção
   condition: Pix, cartão e boleto · financeiro multi-franquia isolado por RLS
+gallery:
+  - src: ../../../assets/projects/emais-app-1.png
+    caption: Agenda de eventos, com ingresso e filtro por região
+  - src: ../../../assets/projects/emais-app-2.png
+    caption: Conta do membro — perfil, adesão, crachá e ingressos
+  - src: ../../../assets/projects/emais-app-3.png
+    caption: O assistente, que explica e leva até a tela certa
+  - src: ../../../assets/projects/emais-app-4.png
+    caption: Ele responde e abre a tela do que foi perguntado
 stack:
   - Next.js 15
   - TypeScript

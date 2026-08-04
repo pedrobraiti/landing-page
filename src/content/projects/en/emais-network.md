@@ -8,7 +8,6 @@ role: Developer, with João Moreti
 context: Client of Dark Marlin, my dev shop
 period: '2026'
 status: In production, with real payments
-cover: ../../../assets/projects/emais.png
 order: 10
 summary: >-
   Management platform for in-person business networking — events, tickets, membership
@@ -17,6 +16,15 @@ measure:
   value: May 28, 2026
   label: live and taking real payments ever since, with no downtime
   condition: Pix, card and boleto · multi-franchise finance isolated by RLS
+gallery:
+  - src: ../../../assets/projects/emais-app-1.png
+    caption: Event schedule, with tickets and filtering by region
+  - src: ../../../assets/projects/emais-app-2.png
+    caption: Member account — profile, membership, badge and tickets
+  - src: ../../../assets/projects/emais-app-3.png
+    caption: The assistant, which explains and takes you to the right screen
+  - src: ../../../assets/projects/emais-app-4.png
+    caption: It answers and opens the screen it just described
 stack:
   - Next.js 15
   - TypeScript

@@ -1,13 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 18 60 36" fill="none" role="img" aria-label="Controle de videogame">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 26 26" fill="none" stroke="#4dd4e0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" role="img" aria-label="Controle de videogame">
   <!--
-    Desenho de linha, feito para esta página. O desenvolvimento de jogos não é empresa
-    e não tem marca; um ícone de banco de imagem destoaria dos logotipos de verdade que
-    estão nos outros cartões. Traço fino e ciano, o mesmo vocabulário do cubo de arame.
+    Ícone gamepad-2 do Lucide (lucide-static v1.28.0, licença ISC), recolorido para o
+    ciano do site. Substituiu um controle que eu tinha desenhado à mão e que ficou com
+    a proporção torta — desenhar ícone não é o trabalho aqui, e um conjunto maduro
+    resolve melhor. O viewBox tem uma unidade de folga de cada lado para o traço não
+    encostar na borda do ladrilho.
   -->
-  <g stroke="#4dd4e0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
-    <path d="M22 24h20c8.8 0 16 7.2 16 16 0 4.4-3.6 8-8 8-2.9 0-5.5-1.6-6.9-4.1L41.4 41H22.6l-1.7 2.9C19.5 46.4 16.9 48 14 48c-4.4 0-8-3.6-8-8 0-8.8 7.2-16 16-16Z" />
-    <path d="M19 32v8M15 36h8" />
-    <circle cx="43.5" cy="34.5" r="2.1" />
-    <circle cx="49.5" cy="40.5" r="2.1" />
-  </g>
+  <line x1="6" x2="10" y1="11" y2="11" />
+  <line x1="8" x2="8" y1="9" y2="13" />
+  <line x1="15" x2="15.01" y1="12" y2="12" />
+  <line x1="18" x2="18.01" y1="10" y2="10" />
+  <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
 </svg>

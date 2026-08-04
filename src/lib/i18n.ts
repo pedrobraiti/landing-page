@@ -92,7 +92,7 @@ export const ui = {
     'companies.eyebrow': 'My companies',
     'roles.group.own': 'My companies',
     'roles.group.hired': 'Companies I worked for',
-    'roles.group.independent': 'On my own',
+    'roles.group.independent': 'Freelance',
     'section.work': 'Where I work',
     'section.work.lede':
       'Two companies I run as a partner, and two contract engagements.',

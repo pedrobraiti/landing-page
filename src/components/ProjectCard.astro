@@ -10,7 +10,14 @@ interface Props {
 }
 
 const { project, lang, featured = false } = Astro.props;
-const { title, slug, summary, measure, family, status, cover } = project.data;
+const { title, slug, summary, measure, family, status, cover, gallery } = project.data;
+
+/*
+  Projeto sem capa cai na primeira imagem da galeria — é o caso da Emais, cujo app é
+  feito para celular e cuja captura de desktop era a parte feia. `object-top` porque
+  numa captura de celular recortada em paisagem o que interessa está no alto da tela.
+*/
+const preview = cover ?? gallery[0]?.src;
 const href = localizePath(`/projetos/${slug}`, lang);
 ---
 
@@ -21,14 +28,23 @@ const href = localizePath(`/projetos/${slug}`, lang);
   ]}
 >
   {
-    cover && (
+    preview && (
       <div class:list={['overflow-hidden border-line', featured ? 'md:w-1/2 md:border-r border-b md:border-b-0' : 'border-b']}>
         <Image
-          src={cover}
+          src={preview}
           alt={title}
           widths={[480, 800, 1200]}
           sizes="(min-width: 768px) 50vw, 100vw"
-          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          {/*
+            `max-h-96` só no caso da galeria: a imagem é uma captura de celular, e uma
+            proporção 9:16 com `h-full` puxa a altura da linha inteira do cartão — o da
+            Emais chegou a 1.400px de alto. `object-top` porque o que identifica o app
+            está no alto da tela.
+          */}
+          class:list={[
+            'h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]',
+            !cover && 'max-h-96 object-top',
+          ]}
           loading="lazy"
         />
       </div>

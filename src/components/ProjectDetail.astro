@@ -33,8 +33,8 @@ const { Content } = await render(project);
 
 /*
   `context` costuma nomear a empresa ("Cliente da Dark Marlin"), e o Pedro pediu que
-  toda citação de empresa fosse clicável — não só as do corpo do texto, que o plugin
-  de Markdown já resolve. Por isso este campo sai como HTML.
+  toda citação de empresa fosse clicável. No corpo do texto o link está escrito no
+  próprio Markdown; aqui é campo de frontmatter, então sai como HTML montado.
 */
 const facts = [
   { label: t('project.role'), value: role },
@@ -104,14 +104,24 @@ const facts = [
       <div class="border-b border-line bg-surface/40">
         <div class="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
           {gallery.length > 0 && (
-            <div class="grid gap-5 sm:grid-cols-2">
+            /*
+              Par antes/depois fica em duas colunas. A partir de três, são capturas de
+              tela de celular: quatro na largura no desktop, e 2×2 no celular — nunca
+              tudo numa fileira só, senão cada uma vira uma tira ilegível de 90px.
+            */
+            <div
+              class:list={[
+                'grid gap-4 sm:gap-5',
+                gallery.length >= 3 ? 'grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2',
+              ]}
+            >
               {gallery.map((shot) => (
                 <figure class="border border-line bg-page">
                   <Image
                     src={shot.src}
                     alt={shot.caption}
-                    widths={[640, 1024]}
-                    sizes="(min-width: 640px) 32rem, 100vw"
+                    widths={[420, 760]}
+                    sizes="(min-width: 1024px) 17rem, 45vw"
                     class="w-full object-contain"
                     loading="lazy"
                   />
