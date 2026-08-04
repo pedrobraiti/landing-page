@@ -34,7 +34,7 @@ React + Vite on Vercel; behind it is AWS: Cognito for identity, Lambda, and Post
 RDS with row-level security. It started on Supabase and was migrated. STL upload takes
 files up to 5 GB, because 3D models of large parts get that big.
 
-The most useful fix in the project didn't come from an automated test, it came from the
+The most useful fix in the project didn't come from an automated test; it came from the
 first employee. When she sat down to run a real order, it was clear within minutes that
 she couldn't — and shouldn't — push the flow to the end on her own: decisions I'd left
 open were decisions only the order owner can make. An internal approval gate went in

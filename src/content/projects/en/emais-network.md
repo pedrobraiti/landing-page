@@ -64,6 +64,6 @@ The gain is that the worst possible mistake stops being possible.
 
 Live since **May 28, 2026**, with real payments via Pix, card and boleto, with no
 downtime. End-to-end coverage with Playwright on the flows that involve money — checkout,
-renewal and discount — because that's where a bug actually costs.
+renewal and discount — because that's where a bug actually costs money.
 
 The credit is shared: I built the platform together with João, my partner at Dark Marlin.

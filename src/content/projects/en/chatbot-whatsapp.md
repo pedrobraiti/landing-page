@@ -4,7 +4,7 @@ lang: en
 slug: chatbot-whatsapp
 tier: 2
 family: sistemas
-role: Developer, in a pair
+role: Developer, one of two
 context: Dark Marlin
 period: '2025'
 status: Delivered

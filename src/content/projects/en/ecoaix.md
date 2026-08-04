@@ -16,7 +16,7 @@ gallery:
 order: 120
 summary: >-
   Finding where each component sits inside an electrical engineering drawing — and
-  manufacturing the training set that teaches it, because hand-labelling does not scale.
+  manufacturing the training set that teaches it, because hand-labeling does not scale.
 measure:
   value: 4 classes
   label: with the box computed from the symbol's own geometry, not drawn by hand
@@ -38,8 +38,8 @@ symbols — disconnect switch, breaker, surge arrester, current transformer — 
 wire. For a computer to read that project, the first step is the crudest one: knowing
 **where**, in the drawing, each component is. That is what the two images above show.
 
-That is object detection, and object detection needs labelled examples. There is the
-bottleneck: hand-labelling drawings is expensive and slow, and the people who know how
+That is object detection, and object detection needs labeled examples. There is the
+bottleneck: hand-labeling drawings is expensive and slow, and the people who know how
 are engineers.
 
 ## The hard part was not the detector
@@ -60,9 +60,9 @@ What it does, in order:
 - **Stroke width varies by thirds of the batch**, because a real drawing does not have a
   single line weight.
 
-My favourite part is the bounding box. It is not the rectangle of the wire segment: each
+My favorite part is the bounding box. It is not the rectangle of the wire segment: each
 symbol overflows the wire differently, so the expansion is **per type** — the switch
-grows to fit the blade that opens; the motorised switch computes the motor arm plus its
+grows to fit the blade that opens; the motorized switch computes the motor arm plus its
 label, and **mirrors according to the variant**, because the motor can stick out on any
 of the four sides. If the box ends up outside the frame, the example is discarded rather
 than becoming a wrong annotation.
@@ -71,7 +71,7 @@ Four classes, and the output is COCO, which the trainer consumes directly.
 
 ## The sibling that did run end to end
 
-A second system came out of the same work, and this one is closed: reading the drawing's
+A second system came out of the same work, and this one is finished end to end: reading the drawing's
 **title block** — the identification panel with author, revision, client and document
 number.
 

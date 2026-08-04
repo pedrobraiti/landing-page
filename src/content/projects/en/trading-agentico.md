@@ -43,7 +43,7 @@ tools covering stocks, ETFs, crypto, macro, SEC and on-chain data, all from free
 with no ability to write at all. **Valet** is the only piece that touches the broker, and
 every order goes through a guard that is closed by default: without explicit
 authorization, the order doesn't go out. **Vizier** decides — researches, sizes by
-conviction, keeps the thesis between sessions and measures its own performance against the
+conviction, carries the thesis across sessions and measures its own performance against the
 benchmark.
 
 ## The decision that changed the project
@@ -62,7 +62,7 @@ would have found it.
 ## The result
 
 The bug was fixed in the two affected repositories and became a recorded decision:
-**integration is proven in production, with small money.** Tests prove logic; they don't
+**integration is proven in production, with small amounts of money.** Tests prove logic; they don't
 prove you understood the other end.
 
 The same principle took down another problem later — the server hung on the first call

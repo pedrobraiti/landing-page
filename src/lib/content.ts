@@ -72,8 +72,13 @@ export function formatDuration(
     return `${years} ${years === 1 ? word.year : word.years}`;
   }
 
-  /* Inclusivo: quem entrou em fevereiro e saiu em fevereiro ficou um ano, não onze meses. */
-  const total = Math.max(until - toMonths(start) + 1, 1);
+  /*
+    Meses decorridos, sem somar um. A contagem inclusiva — que o LinkedIn usa — mostrava
+    "1 ano e 1 mês" para fevereiro a fevereiro, que são doze meses. Num site cuja tese é
+    que número sem condição é propaganda, arredondar toda duração para cima é o erro que
+    um leitor cético encontra primeiro.
+  */
+  const total = Math.max(until - toMonths(start), 1);
   const years = Math.floor(total / 12);
   const months = total % 12;
 

@@ -78,10 +78,10 @@ The model is served by the company itself, in ONNX, not by a paid detection API.
 reason is arithmetic: on the hosted service every tile burned a credit, and sweeping a
 whole city means tens of thousands of tiles. Serving the model ourselves, the inference
 cost disappears and only the satellite image download remains — the review pilot in
-Brasília came out at roughly **US$ 0.20** per run.
+Brasília came out at roughly **US$0.20** per run.
 
-It is not an ideological choice, it is what makes the numbers work at city scale. The
-same goes for training: the model in production cost **US$ 4.90** of rented GPU, over
+It isn't an ideological choice; it's what makes the numbers work at city scale. The
+same goes for training: the model in production cost **US$4.90** of rented GPU, over
 4 hours and 40 minutes.
 
 It runs in production on the company's cluster, behind single sign-on, serving a 115 MB

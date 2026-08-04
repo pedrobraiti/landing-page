@@ -34,14 +34,14 @@ per download — brute force, and every retry is a request hitting someone else'
 
 ## The part that decided the outcome
 
-The server tells you whether your answer was right. That is a free labeller: instead of
+The server tells you whether your answer was right. That's a free labeller: instead of
 annotating images by hand, I let the collector build its own training set. It produced
 **1,154 confirmed examples in fifty minutes**, at roughly one second between requests
 and with no files downloaded during collection — the bottleneck was politeness, not
 speed.
 
 The second finding changed the architecture. I suspected the server was case-sensitive
-and tested it: submitted everything lowercase, then everything uppercase. **Six percent
+and tested it: submitted everything lowercase, then everything uppercase. **Six percent were
 accepted in both runs** — exactly what chance predicts for five characters. Which means
 an OCR that ignores case is capped at around 7% there, no matter how well it reads the
 letters.
@@ -54,8 +54,8 @@ voting.
 ## The result
 
 **82% accepted on the first try**, over 50 CAPTCHAs, against the live server. Since the
-download can retry, in practice the file always comes through: that works out to about
-1.2 attempts per CAPTCHA, against the up-to-fifty of before.
+download can retry, in practice the file comes through: that works out to about
+1.2 attempts per CAPTCHA, against the up-to-fifty attempts it used to take.
 
 It runs on **26 MB of model and about 10 milliseconds per CAPTCHA on a single CPU
 core**, with no GPU in production. The model runs inside the company's own
@@ -70,7 +70,7 @@ image: single font, characters in fixed-width cells, no distortion and no noise.
 not need a neural network — comparing bitmaps and picking the nearest one was enough.
 **26 KB of templates, 92% accuracy over 200 attempts, about 1 millisecond per CAPTCHA.**
 
-Worth recording the trap I nearly fell into. On the self-labelled set, cross-validation
+It's worth recording the trap I nearly fell into. On the self-labeled set, cross-validation
 scored 99%. That is a lie: the set only contains CAPTCHAs some model had already got
 right, so it measures the easy ones. The number that counts is the 92% measured against
 the server, with the hard ones still in.

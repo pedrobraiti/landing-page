@@ -73,7 +73,7 @@ export const ui = {
     'nav.about': 'About',
     'nav.cv': 'Résumé',
     'nav.skip': 'Skip to content',
-    'hero.role': 'Computer engineering · Curitiba, Brazil',
+    'hero.role': 'Computer engineer · Curitiba, Brazil',
     'hero.lede':
       'Agents that place real orders, computer vision running in production, and 3D work that ends up as a physical object. Partner in two companies, contractor for two more.',
     'hero.cta.projects': 'See the projects',
@@ -83,25 +83,25 @@ export const ui = {
     'measure.condition': 'Conditions',
     'section.selected': 'Selected work',
     'section.selected.lede':
-      'The systems where the hard decision is documented, not hidden.',
+      'Systems where the hard decisions are documented, not hidden.',
     'section.families': 'Tracks',
-    'section.timeline': 'Trajectory',
+    'section.timeline': 'Track record',
     'section.timeline.lede':
       'From games I built alone in 2015 to four engagements running at the same time.',
-    'timeline.cta': 'See each engagement in detail',
+    'timeline.cta': 'See each role in detail',
     'companies.eyebrow': 'My companies',
     'roles.group.own': 'My companies',
-    'roles.group.hired': 'Companies I worked for',
+    'roles.group.hired': 'Companies I work for',
     'roles.group.independent': 'Freelance',
-    'section.work': 'Where I work',
+    'section.work': "Where I've worked",
     'section.work.lede':
       'Two companies I run as a partner, and two contract engagements.',
     'section.research': 'Quantitative research',
     'section.research.lede':
-      'Market hypotheses tested to the end. When a technique does not survive costs, that is the result — and it counts.',
+      "Market hypotheses tested to destruction. When a technique doesn't survive transaction costs, that is the result — and it counts.",
     'section.3d': '3D modeling',
     'section.3d.lede':
-      'Thirty pieces on ArtStation and a resin printing company. Same head, different material.',
+      'Thirty pieces on ArtStation and a resin printing company. Same mind, different medium.',
     'section.more': 'Other projects',
     'projects.all': 'All',
     'projects.count': 'projects',
@@ -116,7 +116,7 @@ export const ui = {
     'cv.title': 'Résumé',
     'contact.title': "Let's talk",
     'contact.lede':
-      'If you got this far, you probably want to know whether I can solve your problem. Write and I will answer.',
+      "If you've read this far, you probably want to know whether I can solve your problem. Send me a message and I'll reply.",
     'contact.email': 'Copy email',
     'contact.copied': 'Email copied',
     'footer.built': 'Built with Astro. Source on GitHub.',

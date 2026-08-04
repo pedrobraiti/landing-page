@@ -7,7 +7,7 @@ family: ferramentas
 role: Co-author
 context: PUCPR — Formal Languages and Compilers
 period: '2026'
-status: Public · academic project, built in a pair
+status: Public · academic project, built by two of us
 order: 160
 summary: >-
   A full compiler, from lexical analysis to ARMv7 Assembly that runs on the simulator —
@@ -15,7 +15,7 @@ summary: >-
 measure:
   value: ARMv7
   label: from reverse Polish notation to assembly that runs on the simulator
-  condition: static strong typing, attributed syntax tree, documented EBNF grammar
+  condition: strong static typing, attributed syntax tree, documented EBNF grammar
 stack:
   - Python
   - ARMv7 Assembly
@@ -28,11 +28,11 @@ links:
 
 A compiler for a language in reverse Polish notation, built for the Formal Languages and
 Compilers course at PUCPR. The path is complete: lexical and syntactic analysis over a
-documented EBNF grammar, a symbol table, static strong typing checked on the attributed
+documented EBNF grammar, a symbol table, strong static typing checked on the attributed
 syntax tree, and **ARMv7 Assembly generation** — the output actually runs on the Cpulator
 simulator.
 
-Written in plain Python with no runtime dependencies: clone and run. That was deliberate,
+Written in pure Python with no runtime dependencies: clone and run. That was deliberate,
 because the point of the exercise is for every stage of the compiler to be visible in the
 code rather than hidden behind a parser generator.
 

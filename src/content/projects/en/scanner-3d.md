@@ -14,9 +14,9 @@ summary: >-
   You photograph a painted miniature with your phone and get back its mesh, ready for
   Blender and for the resin printer — with no desktop scanner involved.
 measure:
-  value: US$ 0.70
-  label: the GPU cost to digitise one piece, after I measured that the four-hour version was no better
-  condition: rented RTX 4090 at US$ 0.69/h · half resolution · the 4h09 full-4K mesh differed by 0.010% of the diagonal, below the voxel
+  value: US$0.70
+  label: the GPU cost to digitize one piece, after I measured that the four-hour version was no better
+  condition: rented RTX 4090 at US$0.69/h · half resolution · the 4h09 full-4K mesh differed by 0.010% of the diagonal, below the voxel
 stack:
   - Python
   - PyTorch
@@ -27,16 +27,16 @@ stack:
   - CUDA
   - Blender
 links:
-  - label: The derived optimisation, which is public
+  - label: The spin-off optimization, which is public
     href: https://github.com/pedrobraiti/pgsr-fast
 ---
 
 ## The problem
 
-[Octus Forge](https://www.instagram.com/octusforge) prints resin pieces, and a request came in that we could not fulfil:
+[Octus Forge](https://www.instagram.com/octusforge) prints resin pieces, and a request came in that we couldn't fulfill:
 replicate a miniature that already exists, painted, in the customer's hands. Desktop
 scanners are expensive and choke on exactly the fine detail that matters on a
-seven-centimetre figure. The question was whether we could solve it with what we
+seven-centimeter figure. The question was whether we could solve it with what we
 already had — a phone and a GPU rented by the hour.
 
 ## How it works
@@ -55,9 +55,9 @@ piece predictable instead of tied to somebody's price list.
 
 Before trying to improve the reconstruction, I measured what the capture could actually
 support. I wrote a ruler that compares independent photos looking at the same 3D point
-and answers, in millimetres, the size above which detail repeats — and therefore
+and answers, in millimeters, the size above which detail repeats — and therefore
 exists. The answer was harsh: **a single photo only carries reliable information above
-1.2 mm.** Below that, what shows up in the mesh is the algorithm inventing, however
+1.2 mm.** Below that, what shows up in the mesh is the algorithm inventing detail, however
 convincing it looks on screen.
 
 That ruler killed entire lines of work, including my own. I had a displacement map that
