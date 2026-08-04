@@ -4,6 +4,7 @@ lang: en
 slug: freelance-3d
 relation: Freelance
 title: Independent 3D modeler
+group: independent
 start: '2019-01'
 end: null
 current: true

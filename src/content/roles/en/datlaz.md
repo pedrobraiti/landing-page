@@ -4,6 +4,7 @@ lang: en
 slug: datlaz
 relation: Contractor
 title: Computer vision and GeoAI
+group: hired
 start: '2026'
 end: null
 current: true

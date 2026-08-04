@@ -61,6 +61,8 @@ const roles = defineCollection({
     slug: z.string(),
     relation: z.string(),
     title: z.string(),
+    /* Em que bloco o vínculo aparece: empresa dele, contratante, ou conta própria. */
+    group: z.enum(['own', 'hired', 'independent']),
     start: z.string(),
     end: z.string().nullable().default(null),
     current: z.boolean().default(false),

@@ -4,6 +4,7 @@ lang: en
 slug: rumo
 relation: Internship
 title: Full stack intern and 3D modeler
+group: hired
 start: '2025-02'
 end: '2026-02'
 current: false

@@ -4,6 +4,7 @@ lang: en
 slug: octus-forge
 relation: Partner
 title: Partner and modeling project manager
+group: own
 start: '2025-02'
 end: null
 current: true

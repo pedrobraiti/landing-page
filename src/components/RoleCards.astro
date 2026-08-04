@@ -6,10 +6,14 @@
   sobreposição dos vínculos ficava clara, mas cada vínculo virava uma barra de dez
   pixels sem rosto. Cartão dá espaço para logo, texto e foto — e é o formato que
   quem chega já sabe ler.
+
+  Os três blocos (empresas dele · onde foi contratado · por conta própria) não são
+  caixas: só um rótulo e um respiro maior antes do próximo. A divisão responde à
+  primeira pergunta de quem lê a lista — "o que aqui é dele e o que é de terceiro?".
 */
 import { Image } from 'astro:assets';
 import { useTranslations, localizePath, type Locale } from '../lib/i18n';
-import { getRoles, getProjects, formatPeriod } from '../lib/content';
+import { getRoles, getProjects, formatPeriod, formatDuration } from '../lib/content';
 import { orgAssets } from '../lib/orgAssets';
 import { linkOrgsInText } from '../lib/orgLinks.mjs';
 
@@ -32,126 +36,144 @@ const relatedTo = (org: string) =>
   projects.filter((project) => project.data.context.toLowerCase().includes(org.toLowerCase()));
 
 const relatedLabel = { pt: 'O que saiu daqui', en: 'What came out of it' }[lang];
+
+const groups = (['own', 'hired', 'independent'] as const)
+  .map((key) => ({ key, label: t(`roles.group.${key}`), roles: roles.filter((r) => r.data.group === key) }))
+  .filter((group) => group.roles.length > 0);
 ---
 
-<ol class="mt-14 grid gap-5 lg:grid-cols-2">
+<div class="mt-14 flex flex-col gap-16">
   {
-    roles.map((role) => {
-      const asset = orgAssets[role.data.slug];
-      const related = relatedTo(role.data.org);
+    groups.map((group) => (
+      <section>
+        <h2 class="rule text-ref">{group.label}</h2>
 
-      /*
-        A marca vira link quando há destino. Tag dinâmica em vez de dois blocos quase
-        iguais: `<a>` quando existe `link`, `<span>` quando não — é o caso da Rumo,
-        cujo LinkedIn eu não tenho confirmado, e do controle do desenvolvimento de
-        jogos, que não aponta para lugar nenhum.
-      */
-      const Tile = asset?.link ? 'a' : 'span';
-      const tileProps = asset?.link
-        ? { href: asset.link, rel: 'noopener', target: '_blank', 'aria-label': role.data.org }
-        : {};
+        <ol class="mt-6 grid gap-5 lg:grid-cols-2">
+          {group.roles.map((role) => {
+            const asset = orgAssets[role.data.slug];
+            const related = relatedTo(role.data.org);
 
-      return (
-        <li class="group flex flex-col border border-line bg-surface/40 transition-colors duration-300 hover:border-measure/50">
-          {asset?.photo && (
-            <div class="overflow-hidden border-b border-line">
-              <Image
-                src={asset.photo}
-                alt={role.data.org}
-                widths={[520, 900]}
-                sizes="(min-width: 1024px) 33rem, 100vw"
-                class="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-            </div>
-          )}
+            /*
+              A marca vira link quando há destino. Tag dinâmica em vez de dois blocos
+              quase iguais: `<a>` quando existe `link`, `<span>` quando não.
+            */
+            const Tile = asset?.link ? 'a' : 'span';
+            const tileProps = asset?.link
+              ? { href: asset.link, rel: 'noopener', target: '_blank', 'aria-label': role.data.org }
+              : {};
 
-          <div class="flex flex-1 flex-col gap-5 p-6 sm:flex-row sm:p-7">
-            {/*
-              Sem marca — caso da modelagem 3D e do desenvolvimento de jogos, que não
-              são empresa — entra a inicial. Inventar um logotipo ali seria pior.
-            */}
-            <Tile
-              {...tileProps}
-              class:list={[
-                'flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden border border-line transition-colors duration-300',
-                asset?.tile === 'light' ? 'bg-white' : 'bg-page',
-                asset?.link && 'hover:border-measure',
-              ]}
-            >
-              {/* Sem padding: a marca ocupa o ladrilho inteiro, que foi o pedido. */}
-              {typeof asset?.logo === 'string' ? (
-                <img src={asset.logo} alt={role.data.org} class="h-full w-full object-contain" loading="lazy" />
-              ) : asset ? (
-                <Image
-                  src={asset.logo}
-                  alt={role.data.org}
-                  widths={[56, 112]}
-                  sizes="3.5rem"
-                  class="h-full w-full object-contain"
-                  loading="lazy"
-                />
-              ) : (
-                <span class="font-display text-xl font-extrabold text-dim" aria-hidden="true">
-                  {role.data.org.charAt(0)}
-                </span>
-              )}
-            </Tile>
+            return (
+              <li class="group flex flex-col border border-line bg-surface/40 transition-colors duration-300 hover:border-measure/50">
+                {asset?.photo && (
+                  <div class="overflow-hidden border-b border-line">
+                    <Image
+                      src={asset.photo}
+                      alt={role.data.org}
+                      widths={[520, 900]}
+                      sizes="(min-width: 1024px) 33rem, 100vw"
+                      class="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
 
-            <div class="min-w-0 flex-1">
-              <p class="rule tabular-nums text-dim">
-                {formatPeriod(role.data.start, role.data.end, role.data.current, lang)}
-              </p>
+                <div class="flex flex-1 flex-col gap-5 p-6 sm:flex-row sm:p-7">
+                  {/*
+                    Sem marca — caso da modelagem 3D e do desenvolvimento de jogos, que
+                    não são empresa — entra a inicial. Inventar um logotipo seria pior.
+                  */}
+                  <Tile
+                    {...tileProps}
+                    class:list={[
+                      'flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden border border-line transition-colors duration-300',
+                      asset?.tile === 'light' ? 'bg-white' : 'bg-page',
+                      asset?.link && 'hover:border-measure',
+                    ]}
+                  >
+                    {typeof asset?.logo === 'string' ? (
+                      <img
+                        src={asset.logo}
+                        alt={role.data.org}
+                        class="h-full w-full object-contain"
+                        loading="lazy"
+                      />
+                    ) : asset ? (
+                      <Image
+                        src={asset.logo}
+                        alt={role.data.org}
+                        widths={[56, 112]}
+                        sizes="3.5rem"
+                        class="h-full w-full object-contain"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span class="font-display text-xl font-extrabold text-dim" aria-hidden="true">
+                        {role.data.org.charAt(0)}
+                      </span>
+                    )}
+                  </Tile>
 
-              <h3 class="mt-2.5 text-2xl tracking-tight" translate="no">
-                {role.data.org}
-              </h3>
+                  <div class="min-w-0 flex-1">
+                    <p class="rule flex flex-wrap gap-x-2 tabular-nums text-dim">
+                      <span>{formatPeriod(role.data.start, role.data.end, role.data.current, lang)}</span>
+                      <span aria-hidden="true">·</span>
+                      <span class="text-ink">
+                        {formatDuration(role.data.start, role.data.end, role.data.current, lang)}
+                      </span>
+                    </p>
 
-              <p class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                <span class="text-ink">{role.data.title}</span>
-                <span class="rule border border-line px-2 py-0.5 text-measure">
-                  {role.data.relation}
-                </span>
-              </p>
+                    <h3 class="mt-2.5 text-2xl tracking-tight" translate="no">
+                      {role.data.org}
+                    </h3>
 
-              {/* O resumo cita outras empresas ("cliente da Dark Marlin"); elas linkam. */}
-              <p
-                class="mt-4 text-pretty text-dim [&_a]:text-ink"
-                set:html={linkOrgsInText(role.data.summary)}
-              />
+                    <p class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                      <span class="text-ink">{role.data.title}</span>
+                      <span class="rule border border-line px-2 py-0.5 text-measure">
+                        {role.data.relation}
+                      </span>
+                    </p>
 
-              {role.data.href && (
-                <a
-                  href={role.data.href}
-                  rel="noopener"
-                  target="_blank"
-                  class="mt-4 inline-block font-mono text-xs text-ref transition-colors hover:text-measure"
-                >
-                  {role.data.href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')} ↗
-                </a>
-              )}
+                    {/* O resumo cita outras empresas ("cliente da Dark Marlin"); elas linkam. */}
+                    <p
+                      class="mt-4 text-pretty text-dim [&_a]:text-ink"
+                      set:html={linkOrgsInText(role.data.summary)}
+                    />
 
-              {showRelated && related.length > 0 && (
-                <div class="mt-6 border-t border-line pt-5">
-                  <p class="rule text-ref">{relatedLabel}</p>
-                  <ul class="mt-3 flex flex-wrap gap-2">
-                    {related.map((project) => (
-                      <li>
-                        <a
-                          href={localizePath(`/projetos/${project.data.slug}`, lang)}
-                          class="inline-block border border-line px-3 py-1.5 font-mono text-xs transition-colors hover:border-measure hover:text-measure"
-                        >
-                          {project.data.title} →
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                    {role.data.href && (
+                      <a
+                        href={role.data.href}
+                        rel="noopener"
+                        target="_blank"
+                        class="mt-4 inline-block font-mono text-xs text-ref transition-colors hover:text-measure"
+                      >
+                        {role.data.href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')} ↗
+                      </a>
+                    )}
+
+                    {showRelated && related.length > 0 && (
+                      <div class="mt-6 border-t border-line pt-5">
+                        <p class="rule text-ref">{relatedLabel}</p>
+                        <ul class="mt-3 flex flex-wrap gap-2">
+                          {related.map((project) => (
+                            <li>
+                              <a
+                                href={localizePath(`/projetos/${project.data.slug}`, lang)}
+                                class="inline-block border border-line px-3 py-1.5 font-mono text-xs transition-colors hover:border-measure hover:text-measure"
+                              >
+                                {project.data.title} →
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              )}
-            </div>
-          </div>
-        </li>
-      );
-    })
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+    ))
   }
-</ol>
+</div>

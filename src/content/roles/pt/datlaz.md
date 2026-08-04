@@ -4,6 +4,7 @@ lang: pt
 slug: datlaz
 relation: Prestador de serviço
 title: Visão computacional e GeoAI
+group: hired
 start: '2026'
 end: null
 current: true

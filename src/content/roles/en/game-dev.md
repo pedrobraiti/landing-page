@@ -4,6 +4,7 @@ lang: en
 slug: game-dev
 relation: Where it started
 title: Programming and art for games
+group: independent
 start: '2015'
 end: '2020'
 current: false

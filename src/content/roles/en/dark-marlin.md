@@ -4,6 +4,7 @@ lang: en
 slug: dark-marlin
 relation: Partner
 title: Partner and developer
+group: own
 start: '2026'
 end: null
 current: true

@@ -4,6 +4,7 @@ lang: en
 slug: ecotechne
 relation: Contractor
 title: Full Stack in AI development
+group: hired
 start: '2025-05'
 end: null
 current: true

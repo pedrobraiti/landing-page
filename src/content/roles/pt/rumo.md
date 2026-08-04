@@ -4,6 +4,7 @@ lang: pt
 slug: rumo
 relation: Estágio
 title: Estagiário full stack e modelador 3D
+group: hired
 start: '2025-02'
 end: '2026-02'
 current: false

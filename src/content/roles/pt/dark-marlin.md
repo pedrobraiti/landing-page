@@ -4,6 +4,7 @@ lang: pt
 slug: dark-marlin
 relation: Sócio
 title: Sócio e desenvolvedor
+group: own
 start: '2026'
 end: null
 current: true

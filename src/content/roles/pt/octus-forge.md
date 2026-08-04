@@ -4,6 +4,7 @@ lang: pt
 slug: octus-forge
 relation: Sócio
 title: Sócio e gerente de projetos de modelagem
+group: own
 start: '2025-02'
 end: null
 current: true

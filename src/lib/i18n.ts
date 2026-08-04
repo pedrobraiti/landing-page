@@ -31,6 +31,9 @@ export const ui = {
       'De jogos feitos sozinho em 2015 a quatro vínculos rodando ao mesmo tempo.',
     'timeline.cta': 'Ver cada vínculo em detalhe',
     'companies.eyebrow': 'Minhas empresas',
+    'roles.group.own': 'Minhas empresas',
+    'roles.group.hired': 'Empresas para as quais trabalhei',
+    'roles.group.independent': 'Por conta própria',
     'section.work': 'Onde eu trabalho',
     'section.work.lede':
       'Duas empresas que eu toco como sócio e dois contratos como PJ.',
@@ -87,6 +90,9 @@ export const ui = {
       'From games I built alone in 2015 to four engagements running at the same time.',
     'timeline.cta': 'See each engagement in detail',
     'companies.eyebrow': 'My companies',
+    'roles.group.own': 'My companies',
+    'roles.group.hired': 'Companies I worked for',
+    'roles.group.independent': 'On my own',
     'section.work': 'Where I work',
     'section.work.lede':
       'Two companies I run as a partner, and two contract engagements.',

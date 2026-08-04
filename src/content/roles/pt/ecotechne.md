@@ -4,6 +4,7 @@ lang: pt
 slug: ecotechne
 relation: Prestador de serviço
 title: Full Stack em desenvolvimento de IA
+group: hired
 start: '2025-05'
 end: null
 current: true
