@@ -47,6 +47,10 @@ TSDF transforma aquilo em malha, e o Blender recebe no fim um OBJ com UV mais um
 de relevo de 8192×8192. Na primeira peça: 469 fotos, malha fechada de 4,5 milhões de
 faces, escala ancorada em 114,44 mm.
 
+Nada disso passa por API de terceiro. Os modelos rodam na minha própria stack, em GPU
+alugada por hora — eu pago poder de cálculo, não chamada. É o que deixa o custo por
+peça previsível em vez de amarrado ao preço de tabela de alguém.
+
 ## A decisão que mudou o projeto
 
 Antes de tentar melhorar a reconstrução, eu medi o que a captura comportava. Escrevi

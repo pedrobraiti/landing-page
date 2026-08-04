@@ -71,3 +71,18 @@ transformou em produto.
 
 O pipeline responde em streaming, com barra de progresso real por tile, e tolera falha
 parcial: um tile que não carrega não derruba a análise inteira.
+
+## Onde ele roda
+
+O modelo é servido pela própria empresa, em ONNX, e não por uma API de detecção paga.
+A razão é aritmética: no serviço hospedado cada tile consumia crédito, e varrer uma
+cidade inteira significa dezenas de milhares de tiles. Servindo o modelo por conta
+própria, o custo de inferência some e sobra só o download da imagem de satélite — o
+piloto de revisão em Brasília saiu por cerca de **US$ 0,20** a rodada.
+
+Não é uma escolha ideológica, é o que fecha a conta em escala de cidade. Vale para o
+treino também: o modelo que está em produção custou **US$ 4,90** de GPU alugada, em
+4 horas e 40 minutos.
+
+Está em produção no cluster da empresa, atrás de autenticação única, servindo um modelo
+de 115 MB — cerca de 0,1 segundo por tile na GPU, com CPU como alternativa.

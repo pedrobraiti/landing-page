@@ -71,3 +71,18 @@ into a product.
 
 The pipeline responds as a stream, with a real per-tile progress bar, and tolerates
 partial failure: one tile that fails to load doesn't bring down the whole analysis.
+
+## Where it runs
+
+The model is served by the company itself, in ONNX, not by a paid detection API. The
+reason is arithmetic: on the hosted service every tile burned a credit, and sweeping a
+whole city means tens of thousands of tiles. Serving the model ourselves, the inference
+cost disappears and only the satellite image download remains — the review pilot in
+Brasília came out at roughly **US$ 0.20** per run.
+
+It is not an ideological choice, it is what makes the numbers work at city scale. The
+same goes for training: the model in production cost **US$ 4.90** of rented GPU, over
+4 hours and 40 minutes.
+
+It runs in production on the company's cluster, behind single sign-on, serving a 115 MB
+model — about 0.1 second per tile on GPU, with CPU as the fallback.

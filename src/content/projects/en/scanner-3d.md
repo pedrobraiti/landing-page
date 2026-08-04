@@ -47,6 +47,10 @@ a TSDF fusion turns that into a mesh, and Blender ends up with an OBJ plus an 81
 displacement map. On the first piece: 469 photos, a watertight mesh of 4.5 million
 faces, scale anchored at 114.44 mm.
 
+None of this goes through a third-party API. The models run on my own stack, on a GPU
+rented by the hour — I pay for compute, not per call. That is what keeps the cost per
+piece predictable instead of tied to somebody's price list.
+
 ## The decision that changed the project
 
 Before trying to improve the reconstruction, I measured what the capture could actually
