@@ -93,6 +93,8 @@ even cropped. The images here come from a sample diagram with no client, and eve
 I show of the generator is synthetic by construction.
 
 For the same reason, the number closing this case is about the generator and not about
-the detector's accuracy: the evaluation lived inside the training tool's dashboard, and
-I never exported a metric from it. I would rather have no number than one I cannot show
-the origin of.
+the detector's accuracy. And the explanation is structural rather than careless: the
+generator was versioned code, the training was dragging files into an external tool, and
+**no step of that path brought results back into the repository**. That is the lesson —
+if the evaluation lives outside version control, it does not exist six months later. I
+would rather have no number than one whose origin I cannot state.

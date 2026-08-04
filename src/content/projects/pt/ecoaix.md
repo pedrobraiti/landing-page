@@ -91,5 +91,8 @@ recortadas. As imagens aqui são de um diagrama de exemplo, sem cliente, e tudo 
 mostro do gerador é sintético por construção.
 
 Pelo mesmo motivo, o número que fecha este case é sobre o gerador e não sobre a precisão
-do detector: a avaliação viveu no painel da ferramenta de treino, e eu não exportei
-métrica de lá. Prefiro não ter número a ter um que eu não consigo mostrar de onde veio.
+do detector. E aqui a explicação é estrutural, não descuido: o gerador era código
+versionado, o treino era arrastar arquivo numa ferramenta de fora, e **nenhum passo
+daquele caminho trazia resultado de volta para o repositório**. Ficou a lição — se a
+avaliação mora fora do versionamento, ela não existe seis meses depois. Prefiro não ter
+número a ter um que eu não consigo dizer de onde veio.
