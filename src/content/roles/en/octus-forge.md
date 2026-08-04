@@ -8,6 +8,7 @@ start: '2025-02'
 end: null
 current: true
 order: 20
+href: https://octusforge.com
 summary: >-
   Custom parts company working in resin 3D printing. I manage a team of six modelers
   across three countries — Brazil, the United States and India — and review every

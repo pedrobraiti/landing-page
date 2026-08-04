@@ -8,6 +8,7 @@ start: '2026'
 end: null
 current: true
 order: 10
+href: https://www.darkmarlin.com
 summary: >-
   Dev shop I run with three other partners. We build custom software — the first
   product we delivered was the Emais Network platform, which is in production

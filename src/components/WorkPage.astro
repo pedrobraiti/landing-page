@@ -1,4 +1,5 @@
 ---
+import Timeline from './Timeline.astro';
 import { useTranslations, localizePath, type Locale } from '../lib/i18n';
 import { getRoles, getProjects, formatPeriod } from '../lib/content';
 
@@ -13,12 +14,12 @@ const projects = await getProjects(lang);
 
 const copy = {
   pt: {
-    lede: 'Duas empresas que eu toco como sócio, dois contratos como prestador de serviço, um estágio encerrado e sete anos de freelance em 3D. Abaixo, o que cada vínculo produziu.',
+    lede: 'Duas empresas que eu toco como sócio, dois contratos como prestador de serviço, um estágio encerrado, sete anos de freelance em 3D — e, antes de tudo isso, cinco anos fazendo jogos. Abaixo, o que cada vínculo produziu.',
     related: 'O que saiu daqui',
     owner: 'Sócio',
   },
   en: {
-    lede: 'Two companies I run as a partner, two contract engagements, one internship now finished, and seven years of freelance 3D work. Below, what each one produced.',
+    lede: 'Two companies I run as a partner, two contract engagements, one internship now finished, seven years of freelance 3D work — and, before any of it, five years making games. Below, what each one produced.',
     related: 'What came out of it',
     owner: 'Partner',
   },
@@ -38,6 +39,8 @@ const relatedTo = (org: string) =>
     <h1 class="mt-5 text-section">{t('nav.work')}</h1>
     <p class="mt-7 text-lg text-dim sm:text-xl">{copy.lede}</p>
   </header>
+
+  <Timeline lang={lang} />
 
   <ol class="mt-16 flex flex-col gap-4">
     {

@@ -9,7 +9,7 @@ context: Client of Dark Marlin, my dev shop
 period: '2026'
 status: In production, with real payments
 cover: ../../../assets/projects/emais.png
-order: 20
+order: 10
 summary: >-
   Management platform for in-person business networking — events, tickets, membership
   and multi-franchise finance, moving real money.

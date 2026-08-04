@@ -2,7 +2,7 @@
 title: pgsr-fast
 lang: pt
 slug: pgsr-fast
-tier: 1
+tier: 2
 family: pesquisa
 role: Autor, contribuição open source
 context: Otimização sobre um projeto acadêmico de reconstrução 3D

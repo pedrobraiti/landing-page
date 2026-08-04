@@ -1,6 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { useTranslations, localizePath, type Locale } from '../lib/i18n';
-import { getFeatured } from '../lib/content';
+import pedro from '../assets/pedro.jpg';
 
 interface Props {
   lang: Locale;
@@ -8,16 +9,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-
-/*
-  O painel do hero é a tese em forma de dado: cada linha é um projeto e o número que
-  eu apurei nele. É a prova aparecendo antes da promessa, não depois.
-*/
-const readings = (await getFeatured(lang)).map((p) => ({
-  value: p.data.measure.value,
-  label: p.data.title,
-  slug: p.data.slug,
-}));
 
 const headline = {
   pt: { lead: 'Construo sistemas que rodam', accent: 'sozinhos.' },
@@ -33,12 +24,33 @@ const headline = {
   >
   </div>
 
-  <div class="relative mx-auto max-w-6xl px-5 pt-16 pb-14 sm:px-8 sm:pt-24 sm:pb-20">
-    <div class="grid items-end gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
+  <div class="relative mx-auto max-w-6xl px-5 pt-14 pb-14 sm:px-8 sm:pt-20 sm:pb-20">
+    <div class="grid items-end gap-9 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
+      <!--
+        No celular o retrato vem primeiro e pequeno: quem abre o site já conhece o
+        Pedro pessoalmente, e o rosto é o que confirma que chegou no lugar certo.
+        No desktop ele vira o retrato grande da coluna da direita.
+      -->
+      <figure class="order-first min-w-0 lg:order-last">
+        <div class="relative w-24 border border-line bg-surface sm:w-28 lg:w-full lg:max-w-sm">
+          <span class="absolute -top-px left-5 h-px w-14 bg-measure" aria-hidden="true"></span>
+          <Image
+            src={pedro}
+            alt="Pedro Braiti"
+            widths={[224, 640]}
+            sizes="(min-width: 1024px) 24rem, 7rem"
+            class="w-full"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <figcaption class="rule mt-3 hidden text-dim lg:block">{t('hero.caption')}</figcaption>
+      </figure>
+
       <div class="min-w-0">
         <p class="rule text-ref">{t('hero.role')}</p>
 
-        <h1 class="mt-7 text-hero">
+        <h1 class="mt-6 text-hero">
           {headline.lead}<br /><span class="text-measure">{headline.accent}</span>
         </h1>
 
@@ -61,30 +73,6 @@ const headline = {
           </a>
         </div>
       </div>
-
-      <dl class="min-w-0 border-t border-line lg:border-t-0 lg:border-l lg:pl-8">
-        <dt class="rule pt-6 text-measure lg:pt-0">{t('measure.eyebrow')}</dt>
-        {
-          readings.map((reading) => (
-            <dd class="border-b border-line last:border-b-0">
-              <a
-                href={localizePath(`/projetos/${reading.slug}`, lang)}
-                class="group flex items-baseline justify-between gap-4 py-3.5"
-              >
-                <span
-                  class="font-display text-xl font-extrabold tabular-nums text-ink transition-colors group-hover:text-measure sm:text-2xl"
-                  translate="no"
-                >
-                  {reading.value}
-                </span>
-                <span class="min-w-0 truncate text-right font-mono text-xs text-dim">
-                  {reading.label}
-                </span>
-              </a>
-            </dd>
-          ))
-        }
-      </dl>
     </div>
   </div>
 </section>

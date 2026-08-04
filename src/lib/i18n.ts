@@ -12,15 +12,23 @@ export const ui = {
     'nav.skip': 'Pular para o conteúdo',
     'hero.role': 'Engenharia de computação · Curitiba, Brasil',
     'hero.lede':
-      'Trading agêntico, visão computacional e fabricação 3D. Cada projeto aqui vem com o número que eu apurei — e a condição em que apurei.',
+      'Agentes que executam ordens de verdade, visão computacional rodando em produção e peças 3D que viram objeto físico. Sócio em duas empresas, prestador de serviço em outras duas.',
     'hero.cta.projects': 'Ver os projetos',
     'hero.cta.contact': 'Falar comigo',
+    'hero.caption': 'Pedro Braiti · Curitiba, Brasil',
     'measure.eyebrow': 'Medido',
     'measure.condition': 'Condição',
     'section.selected': 'Trabalho selecionado',
     'section.selected.lede':
-      'Cinco sistemas em que a decisão difícil está documentada, não escondida.',
+      'Os sistemas em que a decisão difícil está documentada, não escondida.',
     'section.families': 'Frentes',
+    'section.timeline': 'Trajetória',
+    'section.timeline.lede':
+      'De jogos feitos sozinho em 2015 a quatro vínculos rodando ao mesmo tempo.',
+    'timeline.legend.current': 'Em curso',
+    'timeline.legend.past': 'Encerrado',
+    'timeline.cta': 'Ver cada vínculo em detalhe',
+    'companies.eyebrow': 'Minhas empresas',
     'section.work': 'Onde eu trabalho',
     'section.work.lede':
       'Duas empresas que eu toco como sócio e dois contratos como PJ.',
@@ -62,15 +70,23 @@ export const ui = {
     'nav.skip': 'Skip to content',
     'hero.role': 'Computer engineering · Curitiba, Brazil',
     'hero.lede':
-      'Agentic trading, computer vision and 3D fabrication. Every project here comes with the number I measured — and the conditions I measured it under.',
+      'Agents that place real orders, computer vision running in production, and 3D work that ends up as a physical object. Partner in two companies, contractor for two more.',
     'hero.cta.projects': 'See the projects',
     'hero.cta.contact': 'Get in touch',
+    'hero.caption': 'Pedro Braiti · Curitiba, Brazil',
     'measure.eyebrow': 'Measured',
     'measure.condition': 'Conditions',
     'section.selected': 'Selected work',
     'section.selected.lede':
-      'Five systems where the hard decision is documented, not hidden.',
+      'The systems where the hard decision is documented, not hidden.',
     'section.families': 'Tracks',
+    'section.timeline': 'Trajectory',
+    'section.timeline.lede':
+      'From games I built alone in 2015 to four engagements running at the same time.',
+    'timeline.legend.current': 'Ongoing',
+    'timeline.legend.past': 'Finished',
+    'timeline.cta': 'See each engagement in detail',
+    'companies.eyebrow': 'My companies',
     'section.work': 'Where I work',
     'section.work.lede':
       'Two companies I run as a partner, and two contract engagements.',

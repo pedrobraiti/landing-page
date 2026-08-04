@@ -1,0 +1,73 @@
+---
+/*
+  As duas empresas do Pedro, com a marca de cada uma.
+
+  As duas marcas entram como silhueta clara e não na cor original. O motivo é
+  técnico antes de ser estético: o polvo da Octus Forge é azul-marinho (#16307E no
+  render), que sobre o fundo #0e1116 do site fica praticamente invisível. Passar as
+  duas para monocromático resolve o contraste e ainda deixa a fileira coerente, já
+  que o marlin já vinha branco.
+
+  O `self-start` na imagem não é enfeite: sem ele o flex de coluna estica a marca até
+  a largura do rótulo de texto. O marlin, que é 2,33:1, chegou a renderizar em 8,6:1.
+*/
+import { Image } from 'astro:assets';
+import { useTranslations, type Locale } from '../lib/i18n';
+import darkMarlin from '../assets/logos/dark-marlin.png';
+import octusForge from '../assets/logos/octus-forge.png';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const companies = [
+  {
+    name: 'Dark Marlin',
+    logo: darkMarlin,
+    href: 'https://www.instagram.com/darkmarlin.dev',
+    label: { pt: 'Software sob encomenda', en: 'Software studio' }[lang],
+    height: 'h-10 sm:h-12',
+  },
+  {
+    name: 'Octus Forge',
+    logo: octusForge,
+    href: 'https://octusforge.com',
+    label: { pt: 'Impressão 3D em resina', en: 'Resin 3D printing' }[lang],
+    height: 'h-12 sm:h-14',
+  },
+];
+---
+
+<div class="mt-14 border-t border-line pt-10">
+  <p class="rule text-ref">{t('companies.eyebrow')}</p>
+
+  <ul class="mt-7 flex flex-wrap items-end gap-x-14 gap-y-9">
+    {
+      companies.map((company) => (
+        <li>
+          <a
+            href={company.href}
+            rel="noopener"
+            target="_blank"
+            class="group flex flex-col gap-3"
+          >
+            <Image
+              src={company.logo}
+              alt={company.name}
+              widths={[220, 440]}
+              sizes="14rem"
+              class={`${company.height} w-auto self-start opacity-65 transition-opacity duration-300 group-hover:opacity-100`}
+              loading="lazy"
+            />
+            <span class="rule text-dim transition-colors group-hover:text-measure">
+              {company.name} · {company.label} ↗
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

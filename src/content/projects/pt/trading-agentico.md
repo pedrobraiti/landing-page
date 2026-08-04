@@ -9,7 +9,7 @@ context: Três repositórios públicos, licença MIT
 period: '2026'
 status: Público · validado com ordem real
 cover: ../../../assets/projects/valet-demo.png
-order: 10
+order: 20
 summary: >-
   Uma stack em três camadas que deixa um agente de IA pesquisar mercado, decidir e
   executar ordens de verdade — com a trava de segurança fechando por padrão.

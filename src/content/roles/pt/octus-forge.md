@@ -8,6 +8,7 @@ start: '2025-02'
 end: null
 current: true
 order: 20
+href: https://octusforge.com
 summary: >-
   Empresa de peças personalizadas em impressão 3D de resina. Gerencio um time de
   seis modeladores em três países — Brasil, Estados Unidos e Índia — e reviso cada

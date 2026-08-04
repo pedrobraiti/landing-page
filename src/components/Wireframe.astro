@@ -1,0 +1,120 @@
+---
+/*
+  Cubo de arame com um segundo cubo preso dentro, girando em sentidos opostos.
+
+  É CSS 3D puro — nenhuma biblioteca, nenhum canvas, nenhum JavaScript. Um wireframe
+  girando é o que o Pedro vê no Blender o dia inteiro, e é a única figura decorativa
+  do site que diz alguma coisa sobre quem fez o site.
+
+  O bloco global de `prefers-reduced-motion` congela a rotação; o desenho continua de
+  pé, parado num ângulo qualquer, que é o comportamento correto.
+*/
+interface Props {
+  size?: string;
+  class?: string;
+}
+
+const { size = '13rem', class: className } = Astro.props;
+---
+
+<div class:list={['wire-scene', className]} style={{ '--wire': size }} aria-hidden="true">
+  <div class="wire-cube">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <div class="wire-cube wire-inner">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .wire-scene {
+    --wire-inner-size: calc(var(--wire) * 0.44);
+    width: var(--wire);
+    height: var(--wire);
+    perspective: calc(var(--wire) * 4);
+  }
+
+  .wire-cube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: wire-spin 30s linear infinite;
+  }
+
+  .wire-cube > span {
+    position: absolute;
+    inset: 0;
+    border: 1px solid color-mix(in oklab, var(--color-ref) 42%, transparent);
+  }
+
+  .wire-cube > span:nth-child(1) {
+    transform: translateZ(calc(var(--wire) / 2));
+  }
+  .wire-cube > span:nth-child(2) {
+    transform: rotateY(180deg) translateZ(calc(var(--wire) / 2));
+  }
+  .wire-cube > span:nth-child(3) {
+    transform: rotateY(90deg) translateZ(calc(var(--wire) / 2));
+  }
+  .wire-cube > span:nth-child(4) {
+    transform: rotateY(-90deg) translateZ(calc(var(--wire) / 2));
+  }
+  .wire-cube > span:nth-child(5) {
+    transform: rotateX(90deg) translateZ(calc(var(--wire) / 2));
+  }
+  .wire-cube > span:nth-child(6) {
+    transform: rotateX(-90deg) translateZ(calc(var(--wire) / 2));
+  }
+
+  /* O cubo de dentro herda a rotação do de fora e gira contra ela. */
+  .wire-inner {
+    position: absolute;
+    top: calc((var(--wire) - var(--wire-inner-size)) / 2);
+    left: calc((var(--wire) - var(--wire-inner-size)) / 2);
+    width: var(--wire-inner-size);
+    height: var(--wire-inner-size);
+    animation: wire-spin-reverse 19s linear infinite;
+  }
+
+  .wire-inner > span {
+    border-color: color-mix(in oklab, var(--color-measure) 55%, transparent);
+  }
+
+  .wire-inner > span:nth-child(1) {
+    transform: translateZ(calc(var(--wire-inner-size) / 2));
+  }
+  .wire-inner > span:nth-child(2) {
+    transform: rotateY(180deg) translateZ(calc(var(--wire-inner-size) / 2));
+  }
+  .wire-inner > span:nth-child(3) {
+    transform: rotateY(90deg) translateZ(calc(var(--wire-inner-size) / 2));
+  }
+  .wire-inner > span:nth-child(4) {
+    transform: rotateY(-90deg) translateZ(calc(var(--wire-inner-size) / 2));
+  }
+  .wire-inner > span:nth-child(5) {
+    transform: rotateX(90deg) translateZ(calc(var(--wire-inner-size) / 2));
+  }
+  .wire-inner > span:nth-child(6) {
+    transform: rotateX(-90deg) translateZ(calc(var(--wire-inner-size) / 2));
+  }
+
+  @keyframes wire-spin {
+    from {
+      transform: rotateX(-24deg) rotateY(0deg);
+    }
+    to {
+      transform: rotateX(-24deg) rotateY(360deg);
+    }
+  }
+
+  @keyframes wire-spin-reverse {
+    from {
+      transform: rotateX(18deg) rotateY(360deg) rotateZ(0deg);
+    }
+    to {
+      transform: rotateX(18deg) rotateY(0deg) rotateZ(-360deg);
+    }
+  }
+</style>

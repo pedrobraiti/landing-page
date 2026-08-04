@@ -95,6 +95,7 @@
     text-transform: uppercase;
     color: var(--color-ink-dim);
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

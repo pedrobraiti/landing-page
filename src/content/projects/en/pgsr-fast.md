@@ -2,7 +2,7 @@
 title: pgsr-fast
 lang: en
 slug: pgsr-fast
-tier: 1
+tier: 2
 family: pesquisa
 role: Author, open source contribution
 context: Optimization on top of an academic 3D reconstruction project

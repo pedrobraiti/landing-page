@@ -9,7 +9,7 @@ context: Cliente da Dark Marlin, minha dev-shop
 period: '2026'
 status: Em produção, com pagamentos reais
 cover: ../../../assets/projects/emais.png
-order: 20
+order: 10
 summary: >-
   Plataforma de gestão de networking empresarial presencial — eventos, ingressos,
   adesão de membros e financeiro multi-franquia, transacionando dinheiro de verdade.

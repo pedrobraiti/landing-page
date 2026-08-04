@@ -13,7 +13,17 @@ const elsewhere = [
   { href: 'https://github.com/pedrobraiti', label: 'GitHub' },
   { href: 'https://www.linkedin.com/in/pedrobraiti', label: 'LinkedIn' },
   { href: 'https://www.artstation.com/pedrotyppe', label: 'ArtStation' },
-  { href: 'https://www.instagram.com/pbyte.dev', label: 'Instagram' },
+];
+
+/*
+  O Instagram pessoal saiu a pedido do Pedro — ele não usa. No lugar ficam as duas
+  empresas. A Octus Forge aponta para o site, e não para o Instagram como as outras,
+  porque o Instagram dela não foi encontrado em canto nenhum: nem no código, nem nas
+  memórias das outras mesas, nem no Drive. Handle não se inventa.
+*/
+const companies = [
+  { href: 'https://www.instagram.com/darkmarlin.dev', label: 'Dark Marlin' },
+  { href: 'https://octusforge.com', label: 'Octus Forge' },
 ];
 ---
 
@@ -33,25 +43,48 @@ const elsewhere = [
         </a>
       </div>
 
-      <div class="flex flex-col gap-3">
-        <p class="rule text-ref">Curitiba, Brasil</p>
-        <ul class="mt-2 flex flex-col gap-2">
-          {
-            elsewhere.map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  rel="noopener"
-                  target="_blank"
-                  class="font-mono text-sm text-dim transition-colors hover:text-measure"
-                  translate="no"
-                >
-                  {item.label} ↗
-                </a>
-              </li>
-            ))
-          }
-        </ul>
+      <div class="grid grid-cols-2 gap-8">
+        <div class="flex flex-col gap-3">
+          <p class="rule text-ref">Curitiba, Brasil</p>
+          <ul class="mt-2 flex flex-col gap-2">
+            {
+              elsewhere.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    rel="noopener"
+                    target="_blank"
+                    class="font-mono text-sm text-dim transition-colors hover:text-measure"
+                    translate="no"
+                  >
+                    {item.label} ↗
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <p class="rule text-ref">{t('companies.eyebrow')}</p>
+          <ul class="mt-2 flex flex-col gap-2">
+            {
+              companies.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    rel="noopener"
+                    target="_blank"
+                    class="font-mono text-sm text-dim transition-colors hover:text-measure"
+                    translate="no"
+                  >
+                    {item.label} ↗
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </div>
 

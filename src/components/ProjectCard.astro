@@ -51,12 +51,15 @@ const href = localizePath(`/projetos/${slug}`, lang);
 
     <p class="mt-4 flex-1 text-pretty text-dim">{summary}</p>
 
-    <p class="mt-6 flex items-baseline gap-3 border-t border-line pt-5">
-      <span
-        class="font-display text-2xl font-extrabold tabular-nums text-measure sm:text-3xl"
-        translate="no">{measure.value}</span
-      >
-      <span class="text-sm leading-snug text-dim">{measure.label}</span>
+    <!--
+      A medida entra como nota de rodapé, não como manchete. Um número grande e
+      dourado num cartão vira vaidade; o valor está na frase que explica o que ele
+      provou. O número em tamanho de manchete fica só na página do projeto, onde
+      cabe a condição inteira ao lado dele.
+    -->
+    <p class="mt-6 border-t border-line pt-5 text-sm leading-relaxed text-dim">
+      <span class="font-mono tabular-nums text-measure" translate="no">{measure.value}</span>
+      <span> — {measure.label}</span>
     </p>
   </div>
 </article>

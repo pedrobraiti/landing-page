@@ -9,7 +9,7 @@ context: Three public repositories, MIT license
 period: '2026'
 status: Public · validated with a real order
 cover: ../../../assets/projects/valet-demo.png
-order: 10
+order: 20
 summary: >-
   A three-layer stack that lets an AI agent research the market, decide and place real
   orders — with the safety catch closed by default.
