@@ -29,13 +29,28 @@ const companies = [
         <h2 class="text-section">{t('contact.title')}</h2>
         <p class="mt-5 max-w-md text-lg text-dim">{t('contact.lede')}</p>
 
-        <a
-          href="mailto:braitipedro17@gmail.com"
-          class="mt-8 inline-block border border-measure px-6 py-3 font-mono text-sm text-measure transition-colors hover:bg-measure hover:text-page"
-          translate="no"
-        >
-          braitipedro17@gmail.com
-        </a>
+        <!--
+          Dois canais, e o WhatsApp primeiro: é o que um cliente brasileiro abre.
+          O número já é público no PDF do currículo servido neste mesmo domínio, então
+          o link não expõe nada que já não estivesse exposto.
+        -->
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="https://wa.me/5541999591221"
+            rel="noopener"
+            target="_blank"
+            class="border border-measure bg-measure px-6 py-3 font-mono text-sm text-page transition-colors hover:bg-transparent hover:text-measure"
+          >
+            WhatsApp ↗
+          </a>
+          <a
+            href="mailto:braitipedro17@gmail.com"
+            class="border border-line px-6 py-3 font-mono text-sm text-ink transition-colors hover:border-measure hover:text-measure"
+            translate="no"
+          >
+            braitipedro17@gmail.com
+          </a>
+        </div>
       </div>
 
       <div class="grid grid-cols-2 gap-8">
