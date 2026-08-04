@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import Measure from './Measure.astro';
 import { useTranslations, localizePath, familyLabels, type Locale } from '../lib/i18n';
+import { linkOrgsInText } from '../lib/orgLinks.mjs';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -13,13 +14,31 @@ interface Props {
 
 const { project, next, lang } = Astro.props;
 const t = useTranslations(lang);
-const { title, summary, measure, family, role, context, period, status, stack, links, cover } =
-  project.data;
+const {
+  title,
+  summary,
+  measure,
+  family,
+  role,
+  context,
+  period,
+  status,
+  stack,
+  links,
+  cover,
+  gallery,
+  video,
+} = project.data;
 const { Content } = await render(project);
 
+/*
+  `context` costuma nomear a empresa ("Cliente da Dark Marlin"), e o Pedro pediu que
+  toda citação de empresa fosse clicável — não só as do corpo do texto, que o plugin
+  de Markdown já resolve. Por isso este campo sai como HTML.
+*/
 const facts = [
   { label: t('project.role'), value: role },
-  { label: t('project.context'), value: context },
+  { label: t('project.context'), value: linkOrgsInText(context), html: true },
   { label: t('project.period'), value: period },
   { label: t('project.status'), value: status },
 ];
@@ -46,7 +65,11 @@ const facts = [
           facts.map((fact) => (
             <div class="min-w-0 border-t border-line pt-4">
               <dt class="rule">{fact.label}</dt>
-              <dd class="mt-2 text-pretty text-ink">{fact.value}</dd>
+              {fact.html ? (
+                <dd class="mt-2 text-pretty text-ink" set:html={fact.value} />
+              ) : (
+                <dd class="mt-2 text-pretty text-ink">{fact.value}</dd>
+              )}
             </div>
           ))
         }
@@ -76,10 +99,61 @@ const facts = [
     )
   }
 
+  {
+    (gallery.length > 0 || video) && (
+      <div class="border-b border-line bg-surface/40">
+        <div class="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
+          {gallery.length > 0 && (
+            <div class="grid gap-5 sm:grid-cols-2">
+              {gallery.map((shot) => (
+                <figure class="border border-line bg-page">
+                  <Image
+                    src={shot.src}
+                    alt={shot.caption}
+                    widths={[640, 1024]}
+                    sizes="(min-width: 640px) 32rem, 100vw"
+                    class="w-full object-contain"
+                    loading="lazy"
+                  />
+                  <figcaption class="rule border-t border-line px-4 py-3 text-dim">
+                    {shot.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {video && (
+            /*
+              `preload="none"` porque o arquivo tem alguns megabytes e quase todo
+              mundo que abre a página não vai dar play. O pôster é uma imagem de
+              90 KB e segura a primeira impressão sozinho.
+            */
+            <figure class:list={['border border-line bg-page', gallery.length > 0 && 'mt-5']}>
+              <video
+                controls
+                playsinline
+                preload="none"
+                poster={video.poster}
+                class="w-full"
+                aria-label={video.caption}
+              >
+                <source src={video.src} type="video/mp4" />
+              </video>
+              <figcaption class="rule border-t border-line px-4 py-3 text-dim">
+                {video.caption}
+              </figcaption>
+            </figure>
+          )}
+        </div>
+      </div>
+    )
+  }
+
   <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
     <div class="grid gap-14 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-16">
       <div
-        class="prose-invert max-w-prose text-lg leading-relaxed [&_h2]:mt-12 [&_h2]:mb-5 [&_h2]:text-2xl [&_h2]:sm:text-3xl [&_p]:mb-6 [&_strong]:text-measure [&_strong]:font-semibold"
+        class="prose-invert max-w-prose text-lg leading-relaxed [&_h2]:mt-12 [&_h2]:mb-5 [&_h2]:text-2xl [&_h2]:sm:text-3xl [&_p]:mb-6 [&_strong]:text-measure [&_strong]:font-semibold [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-4 [&_a]:decoration-current/45 [&_a:hover]:decoration-current"
       >
         <Content />
       </div>

@@ -33,7 +33,7 @@ links:
 
 ## O problema
 
-A Octus Forge imprime peças em resina, e apareceu o pedido que a gente não sabia
+A [Octus Forge](https://www.instagram.com/octusforge) imprime peças em resina, e apareceu o pedido que a gente não sabia
 atender: replicar uma miniatura que já existe, pintada, na mão do cliente. Scanner de
 bancada é caro e engasga justamente no detalhe fino, que é o que importa numa peça de
 sete centímetros. A pergunta era se dava para resolver com o que já tínhamos — um

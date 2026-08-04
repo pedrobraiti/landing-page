@@ -26,7 +26,7 @@ stack:
   - Vercel
 ---
 
-A Octus Forge é minha empresa, e este é o sistema que ela usa para funcionar. Um pedido
+A [Octus Forge](https://www.instagram.com/octusforge) é minha empresa, e este é o sistema que ela usa para funcionar. Um pedido
 entra e percorre sete etapas até virar caixa fechada — modelagem, aprovação, produção,
 pintura, embalagem — e cada etapa tem responsável e checklist. Em volta do fluxo estão o
 financeiro, o estoque, o catálogo de produtos e uma trilha de auditoria de quem mudou o

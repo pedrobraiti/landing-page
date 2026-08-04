@@ -26,7 +26,7 @@ stack:
   - Vercel
 ---
 
-Octus Forge is my company, and this is the system it runs on. An order comes in and moves
+[Octus Forge](https://www.instagram.com/octusforge) is my company, and this is the system it runs on. An order comes in and moves
 through seven stages until it's a sealed box — modeling, approval, production, painting,
 packing — and every stage has an owner and a checklist. Around that flow sit finance,
 inventory, the product catalog, and an audit trail of who changed what. The front end is

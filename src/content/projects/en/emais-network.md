@@ -37,7 +37,7 @@ collecting the monthly fee. When that runs on spreadsheets and gut feel, money g
 missing and so do people — nobody knows who paid, who showed up, and how much each
 franchise brought in.
 
-Emais Network is a client of **Dark Marlin**, the dev shop I co-own. The product had to
+Emais Network is a client of [**Dark Marlin**](https://www.instagram.com/darkmarlin.dev), the dev shop I co-own. The product had to
 cover the whole cycle: sell tickets online, track who is a member, run the event and
 close the books for each franchise.
 

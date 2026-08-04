@@ -38,6 +38,17 @@ const projects = defineCollection({
         .array(z.object({ label: z.string(), href: z.string().url() }))
         .default([]),
       cover: image().optional(),
+      /*
+        Provas visuais além da capa. `gallery` costuma vir em par antes/depois, e o
+        `video` mora em `public/` porque arquivo de vídeo não passa pelo pipeline de
+        imagem do Astro — por isso os caminhos aqui são texto, não `image()`.
+      */
+      gallery: z
+        .array(z.object({ src: image(), caption: z.string() }))
+        .default([]),
+      video: z
+        .object({ src: z.string(), poster: z.string(), caption: z.string() })
+        .optional(),
       order: z.number().default(50),
     }),
 });

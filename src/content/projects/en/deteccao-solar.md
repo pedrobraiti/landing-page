@@ -17,6 +17,15 @@ measure:
   value: '0.887'
   label: the real mAP, after I found out my test set was contaminated
   condition: 240 of the 270 images in the test set came from training · the memorized number was 0.997
+gallery:
+  - src: ../../../assets/projects/solar-antes.png
+    caption: The raw satellite image, as it arrives
+  - src: ../../../assets/projects/solar-depois.png
+    caption: The same area after the model, every panel marked with its confidence
+video:
+  src: /media/deteccao-solar-demo.mp4
+  poster: /media/deteccao-solar-poster.jpg
+  caption: From drawing the area to detection, in the running system
 stack:
   - Next.js
   - TypeScript
@@ -57,7 +66,7 @@ without a single error in the log.
 ## The result
 
 I trained the detector on about 1,100 images from 10 areas across 8 Brazilian cities, at
-6.7 cm per pixel. **Datlaz**, the company I contract for, adopted the model and turned it
+6.7 cm per pixel. [**Datlaz**](https://www.linkedin.com/company/datlaz/), the company I contract for, adopted the model and turned it
 into a product.
 
 The pipeline responds as a stream, with a real per-tile progress bar, and tolerates

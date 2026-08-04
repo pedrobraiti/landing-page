@@ -56,8 +56,11 @@ export const orgAssets: Record<string, OrgAsset> = {
     tile: 'dark',
     link: 'https://www.linkedin.com/company/datlaz/',
   },
-  /* Sem link: não tenho o endereço do LinkedIn da Rumo confirmado, e não se chuta. */
-  rumo: { logo: rumo, tile: 'dark' },
+  rumo: {
+    logo: rumo,
+    tile: 'dark',
+    link: 'https://www.linkedin.com/company/rumologistica/',
+  },
   'freelance-3d': {
     logo: '/brand/artstation.png',
     tile: 'dark',

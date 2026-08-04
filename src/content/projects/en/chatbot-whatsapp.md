@@ -29,7 +29,7 @@ human. The goal was never to automate support end to end — it was to make sure
 someone from the team joins the conversation, the context is already gathered and the lead
 is already filtered.
 
-It was built **in a pair**, at Dark Marlin. I split the implementation with another
+It was built **in a pair**, at [Dark Marlin](https://www.instagram.com/darkmarlin.dev). I split the implementation with another
 person; this isn't a project I wrote alone and I won't present it as one.
 
 This is the project I have the least technical detail on record to show — it was

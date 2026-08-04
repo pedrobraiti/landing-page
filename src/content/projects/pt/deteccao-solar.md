@@ -17,6 +17,15 @@ measure:
   value: '0,887'
   label: o mAP verdadeiro, depois que eu descobri que meu teste estava contaminado
   condition: 240 das 270 imagens do conjunto de teste vinham do treino · o número decorado era 0,997
+gallery:
+  - src: ../../../assets/projects/solar-antes.png
+    caption: A imagem de satélite crua, como ela chega
+  - src: ../../../assets/projects/solar-depois.png
+    caption: A mesma área depois do modelo, com cada painel marcado e a confiança
+video:
+  src: /media/deteccao-solar-demo.mp4
+  poster: /media/deteccao-solar-poster.jpg
+  caption: Do desenho da área à detecção, no sistema rodando
 stack:
   - Next.js
   - TypeScript
@@ -57,7 +66,7 @@ jeito silencioso, sem erro nenhum no log.
 ## O resultado
 
 Treinei o detector com cerca de 1.100 imagens de 10 áreas em 8 cidades brasileiras, a
-6,7 cm por pixel. A **Datlaz**, empresa para a qual presto serviço, adotou o modelo e o
+6,7 cm por pixel. A [**Datlaz**](https://www.linkedin.com/company/datlaz/), empresa para a qual presto serviço, adotou o modelo e o
 transformou em produto.
 
 O pipeline responde em streaming, com barra de progresso real por tile, e tolera falha

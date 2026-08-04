@@ -11,6 +11,7 @@ import { Image } from 'astro:assets';
 import { useTranslations, localizePath, type Locale } from '../lib/i18n';
 import { getRoles, getProjects, formatPeriod } from '../lib/content';
 import { orgAssets } from '../lib/orgAssets';
+import { linkOrgsInText } from '../lib/orgLinks.mjs';
 
 interface Props {
   lang: Locale;
@@ -113,7 +114,11 @@ const relatedLabel = { pt: 'O que saiu daqui', en: 'What came out of it' }[lang]
                 </span>
               </p>
 
-              <p class="mt-4 text-pretty text-dim">{role.data.summary}</p>
+              {/* O resumo cita outras empresas ("cliente da Dark Marlin"); elas linkam. */}
+              <p
+                class="mt-4 text-pretty text-dim [&_a]:text-ink"
+                set:html={linkOrgsInText(role.data.summary)}
+              />
 
               {role.data.href && (
                 <a

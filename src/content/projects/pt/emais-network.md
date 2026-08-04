@@ -36,7 +36,7 @@ Grupos de networking empresarial presencial vivem de duas coisas: encher o event
 cobrar a mensalidade. Quando isso é feito em planilha e no fio do bigode, some dinheiro
 e some gente — ninguém sabe quem pagou, quem entrou, e quanto cada franquia rendeu.
 
-A Emais Network é cliente da **Dark Marlin**, a dev-shop da qual sou sócio. O produto
+A Emais Network é cliente da [**Dark Marlin**](https://www.instagram.com/darkmarlin.dev), a dev-shop da qual sou sócio. O produto
 precisava fazer o ciclo inteiro: vender ingresso online, controlar quem é membro, rodar
 o evento e fechar o financeiro por franquia.
 

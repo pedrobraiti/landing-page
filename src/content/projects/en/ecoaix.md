@@ -27,7 +27,7 @@ stack:
 
 ecoAIx reads electrical engineering documentation — substation reports, transmission line
 specifications, energy storage designs — and answers questions about the content. I've
-been contracting for **Ecotechne**, a renewable energy company, since May 2025, and I'm
+been contracting for [**Ecotechne**](https://www.linkedin.com/company/ecotechnee/), a renewable energy company, since May 2025, and I'm
 responsible for the architecture and implementation of the system: front-end, back-end,
 the machine learning side, the automation that generates training examples, and the
 database, designed from scratch for this use.

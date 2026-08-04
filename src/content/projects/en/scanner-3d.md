@@ -33,7 +33,7 @@ links:
 
 ## The problem
 
-Octus Forge prints resin pieces, and a request came in that we could not fulfil:
+[Octus Forge](https://www.instagram.com/octusforge) prints resin pieces, and a request came in that we could not fulfil:
 replicate a miniature that already exists, painted, in the customer's hands. Desktop
 scanners are expensive and choke on exactly the fine detail that matters on a
 seven-centimetre figure. The question was whether we could solve it with what we

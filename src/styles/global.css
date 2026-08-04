@@ -104,6 +104,23 @@
       19px 19px;
   }
 
+  /*
+    Nome de empresa citado no texto. Herda a cor de onde está — em negrito fica
+    âmbar, no corpo fica na cor do parágrafo — e ganha só o sublinhado, que é o que
+    faltava para o Pedro perceber que dava para clicar.
+  */
+  .org-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
+    transition: text-decoration-color 200ms ease;
+  }
+
+  .org-link:hover {
+    text-decoration-color: currentColor;
+  }
+
   .rule {
     font-family: var(--font-mono);
     font-size: 0.6875rem;

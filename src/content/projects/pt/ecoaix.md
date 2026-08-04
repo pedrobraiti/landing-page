@@ -27,7 +27,7 @@ stack:
 
 O ecoAIx lê documentação técnica de engenharia elétrica — memoriais de subestação,
 especificações de linha de transmissão, projetos de armazenamento de energia — e responde
-perguntas sobre o conteúdo. Presto serviço para a **Ecotechne**, empresa de energias
+perguntas sobre o conteúdo. Presto serviço para a [**Ecotechne**](https://www.linkedin.com/company/ecotechnee/), empresa de energias
 renováveis, desde maio de 2025, e sou o responsável pela arquitetura e pela implementação
 do sistema: front-end, back-end, a parte de aprendizado de máquina, a automação que gera
 os exemplos de treinamento e o banco de dados, que foi desenhado do zero para este uso.
