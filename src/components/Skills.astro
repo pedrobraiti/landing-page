@@ -1,0 +1,146 @@
+---
+/*
+  O que ele sabe fazer — em capacidade, não em tecnologia solta.
+
+  A primeira tentativa foi agregar automaticamente o campo `stack` dos projetos. Não
+  serve: dão 66 itens distintos em 15 projetos, com duplicata de granularidade
+  ("Python" e "Python 3.12", "PostgreSQL" e "PostgreSQL com RLS"). Sairia uma nuvem
+  de palavras, que é o clichê exato que o site evita.
+
+  Então a capacidade é editorial e curta, e o que a sustenta é automático: cada linha
+  aponta para os projetos que a provam, e o build QUEBRA se um slug não existir. Isso
+  impede o pior cenário — a seção afirmar uma habilidade cujo case saiu do ar.
+
+  Ficaram cinco. Habilidade demais dilui: listar trinta faz nenhuma pesar.
+
+  `tools` é compartilhado entre os dois idiomas de propósito — nome de ferramenta não
+  se traduz. Por isso nenhum item pode conter palavra de ligação: "PostgreSQL com RLS"
+  vazou português para a página inglesa até virar "PostgreSQL RLS".
+*/
+import { getProjects } from '../lib/content';
+import { localizePath, type Locale } from '../lib/i18n';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const projects = await getProjects(lang);
+
+const skills = [
+  {
+    slugs: ['deteccao-solar', 'leitor-captcha'],
+    tools: ['RF-DETR', 'PyTorch', 'ONNX Runtime', 'OpenCV'],
+    pt: {
+      title: 'Visão computacional',
+      body: 'Treino modelo próprio, meço o que ele acerta de verdade e sirvo em produção — do conjunto de dados à inferência.',
+    },
+    en: {
+      title: 'Computer vision',
+      body: 'I train my own models, measure what they actually get right, and serve them in production — from dataset to inference.',
+    },
+  },
+  {
+    slugs: ['trading-agentico', 'video-autonomo'],
+    tools: ['Claude Code', 'MCP', 'FastMCP', 'Python'],
+    pt: {
+      title: 'Agentes e automação',
+      body: 'Servidores MCP e skills que executam ação de verdade, com aprovação humana obrigatória antes de qualquer passo que muda estado.',
+    },
+    en: {
+      title: 'Agents and automation',
+      body: 'MCP servers and skills that take real action, with human approval required before any step that changes state.',
+    },
+  },
+  {
+    slugs: ['scanner-3d', 'pgsr-fast'],
+    tools: ['COLMAP', 'Gaussian Splatting', 'Open3D', 'Blender'],
+    pt: {
+      title: 'Reconstrução e fabricação 3D',
+      body: 'Do celular à peça impressa: fotogrametria, splatting, malha fechada e resina.',
+    },
+    en: {
+      title: '3D reconstruction and fabrication',
+      body: 'From phone to printed piece: photogrammetry, splatting, watertight mesh and resin.',
+    },
+  },
+  {
+    slugs: ['emais-network', 'octusforge-app'],
+    tools: ['Next.js', 'Prisma', 'PostgreSQL RLS', 'AWS'],
+    pt: {
+      title: 'Software com dinheiro passando',
+      body: 'Plataforma em produção recebendo pagamento real, com o dado de cada franquia isolado no próprio banco.',
+    },
+    en: {
+      title: 'Software with real money moving',
+      body: 'Platforms in production taking real payments, with each franchise’s data isolated inside the database itself.',
+    },
+  },
+  {
+    slugs: ['estudos-quantitativos', 'pgsr-fast'],
+    tools: ['pandas', 'statsmodels', 'SciPy'],
+    pt: {
+      title: 'Pesquisa quantitativa',
+      body: 'Hipótese testada até o fim, com custo dentro da conta — e publicada também quando o resultado é que não funciona.',
+    },
+    en: {
+      title: 'Quantitative research',
+      body: 'Hypotheses tested to the end, with costs included — and published even when the answer is that it does not work.',
+    },
+  },
+];
+
+/*
+  Resolve agora, no build. Slug que não existe derruba a compilação em vez de virar
+  link quebrado em produção.
+*/
+const resolved = skills.map((skill) => {
+  const proofs = skill.slugs.map((slug) => {
+    const project = projects.find((p) => p.data.slug === slug);
+    if (!project) throw new Error(`Skills.astro: projeto "${slug}" não existe em ${lang}`);
+    return project;
+  });
+  return { ...skill, copy: skill[lang], proofs };
+});
+
+const heading = { pt: 'O que eu faço', en: 'What I do' }[lang];
+---
+
+<section class="mt-16 border-t border-line pt-10">
+  <h2 class="rule text-ref">{heading}</h2>
+
+  <ul class="mt-8 flex flex-col gap-8">
+    {
+      resolved.map((skill) => (
+        <li class="grid gap-x-8 gap-y-3 sm:grid-cols-[minmax(0,15rem)_1fr]">
+          <h3 class="font-display text-lg font-bold tracking-tight text-ink">
+            {skill.copy.title}
+          </h3>
+
+          <div class="min-w-0">
+            <p class="text-pretty text-dim">{skill.copy.body}</p>
+
+            <p class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1.5">
+              {skill.tools.map((tool) => (
+                <span class="rule border border-line px-2 py-0.5 text-dim" translate="no">
+                  {tool}
+                </span>
+              ))}
+            </p>
+
+            <p class="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+              {skill.proofs.map((project) => (
+                <a
+                  href={localizePath(`/projetos/${project.data.slug}`, lang)}
+                  class="font-mono text-xs text-ref transition-colors hover:text-measure"
+                >
+                  {project.data.title} →
+                </a>
+              ))}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>

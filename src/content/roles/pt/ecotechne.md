@@ -3,7 +3,7 @@ org: Ecotechne
 lang: pt
 slug: ecotechne
 relation: Prestador de serviço
-title: Full Stack em desenvolvimento de IA
+title: Desenvolvimento de IA e automação
 group: hired
 start: '2025-05'
 end: null
@@ -12,7 +12,8 @@ order: 30
 href: https://www.linkedin.com/company/ecotechnee/
 summary: >-
   Empresa de projetos de energias renováveis — subestações, linhas de transmissão e
-  armazenamento. Sou o responsável pela arquitetura e implementação da ecoAIx, uma IA
-  que lê e analisa documentos técnicos de engenharia elétrica: front, back, aprendizado
-  de máquina, geração automatizada de exemplos de treino e o banco de dados do zero.
+  armazenamento. Hoje construo a automação interna deles com agentes: quinze skills que
+  ligam o CRM ao ERP, conciliam extrato bancário e fecham o mês, cada uma parando para
+  aprovação humana antes de gravar qualquer coisa. Antes disso montei a ecoAIx, uma visão
+  computacional que acha os componentes dentro do diagrama unifilar.
 ---

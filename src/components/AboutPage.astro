@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { useTranslations, localizePath, type Locale } from '../lib/i18n';
+import Skills from './Skills.astro';
 import pedro from '../assets/pedro.jpg';
 
 interface Props {
@@ -59,6 +60,8 @@ const copy = {
         <h2 class="text-xl sm:text-2xl">{copy.systemTitle}</h2>
         <p class="mt-4 text-pretty text-dim">{copy.system}</p>
       </section>
+
+      <Skills lang={lang} />
 
       <a
         href={localizePath('/cv', lang)}
