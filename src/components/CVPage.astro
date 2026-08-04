@@ -10,6 +10,12 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const roles = await getRoles(lang);
 
+/*
+  Cada idioma baixa o próprio PDF. Antes os dois apontavam para o arquivo em português,
+  então quem abria a versão inglesa recebia um currículo que não sabia ler.
+*/
+const pdfHref = lang === 'pt' ? '/cv-pedro-braiti.pdf' : '/cv-pedro-braiti-en.pdf';
+
 const copy = {
   pt: {
     summary:
@@ -71,7 +77,7 @@ const copy = {
       <h1 class="mt-4 text-section">{t('cv.title')}</h1>
     </div>
     <a
-      href="/cv-pedro-braiti.pdf"
+      href={pdfHref}
       download
       class="border border-measure px-5 py-3 font-mono text-sm text-measure transition-colors hover:bg-measure hover:text-page"
     >
