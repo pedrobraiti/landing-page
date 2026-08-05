@@ -44,6 +44,17 @@ const projects = defineCollection({
         .default([]),
       cover: image().optional(),
       /*
+        `cover` sem descrição sai com o título como alternativo, que não serve para
+        gráfico: "pgsr-fast" não diz nada a quem não enxerga a imagem.
+      */
+      coverAlt: z.string().optional(),
+      /*
+        Capa que só vale como miniatura de card. A da Emais é a composição das quatro
+        telas da galeria — repeti-la no topo da própria página seria mostrar a mesma
+        coisa duas vezes, uma embaixo da outra.
+      */
+      coverCardOnly: z.boolean().default(false),
+      /*
         Provas visuais além da capa. `gallery` costuma vir em par antes/depois, e o
         `video` mora em `public/` porque arquivo de vídeo não passa pelo pipeline de
         imagem do Astro — por isso os caminhos aqui são texto, não `image()`.

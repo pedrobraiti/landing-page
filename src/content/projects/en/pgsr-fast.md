@@ -10,6 +10,8 @@ period: '2026'
 status: Public, with a reproducible benchmark
 cover: ../../../assets/projects/pgsr-bench-en.png
 order: 50
+coverAlt: >-
+  Dot chart: 1.115 it/s on stock PGSR against 1.222 it/s on pgsr-fast, two runs per side, axis cropped at 1.07
 summary: >-
   Thirteen targeted patches that make surface reconstruction training faster without
   changing a comma of the final result.

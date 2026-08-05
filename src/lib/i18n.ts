@@ -13,6 +13,7 @@ export const ui = {
     'nav.3d': '3D',
     'nav.about': 'Sobre',
     'nav.cv': 'Currículo',
+    'nav.menu': 'Abrir o menu',
     'nav.skip': 'Pular para o conteúdo',
     'hero.role': 'Engenharia de computação · Curitiba, Brasil',
     'hero.lede':
@@ -75,6 +76,7 @@ export const ui = {
     'nav.3d': '3D',
     'nav.about': 'About',
     'nav.cv': 'Résumé',
+    'nav.menu': 'Open menu',
     'nav.skip': 'Skip to content',
     'hero.role': 'Computer engineer · Curitiba, Brazil',
     'hero.lede':

@@ -60,8 +60,16 @@
     text-wrap: pretty;
   }
 
+  /*
+    `outline-color` precisa vir na sua própria declaração. No atalho `outline: 2px solid
+    var(--color-measure)` a cor caía para `currentColor` nos dois botões âmbar — o CTA do
+    hero e o do WhatsApp —, onde `currentColor` é a cor do fundo: o anel existia com
+    1,00:1 de contraste, ou seja, invisível justamente no botão principal. (Medido na
+    auditoria da Sessão 3.)
+  */
   :focus-visible {
-    outline: 2px solid var(--color-measure);
+    outline: 2px solid;
+    outline-color: var(--color-measure);
     outline-offset: 3px;
     border-radius: 2px;
   }

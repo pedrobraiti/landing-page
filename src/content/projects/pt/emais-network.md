@@ -9,6 +9,10 @@ context: Cliente da Dark Marlin, minha dev-shop
 period: '2026'
 status: Em produção, com pagamentos reais
 order: 10
+cover: ../../../assets/projects/emais-cover.png
+coverCardOnly: true
+coverAlt: >-
+  As quatro telas do aplicativo da Emais lado a lado: agenda de eventos, conta do membro e o assistente
 summary: >-
   Plataforma de gestão de networking empresarial presencial — eventos, ingressos,
   adesão de membros e financeiro multi-franquia, transacionando dinheiro de verdade.

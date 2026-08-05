@@ -10,6 +10,8 @@ period: '2026'
 status: Público, com benchmark reproduzível
 cover: ../../../assets/projects/pgsr-bench-pt.png
 order: 50
+coverAlt: >-
+  Gráfico de pontos: 1,115 it/s no PGSR original contra 1,222 it/s no pgsr-fast, duas execuções de cada lado, eixo recortado em 1,07
 summary: >-
   Treze correções cirúrgicas que deixam o treino de reconstrução de superfície mais
   rápido sem mudar uma vírgula do resultado final.

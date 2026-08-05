@@ -9,6 +9,10 @@ context: Client of Dark Marlin, my dev shop
 period: '2026'
 status: In production, with real payments
 order: 10
+cover: ../../../assets/projects/emais-cover.png
+coverCardOnly: true
+coverAlt: >-
+  The four Emais app screens side by side: event schedule, member account and the assistant
 summary: >-
   Management platform for in-person business networking — events, tickets, membership
   and multi-franchise finance, moving real money.

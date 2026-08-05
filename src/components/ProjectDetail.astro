@@ -26,6 +26,8 @@ const {
   stack,
   links,
   cover,
+  coverAlt,
+  coverCardOnly,
   gallery,
   video,
 } = project.data;
@@ -85,7 +87,7 @@ const facts = [
   </header>
 
   {
-    cover && (
+    cover && !coverCardOnly && (
       /*
         `contain` e não `cover`: quase todas as capas são capturas de interface, e
         recortar uma tela esconde exatamente o que ela deveria provar.
@@ -94,7 +96,7 @@ const facts = [
         <div class="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14">
           <Image
             src={cover}
-            alt={title}
+            alt={coverAlt ?? title}
             widths={[640, 1024, 1600]}
             sizes="(min-width: 1024px) 64rem, 100vw"
             class="max-h-[68vh] w-full border border-line object-contain"
@@ -189,7 +191,7 @@ const facts = [
   <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
     <div class="grid gap-14 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-16">
       <div
-        class="prose-invert max-w-prose text-lg leading-relaxed [&_h2]:mt-12 [&_h2]:mb-5 [&_h2]:text-2xl [&_h2]:sm:text-3xl [&_p]:mb-6 [&_strong]:text-measure [&_strong]:font-semibold [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-4 [&_a]:decoration-current/45 [&_a:hover]:decoration-current"
+        class="prose-invert max-w-[56ch] text-lg leading-relaxed [&_h2]:mt-12 [&_h2]:mb-5 [&_h2]:text-2xl [&_h2]:sm:text-3xl [&_p]:mb-6 [&_strong]:text-measure [&_strong]:font-semibold [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-4 [&_a]:decoration-current/45 [&_a:hover]:decoration-current"
       >
         <Content />
       </div>

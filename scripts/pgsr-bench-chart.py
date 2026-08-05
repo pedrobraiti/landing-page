@@ -42,7 +42,7 @@ Y_TICKS = [1.08, 1.12, 1.16, 1.20, 1.24]
 TEXTS = {
     "pt": {
         "title": "Iterações por segundo no laço de treino",
-        "subtitle": "duas execuções de cada lado, intercaladas na mesma RTX 4090 · cena real de 469 fotos a 12 MP",
+        "subtitle": "duas execuções de cada lado, intercaladas · RTX 4090 · 469 fotos a 12 MP",
         "baseline": "PGSR original",
         "patched": "pgsr-fast",
         "unit": "it/s",
@@ -51,7 +51,7 @@ TEXTS = {
     },
     "en": {
         "title": "Training loop iterations per second",
-        "subtitle": "two runs per side, interleaved on the same RTX 4090 · real scene, 469 photos at 12 MP",
+        "subtitle": "two runs per side, interleaved · RTX 4090 · 469 photos at 12 MP",
         "baseline": "stock PGSR",
         "patched": "pgsr-fast",
         "unit": "it/s",
@@ -71,7 +71,10 @@ def build(lang: str, out: Path) -> None:
     mean_base = sum(BASELINE) / len(BASELINE)
     mean_patch = sum(PATCHED) / len(PATCHED)
 
-    fig, ax = plt.subplots(figsize=(9, 5.1), dpi=200)
+    # Figura pequena em polegadas, densidade alta: o mesmo corpo de texto ocupa uma
+    # fração maior da largura do PNG, e é o que salva a leitura no celular, onde a
+    # imagem é exibida com cerca de 335 px. (Medido na auditoria da Sessão 3.)
+    fig, ax = plt.subplots(figsize=(6.8, 4.3), dpi=220)
     fig.patch.set_facecolor(PAGE)
     ax.set_facecolor(PAGE)
 
@@ -114,8 +117,8 @@ def build(lang: str, out: Path) -> None:
                        fontsize=10.5, color=DIM, family="monospace")
     ax.tick_params(length=0, pad=10)
 
-    fig.text(0.055, 0.955, t["title"], color=INK, fontsize=17, fontweight="bold", va="top")
-    fig.text(0.055, 0.885, t["subtitle"], color=DIM, fontsize=11, va="top")
+    fig.text(0.055, 0.955, t["title"], color=INK, fontsize=15.5, fontweight="bold", va="top")
+    fig.text(0.055, 0.885, t["subtitle"], color=DIM, fontsize=10, va="top")
     fig.text(0.055, 0.028, t["footnote"], color=DIM, fontsize=9.5, va="bottom")
 
     fig.subplots_adjust(left=0.075, right=0.985, top=0.79, bottom=0.14)
