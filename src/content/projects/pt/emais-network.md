@@ -16,7 +16,7 @@ measure:
   value: quase 200
   label: membros ativos usando a plataforma para pagar adesão e entrar em evento
   condition: >-
-    em agosto de 2026, quase três meses depois de entrar no ar · Pix, cartão e boleto ·
+    em agosto de 2026, pouco mais de dois meses depois de entrar no ar · Pix, cartão e boleto ·
     financeiro multi-franquia isolado por RLS
 gallery:
   - src: ../../../assets/projects/emais-app-1.png

@@ -15,9 +15,11 @@ summary: >-
   rápido sem mudar uma vírgula do resultado final.
 measure:
   value: ≈10%
-  label: mais iterações por segundo no laço de treino, com a geometria idêntica
+  label: >-
+    mais iterações por segundo no laço de treino — +9,5% medidos, com a geometria
+    idêntica
   condition: >-
-    +9,5% em quatro execuções intercaladas na mesma RTX 4090 · cena real de 469 fotos a
+    +9,5% em duas execuções de cada lado, intercaladas na mesma RTX 4090 · cena real de 469 fotos a
     12 MP · perda em paridade dentro do ruído de medição
 stack:
   - Python
@@ -57,10 +59,11 @@ performance".
 ruído de medição — validado depois num treino completo de 23 mil iterações, não só num
 trecho curto.
 
-E isso tem preço. GPU alugada se cobra por hora, então iteração mais rápida é conta menor
-no fim do mês: as mesmas 23 mil iterações terminam em **8,7% menos tempo**, e a hora que
-não roda é hora que não se paga. É o tipo de ganho que não aparece na tela e aparece na
-fatura.
+E isso tem preço. No relógio, o benchmark mede 1,090× — as mesmas 23 mil iterações
+terminam em cerca de **8,3% menos tempo**. (A taxa do laço rende 1,095×; o relógio fica um
+pouco atrás porque inclui a carga e a gravação do checkpoint, que os patches não tocam.)
+Como GPU alugada se cobra por hora, a hora que não roda é hora que não se paga — o ganho
+não aparece na tela, aparece na fatura.
 
 No caminho, dois defeitos do projeto original apareceram: um erro de precedência de
 operador no registro da média móvel, e um crash. Ambos corrigidos.

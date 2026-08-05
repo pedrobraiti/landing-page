@@ -28,8 +28,8 @@ stack:
 ---
 
 [Octus Forge](https://www.instagram.com/octusforge) is my company, and this is the system it runs on. An order comes in and moves
-through seven stages until it's a sealed box — modeling, approval, production, painting,
-packing — and every stage has an owner and a checklist. Around that flow sit finance,
+through seven stages until it's a sealed box — intake, modeling, approval, production,
+painting, packing and shipping — and every stage has an owner and a checklist. Around that flow sit finance,
 inventory, the product catalog, and an audit trail of who changed what. The front end is
 React + Vite on Vercel; behind it is AWS: Cognito for identity, Lambda, and Postgres on
 RDS with row-level security. It started on Supabase and was migrated. STL upload takes

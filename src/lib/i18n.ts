@@ -23,6 +23,8 @@ export const ui = {
     'measure.eyebrow': 'Medido',
     'measure.eyebrow.fact': 'Do projeto',
     'measure.condition': 'Condição',
+    'section.skills': 'Capacidades',
+    'section.skills.lede': 'O que eu faço por uma empresa.',
     'section.selected': 'Trabalho selecionado',
     'section.selected.lede':
       'Os sistemas em que a decisão difícil está documentada, não escondida.',
@@ -83,6 +85,8 @@ export const ui = {
     'measure.eyebrow': 'Measured',
     'measure.eyebrow.fact': 'From the project',
     'measure.condition': 'Conditions',
+    'section.skills': 'Capabilities',
+    'section.skills.lede': 'What I do for a company.',
     'section.selected': 'Selected work',
     'section.selected.lede':
       'Systems where the hard decisions are documented, not hidden.',
@@ -93,7 +97,7 @@ export const ui = {
     'timeline.cta': 'See each role in detail',
     'companies.eyebrow': 'My companies',
     'roles.group.own': 'My companies',
-    'roles.group.hired': 'Companies I work for',
+    'roles.group.hired': 'Companies I contract for',
     'roles.group.independent': 'Freelance',
     'section.work': "Where I've worked",
     'section.work.lede':

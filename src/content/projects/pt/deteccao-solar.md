@@ -81,7 +81,7 @@ própria, o custo de inferência some e sobra só o download da imagem de satél
 piloto de revisão em Brasília saiu por cerca de **US$ 0,20** a rodada.
 
 Não é uma escolha ideológica, é o que fecha a conta em escala de cidade. Vale para o
-treino também: o modelo que está em produção custou **US$ 4,90** de GPU alugada, em
+treino também: o modelo que está em produção custou **US$ 4,90** de GPU alugada a US$ 1,05/h, em
 4 horas e 40 minutos.
 
 Está em produção no cluster da empresa, atrás de autenticação única, servindo um modelo

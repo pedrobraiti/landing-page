@@ -15,7 +15,9 @@ summary: >-
 measure:
   value: '93'
   label: invariant tests — the physics has to keep obeying its own laws
-  condition: simulation core isolated from the game, testable without opening a window
+  condition: >-
+    93 of 93 green under `cargo test` on the core crate · the simulation runs without
+    opening a window, so the test never depends on rendering anything
 stack:
   - Rust
   - Falling-sand simulation

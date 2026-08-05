@@ -10,7 +10,7 @@ period: '2026'
 status: Delivered, running on the finance team's machine
 order: 120
 summary: >-
-  Two Excel macros that post the month's measurement and match every ERP invoice to the
+  Two Excel macros that post the month's progress billing and match every ERP invoice to the
   right spreadsheet row — tested against the real spreadsheet before going anywhere near
   it.
 measure:

@@ -11,13 +11,15 @@ status: Public, with a reproducible benchmark
 cover: ../../../assets/projects/pgsr-bench-en.png
 order: 50
 summary: >-
-  Thirteen surgical fixes that make surface reconstruction training faster without
+  Thirteen targeted patches that make surface reconstruction training faster without
   changing a comma of the final result.
 measure:
   value: ≈10%
-  label: more iterations per second in the training loop, with identical geometry
+  label: >-
+    more iterations per second in the training loop — +9.5% measured, with identical
+    geometry
   condition: >-
-    +9.5% across four interleaved runs on the same RTX 4090 · real scene of 469 photos at
+    +9.5% across two runs per side, interleaved on the same RTX 4090 · real scene of 469 photos at
     12 MP · loss at parity within the measurement noise
 stack:
   - Python
@@ -58,10 +60,11 @@ test doesn't turn into a "performance gain".
 measurement noise — validated afterwards on a full 23,000-iteration training run, not just
 a short segment.
 
-And that has a price attached. Rented GPU is billed by the hour, so a faster iteration is a
-smaller invoice at the end of the month: the same 23,000 iterations finish in **8.7% less
-time**, and the hour you don't run is the hour you don't pay for. It is the kind of gain
-that never shows up on screen and always shows up on the bill.
+And that has a price attached. On the clock, the benchmark measures 1.090× — the same
+23,000 iterations finish in about **8.3% less time**. (The loop rate gives 1.095×; wall time
+trails it slightly because it includes the one-off checkpoint load and save, which the
+patches never touch.) Rented GPU is billed by the hour, and the hour you don't run is the
+hour you don't pay for — the gain never shows up on screen and always shows up on the bill.
 
 Along the way, two defects in the original project turned up: an operator precedence
 error in the moving-average logging, and a crash. Both fixed.

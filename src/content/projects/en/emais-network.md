@@ -16,7 +16,7 @@ measure:
   value: nearly 200
   label: active members using the platform to pay dues and get into events
   condition: >-
-    as of August 2026, almost three months after launch · Pix, card and boleto ·
+    as of August 2026, a little over two months after launch · Pix, card and boleto ·
     multi-franchise finance isolated by RLS
 gallery:
   - src: ../../../assets/projects/emais-app-1.png
@@ -26,7 +26,7 @@ gallery:
   - src: ../../../assets/projects/emais-app-3.png
     caption: The assistant, which explains and takes you to the right screen
   - src: ../../../assets/projects/emais-app-4.png
-    caption: It answers and opens the screen it just described
+    caption: It answers, then opens the screen it described
 stack:
   - Next.js 15
   - TypeScript

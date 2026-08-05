@@ -47,7 +47,8 @@ guarda a tese entre sessões e mede o próprio desempenho contra o benchmark.
 
 ## A decisão que mudou o projeto
 
-Eu tinha 653 testes passando e CI verde nos três repositórios. Mandei uma ordem de
+Eu tinha 653 testes passando e CI verde nos três repositórios — a contagem de julho de
+2026, antes da ordem. Mandei uma ordem de
 **dois dólares** numa conta real, só para ver.
 
 A ordem revelou um bug de unidade: o sistema tratava um valor em **dólares** como se

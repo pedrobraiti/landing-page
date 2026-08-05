@@ -53,12 +53,8 @@ A conversão da empresa saiu de **2% para 3,6%** — num negócio de ticket méd
 cada ponto percentual vale bastante. Mais de três mil clientes passaram pelo bot antes de
 qualquer conversa chegar numa pessoa.
 
-## De onde vêm esses números
-
-**Do cliente, não de um teste meu.** Não montei experimento controlado, não tenho o painel
-na mão, e não vou apresentar esses números como se eu mesmo os tivesse apurado. É a razão
-de esta ficha dizer "do projeto" e não "medido" — são números reais e verificáveis com
-quem opera, mas o crédito da apuração não é meu.
+Os dois números são do cliente, não de um teste meu — por isso a ficha diz "do projeto" e
+não "medido". São verificáveis com quem opera.
 
 Foi feito **em dupla** pela [Dark Marlin](https://www.instagram.com/darkmarlin.dev).
 Dividi a implementação com outra pessoa; não é um projeto que eu tenha escrito sozinho e

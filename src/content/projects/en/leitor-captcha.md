@@ -16,7 +16,10 @@ summary: >-
 measure:
   value: 82%
   label: of CAPTCHAs accepted on the first try by the server itself, with the right letter case
-  condition: 50 CAPTCHAs · ensemble of 4 models · acceptance confirmed by the server, not by an answer key of mine
+  condition: >-
+    41 of 50 CAPTCHAs · ensemble of 4 models · acceptance confirmed by the server, not by
+    an answer key of mine · with n=50 the 95% interval runs from 69% to 90%, so read it
+    as "around 80", not as a hard 82
 stack:
   - Python
   - PyTorch
@@ -41,8 +44,9 @@ and with no files downloaded during collection — the bottleneck was politeness
 speed.
 
 The second finding changed the architecture. I suspected the server was case-sensitive
-and tested it: submitted everything lowercase, then everything uppercase. **Six percent were
-accepted in both runs** — exactly what chance predicts for five characters. Which means
+and tested it: submitted everything lowercase, then everything uppercase: about **3% accepted in each
+run, 6% across both** — exactly what chance predicts for five characters, since 2⁻⁵ is
+3.1% per attempt. Which means
 an OCR that ignores case is capped at around 7% there, no matter how well it reads the
 letters.
 

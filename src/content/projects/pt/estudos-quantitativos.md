@@ -13,9 +13,14 @@ summary: >-
   Cinco técnicas de mercado que todo mundo repete, submetidas a teste rigoroso até
   sobrar uma resposta em que dá para confiar.
 measure:
-  value: 33 anos
-  label: de dados varridos para responder se a técnica sobrevive aos custos
-  condition: walk-forward fora da amostra · depois de custos · com teste de permutação e bootstrap
+  value: −0,6%/ano
+  label: >-
+    o que o beta pagou de fato, onde o CAPM diz que ele deveria pagar prêmio — t = −0,16,
+    indistinguível de zero
+  condition: >-
+    regressão de Fama-MacBeth em carteiras ordenadas por beta · janelas do paper original
+    (1927–2003 e 1963–2003) mais extensão fora da amostra de 2004 até hoje · dados da
+    biblioteca do Kenneth French
 stack:
   - Python
   - pandas
@@ -37,7 +42,8 @@ links:
 ---
 
 São cinco estudos independentes, cada um com sua hipótese: a replicação empírica do
-Fama & French (2004), com teste GRS e a anomalia de *Betting-Against-Beta*; o Volume
+Fama & French (2004) — o levantamento *"The CAPM: Theory and Evidence"*, não o modelo de
+três fatores de 1993 —, com teste GRS e a anomalia de *Betting-Against-Beta*; o Volume
 Profile submetido a falsificação em 17 a 33 anos de dados; um backtester de expectância
 com R-múltiplos e cálculo de risco de ruína; a arbitragem do ágio do GOLD11 na B3; e a
 regra de rebalanceamento por dólar constante. Todos públicos, todos com relatório em PDF.

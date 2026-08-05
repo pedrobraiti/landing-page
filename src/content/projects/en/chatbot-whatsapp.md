@@ -54,13 +54,8 @@ The company's conversion rate went from **2% to 3.6%** — in a high-average-tic
 where every percentage point is worth a lot. More than three thousand customers went
 through the bot before any conversation reached a person.
 
-## Where those numbers come from
-
-**From the client, not from a test of mine.** I did not run a controlled experiment, I do
-not have the dashboard in hand, and I will not present these figures as though I had
-measured them myself. That is why this card says "from the project" rather than "measured"
-— the numbers are real and checkable with the people running it, but the credit for
-measuring them is not mine.
+Both figures are the client's, not from a test of mine — which is why the card says "from
+the project" rather than "measured". They are verifiable with the people running it.
 
 It was built **in a pair**, at [Dark Marlin](https://www.instagram.com/darkmarlin.dev). I
 split the implementation with another person; this isn't a project I wrote alone and I

@@ -81,7 +81,7 @@ cost disappears and only the satellite image download remains — the review pil
 Brasília came out at roughly **US$0.20** per run.
 
 It isn't an ideological choice; it's what makes the numbers work at city scale. The
-same goes for training: the model in production cost **US$4.90** of rented GPU, over
+same goes for training: the model in production cost **$4.90** of rented GPU at $1.05/h, over
 4 hours and 40 minutes.
 
 It runs in production on the company's cluster, behind single sign-on, serving a 115 MB

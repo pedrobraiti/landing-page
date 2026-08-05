@@ -42,7 +42,7 @@ Y_TICKS = [1.08, 1.12, 1.16, 1.20, 1.24]
 TEXTS = {
     "pt": {
         "title": "Iterações por segundo no laço de treino",
-        "subtitle": "4 execuções intercaladas na mesma RTX 4090 · cena real de 469 fotos a 12 MP",
+        "subtitle": "duas execuções de cada lado, intercaladas na mesma RTX 4090 · cena real de 469 fotos a 12 MP",
         "baseline": "PGSR original",
         "patched": "pgsr-fast",
         "unit": "it/s",
@@ -51,7 +51,7 @@ TEXTS = {
     },
     "en": {
         "title": "Training loop iterations per second",
-        "subtitle": "4 interleaved runs on the same RTX 4090 · real scene, 469 photos at 12 MP",
+        "subtitle": "two runs per side, interleaved on the same RTX 4090 · real scene, 469 photos at 12 MP",
         "baseline": "stock PGSR",
         "patched": "pgsr-fast",
         "unit": "it/s",

@@ -10,7 +10,7 @@ end: null
 current: true
 order: 60
 summary: >-
-  Started at sixteen and never stopped. Seven years working for people and groups in
+  Started at sixteen and never stopped. Seven years for studios and private clients in
   Brazil and abroad, on mechanical, 3D-printing and purely artistic projects. It's the
   oldest skill I have — and the one that supports Octus Forge today.
 href: https://www.artstation.com/pedrotyppe

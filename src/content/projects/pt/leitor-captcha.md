@@ -16,7 +16,10 @@ summary: >-
 measure:
   value: 82%
   label: dos captchas aceitos de primeira pelo próprio servidor, com maiúscula e minúscula certas
-  condition: 50 captchas · conjunto de 4 modelos · aceite confirmado pelo servidor, não por gabarito meu
+  condition: >-
+    41 de 50 captchas · conjunto de 4 modelos · aceite confirmado pelo servidor, não por
+    gabarito meu · com n=50 o intervalo de 95% vai de 69% a 90%, então trate como "por
+    volta de 80", não como 82 cravado
 stack:
   - Python
   - PyTorch
@@ -42,9 +45,9 @@ requisições e nenhum arquivo baixado durante a coleta — o gargalo era a educ
 velocidade.
 
 A segunda descoberta mudou a arquitetura. Desconfiei que o servidor diferenciava
-maiúscula de minúscula e testei: submeti tudo minúsculo, depois tudo maiúsculo. **Seis
-por cento de aceite nos dois casos** — exatamente o que o acaso prevê para cinco
-caracteres. Ou seja, um OCR que ignora caixa tem teto de uns 7% ali, por melhor que
+maiúscula de minúscula e testei: submeti tudo minúsculo, depois tudo maiúsculo: cerca de
+**3% de aceite em cada, 6% somando os dois** — exatamente o que o acaso prevê para cinco
+caracteres, já que 2⁻⁵ dá 3,1% por tentativa. Ou seja, um OCR que ignora caixa tem teto de uns 7% ali, por melhor que
 leia as letras.
 
 Então o modelo tem duas cabeças: uma decide **qual** é a letra, outra decide se ela é

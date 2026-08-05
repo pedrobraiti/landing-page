@@ -18,13 +18,20 @@
   vazou português para a página inglesa até virar "PostgreSQL RLS".
 */
 import { getProjects } from '../lib/content';
-import { localizePath, type Locale } from '../lib/i18n';
+import { localizePath, useTranslations, type Locale } from '../lib/i18n';
 
 interface Props {
   lang: Locale;
+  /*
+    `inline` é o bloco dentro do Sobre. `band` é a faixa própria da home, com a
+    mesma cabeça das outras seções — é a segunda tela do site, e é onde quem
+    chegou por indicação descobre o que ele resolve antes de ver projeto nenhum.
+  */
+  variant?: 'inline' | 'band';
 }
 
-const { lang } = Astro.props;
+const { lang, variant = 'inline' } = Astro.props;
+const t = useTranslations(lang);
 const projects = await getProjects(lang);
 
 const skills = [
@@ -53,15 +60,15 @@ const skills = [
     },
   },
   {
-    slugs: ['conciliacao-planilha', 'chatbot-whatsapp'],
-    tools: ['Claude Code', 'OpenAI API', 'Pipedrive', 'Omie ERP'],
+    slugs: ['skills-ecotechne', 'conciliacao-planilha'],
+    tools: ['Claude Code', 'Pipedrive', 'Omie ERP', 'Trello'],
     pt: {
       title: 'Consultoria de IA',
-      body: 'Entro na operação, mapeio onde a IA resolve e onde ela só atrapalha, entrego a automação e saio com o time sabendo operar sem mim.',
+      body: 'Entro na operação, mapeio o que é repetitivo e automatizo — inclusive quando a resposta certa é não usar IA, e sim uma macro que qualquer um consegue manter.',
     },
     en: {
       title: 'AI consulting',
-      body: 'I go into the operation, map where AI actually helps and where it only gets in the way, deliver the automation, and leave with the team able to run it without me.',
+      body: 'I go into the operation, find what is repetitive and automate it — including when the right answer is not AI at all, but a macro anyone on the team can maintain.',
     },
   },
   {
@@ -116,12 +123,29 @@ const resolved = skills.map((skill) => {
 });
 
 const heading = { pt: 'O que eu faço', en: 'What I do' }[lang];
+const isBand = variant === 'band';
 ---
 
-<section class="mt-16 border-t border-line pt-10">
-  <h2 class="rule text-ref">{heading}</h2>
+<section
+  class:list={
+    isBand
+      ? 'border-y border-line bg-surface/30'
+      : 'mt-16 border-t border-line pt-10'
+  }
+>
+  <div class:list={isBand && 'mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28'}>
+    {
+      isBand ? (
+        <header class="max-w-3xl">
+          <p class="rule text-ref">{t('section.skills')}</p>
+          <h2 class="mt-5 text-section">{t('section.skills.lede')}</h2>
+        </header>
+      ) : (
+        <h2 class="rule text-ref">{heading}</h2>
+      )
+    }
 
-  <ul class="mt-8 flex flex-col gap-8">
+  <ul class:list={['flex flex-col gap-8', isBand ? 'mt-12' : 'mt-8']}>
     {
       resolved.map((skill) => (
         <li class="grid gap-x-8 gap-y-3 sm:grid-cols-[minmax(0,15rem)_1fr]">
@@ -155,4 +179,5 @@ const heading = { pt: 'O que eu faço', en: 'What I do' }[lang];
       ))
     }
   </ul>
+  </div>
 </section>

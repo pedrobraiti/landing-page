@@ -48,7 +48,8 @@ benchmark.
 
 ## The decision that changed the project
 
-I had 653 tests passing and green CI in all three repositories. I sent a **two-dollar**
+I had 653 tests passing and green CI in all three repositories — the count as of July
+2026, before the order. I sent a **two-dollar**
 order on a real account, just to see.
 
 The order exposed a unit bug: the system treated a value in **dollars** as if it were a

@@ -10,12 +10,17 @@ period: '2026'
 status: Public
 order: 110
 summary: >-
-  Five market techniques everyone repeats, put under rigorous test until what's left
+  Five market techniques everyone repeats, stress-tested until what's left
   is an answer you can trust.
 measure:
-  value: 33 years
-  label: of data swept to answer whether the technique survives costs
-  condition: walk-forward out-of-sample · after costs · with permutation and bootstrap tests
+  value: −0.6%/yr
+  label: >-
+    what beta actually paid, where the CAPM says it should pay a premium — t = −0.16,
+    indistinguishable from zero
+  condition: >-
+    Fama-MacBeth regression on beta-sorted portfolios · the original paper windows
+    (1927–2003 and 1963–2003) plus an out-of-sample extension from 2004 to today · data
+    from the Kenneth French library
 stack:
   - Python
   - pandas
@@ -37,7 +42,8 @@ links:
 ---
 
 Five independent studies, each with its own hypothesis: an empirical replication of
-Fama & French (2004), with the GRS test and the Betting-Against-Beta anomaly; Volume
+Fama & French (2004) — the survey *"The CAPM: Theory and Evidence"*, not the 1993
+three-factor model —, with the GRS test and the Betting-Against-Beta anomaly; Volume
 Profile put through falsification across 17 to 33 years of data; an expectancy backtester
 with R-multiples and risk-of-ruin computation; the GOLD11 premium arbitrage on the
 Brazilian exchange; and the constant-dollar rebalancing rule. All public, all with a PDF

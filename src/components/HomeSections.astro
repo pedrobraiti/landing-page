@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import ProjectCard from './ProjectCard.astro';
 import RoleCards from './RoleCards.astro';
 import Wireframe from './Wireframe.astro';
+import Skills from './Skills.astro';
 import { useTranslations, localizePath, type Locale } from '../lib/i18n';
 import { getFeatured, getProjects } from '../lib/content';
 import cavalheiro from '../assets/3d/cavalheiro4.png';
@@ -34,6 +35,13 @@ const artstation = {
   en: 'See the ArtStation portfolio',
 }[lang];
 ---
+
+{/*
+  Capacidades antes de projeto. Quem chega aqui por indicação de evento quer saber o
+  que ele resolve, e só depois quais foram os casos — esta seção vivia enterrada no
+  meio do Sobre, a sete telas de rolagem no celular.
+*/}
+<Skills lang={lang} variant="band" />
 
 <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
   <header class="max-w-3xl">

@@ -15,7 +15,9 @@ summary: >-
 measure:
   value: '93'
   label: testes de invariante — a física precisa continuar obedecendo às próprias leis
-  condition: núcleo de simulação isolado do jogo, testável sem abrir uma janela
+  condition: >-
+    93 de 93 verdes no `cargo test` do crate de núcleo · a simulação roda sem abrir
+    janela, então o teste não depende de renderizar nada
 stack:
   - Rust
   - Simulação falling-sand
