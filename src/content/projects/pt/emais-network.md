@@ -10,6 +10,7 @@ period: '2026'
 status: Em produção, com pagamentos reais
 order: 10
 cover: ../../../assets/projects/emais-cover.png
+coverFit: contain
 coverCardOnly: true
 coverAlt: >-
   As quatro telas do aplicativo da Emais lado a lado: agenda de eventos, conta do membro e o assistente

@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { localizePath, familyLabels, type Locale } from '../lib/i18n';
+import { localizePath, familyLabels, useTranslations, type Locale } from '../lib/i18n';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -10,46 +10,76 @@ interface Props {
 }
 
 const { project, lang, featured = false } = Astro.props;
-const { title, slug, summary, measure, family, status, cover, gallery } = project.data;
+const t = useTranslations(lang);
+const { title, slug, summary, measure, family, status, cover, coverFit, gallery, stack } =
+  project.data;
+
+/* Sem capa própria, a primeira da galeria é captura de celular — nunca preencher. */
+const fit = cover ? coverFit : 'contain';
 
 /*
   Projeto sem capa cai na primeira imagem da galeria — é o caso da Emais, cujo app é
-  feito para celular e cuja captura de desktop era a parte feia. `object-top` porque
-  numa captura de celular recortada em paisagem o que interessa está no alto da tela.
+  feito para celular e cuja captura de desktop era a parte feia.
 */
 const preview = cover ?? gallery[0]?.src;
 const href = localizePath(`/projetos/${slug}`, lang);
 ---
 
+{/*
+  Toda carta tem uma janela de mídia com a MESMA proporção, com imagem ou sem. Antes,
+  quem não tinha imagem esticava para acompanhar a altura de quem tinha, e sobravam
+  400px de vazio no meio da grade — era o que fazia a página parecer desalinhada.
+  Sem imagem, a janela mostra a stack numa lista técnica sobre o papel pontilhado:
+  informação de verdade, no vocabulário do resto do site, e nunca um espaço morto.
+*/}
 <article
   class:list={[
-    'group relative flex flex-col border border-line bg-surface/50 transition-colors duration-300 hover:border-measure/60',
+    'group relative flex h-full w-full flex-col bg-page transition-colors duration-300 hover:bg-surface',
     featured && 'md:flex-row',
   ]}
 >
-  {
-    preview && (
-      <div class:list={['overflow-hidden border-line', featured ? 'md:w-1/2 md:border-r border-b md:border-b-0' : 'border-b']}>
-        <Image
-          src={preview}
-          alt={title}
-          widths={[480, 800, 1200]}
-          sizes="(min-width: 768px) 50vw, 100vw"
-          {/*
-            `max-h-96` só no caso da galeria: a imagem é uma captura de celular, e uma
-            proporção 9:16 com `h-full` puxa a altura da linha inteira do cartão — o da
-            Emais chegou a 1.400px de alto. `object-top` porque o que identifica o app
-            está no alto da tela.
-          */}
+  <div
+    class:list={[
+      'relative overflow-hidden border-line',
+      featured
+        ? 'aspect-[16/10] md:aspect-auto md:w-1/2 md:border-r border-b md:border-b-0'
+        : 'aspect-[16/10] border-b',
+    ]}
+  >
+    {
+      preview ? (
+        <div
           class:list={[
-            'h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]',
-            !cover && 'max-h-96 object-top',
+            'h-full w-full',
+            fit === 'contain' && 'grid-paper bg-surface/40 p-4 sm:p-6',
           ]}
-          loading="lazy"
-        />
-      </div>
-    )
-  }
+        >
+          <Image
+            src={preview}
+            alt={title}
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            class:list={[
+              'h-full w-full transition-transform duration-500 group-hover:scale-[1.03]',
+              fit === 'contain' ? 'object-contain' : 'object-cover object-top',
+            ]}
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div class="grid-paper flex h-full w-full flex-col justify-between bg-surface/40 p-6 sm:p-8">
+          <span class="rule text-ref">{t('project.stack')}</span>
+          <ul class="flex flex-col gap-1.5">
+            {stack.slice(0, 6).map((item) => (
+              <li class="font-mono text-sm leading-none text-dim" translate="no">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </div>
 
   <div class:list={['flex flex-1 flex-col p-6 sm:p-8', featured && 'md:justify-center']}>
     <div class="flex flex-wrap items-center gap-x-2 gap-y-1">

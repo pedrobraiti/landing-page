@@ -9,6 +9,7 @@ context: Started as my own project; Datlaz adopted it and turned it into a produ
 period: '2026'
 status: Adopted as a product by the company
 cover: ../../../assets/projects/solar-app.png
+coverFit: contain
 order: 30
 summary: >-
   You draw an area on the map and the system returns, marked, every solar panel on

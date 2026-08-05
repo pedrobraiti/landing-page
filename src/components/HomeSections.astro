@@ -49,13 +49,18 @@ const artstation = {
     <h2 class="mt-5 text-section">{t('section.selected.lede')}</h2>
   </header>
 
-  <div class="mt-14 grid gap-6 sm:gap-8 lg:grid-cols-2">
+  <div class="mt-14 grid gap-px border border-line bg-line lg:grid-cols-2">
     {
-      featured.map((project, index) => (
-        <div class:list={[index === 0 && 'lg:col-span-2']}>
-          <ProjectCard project={project} lang={lang} featured={index === 0} />
-        </div>
-      ))
+      featured.map((project, index) => {
+        /* Ímpar no fim ocupa a linha inteira, para não sobrar meia fileira vazia. */
+        const fillsRow =
+          index === 0 || (featured.length % 2 === 0 && index === featured.length - 1);
+        return (
+          <div class:list={['flex', fillsRow && 'lg:col-span-2']}>
+            <ProjectCard project={project} lang={lang} featured={fillsRow} />
+          </div>
+        );
+      })
     }
   </div>
 </section>
@@ -85,10 +90,16 @@ const artstation = {
         <p class="rule text-ref">{t('section.research')}</p>
         <h2 class="mt-5 text-section">{t('section.research.lede')}</h2>
       </header>
-      <div class="mt-14 grid gap-6 sm:gap-8 lg:grid-cols-2">
-        {research.map((project) => (
-          <ProjectCard project={project} lang={lang} />
-        ))}
+      <div class="mt-14 grid gap-px border border-line bg-line lg:grid-cols-2">
+        {research.map((project, index) => {
+          const fillsRow =
+            research.length % 2 === 1 && index === research.length - 1;
+          return (
+            <div class:list={['flex', fillsRow && 'lg:col-span-2']}>
+              <ProjectCard project={project} lang={lang} featured={fillsRow} />
+            </div>
+          );
+        })}
       </div>
     </section>
   )
@@ -110,10 +121,10 @@ const artstation = {
       <Wireframe size="min(11rem, 30vw)" class="mx-auto shrink-0 sm:mx-0" />
     </div>
 
-    <div class="mt-14 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+    <div class="mt-14 grid grid-cols-2 gap-px border border-line bg-line lg:grid-cols-4">
       {
         pieces.map((piece) => (
-          <figure class="group overflow-hidden border border-line bg-surface">
+          <figure class="group overflow-hidden bg-page">
             <Image
               src={piece.src}
               alt={piece[lang]}

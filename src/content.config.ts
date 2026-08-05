@@ -49,6 +49,12 @@ const projects = defineCollection({
       */
       coverAlt: z.string().optional(),
       /*
+        Captura de tela e gráfico não podem ser recortados: recortar esconde exatamente
+        o que a imagem existe para provar. Esses vêm inteiros, sobre o papel pontilhado.
+        Ilustração e foto continuam preenchendo a janela.
+      */
+      coverFit: z.enum(['cover', 'contain']).default('cover'),
+      /*
         Capa que só vale como miniatura de card. A da Emais é a composição das quatro
         telas da galeria — repeti-la no topo da própria página seria mostrar a mesma
         coisa duas vezes, uma embaixo da outra.

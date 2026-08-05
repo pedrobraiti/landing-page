@@ -9,6 +9,7 @@ context: Otimização sobre um projeto acadêmico de reconstrução 3D
 period: '2026'
 status: Público, com benchmark reproduzível
 cover: ../../../assets/projects/pgsr-bench-pt.png
+coverFit: contain
 order: 50
 coverAlt: >-
   Gráfico de pontos: 1,115 it/s no PGSR original contra 1,222 it/s no pgsr-fast, duas execuções de cada lado, eixo recortado em 1,07

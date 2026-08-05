@@ -9,6 +9,7 @@ context: Necessidade da Octus Forge, minha empresa de impressão em resina
 period: '2026'
 status: Protótipo funcional · uma peça digitalizada e aprovada
 cover: ../../../assets/projects/scanner-3d.png
+coverFit: contain
 order: 35
 summary: >-
   Você fotografa uma miniatura pintada com o celular e recebe a malha dela, pronta

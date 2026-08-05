@@ -9,6 +9,7 @@ context: Optimization on top of an academic 3D reconstruction project
 period: '2026'
 status: Public, with a reproducible benchmark
 cover: ../../../assets/projects/pgsr-bench-en.png
+coverFit: contain
 order: 50
 coverAlt: >-
   Dot chart: 1.115 it/s on stock PGSR against 1.222 it/s on pgsr-fast, two runs per side, axis cropped at 1.07

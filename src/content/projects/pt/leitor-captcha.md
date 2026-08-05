@@ -9,6 +9,7 @@ context: Datlaz — prestação de serviço
 period: '2026'
 status: Em produção desde julho de 2026
 cover: ../../../assets/projects/captcha-limpeza.png
+coverFit: contain
 order: 115
 summary: >-
   Os portais públicos de dado ambiental exigem resolver um captcha a cada arquivo

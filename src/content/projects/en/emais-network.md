@@ -10,6 +10,7 @@ period: '2026'
 status: In production, with real payments
 order: 10
 cover: ../../../assets/projects/emais-cover.png
+coverFit: contain
 coverCardOnly: true
 coverAlt: >-
   The four Emais app screens side by side: event schedule, member account and the assistant

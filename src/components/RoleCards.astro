@@ -48,8 +48,12 @@ const groups = (['own', 'hired', 'independent'] as const)
       <section>
         <h2 class="rule text-ref">{group.label}</h2>
 
-        <ol class="mt-6 grid gap-5 lg:grid-cols-2">
-          {group.roles.map((role) => {
+        {/* Malha de fio em vez de caixas soltas — e vínculo ímpar no fim ocupa a
+            linha inteira, senão sobra meia fileira vazia (era o caso da Rumo). */}
+        <ol class="mt-6 grid gap-px border border-line bg-line lg:grid-cols-2">
+          {group.roles.map((role, index) => {
+            const fillsRow =
+              group.roles.length % 2 === 1 && index === group.roles.length - 1;
             const asset = orgAssets[role.data.slug];
             const related = relatedTo(role.data.org);
 
@@ -63,7 +67,12 @@ const groups = (['own', 'hired', 'independent'] as const)
               : {};
 
             return (
-              <li class="group flex flex-col border border-line bg-surface/40 transition-colors duration-300 hover:border-measure/50">
+              <li
+                class:list={[
+                  'group flex flex-col bg-page transition-colors duration-300 hover:bg-surface',
+                  fillsRow && 'lg:col-span-2',
+                ]}
+              >
                 {asset?.photo && (
                   <div class="overflow-hidden border-b border-line">
                     <Image

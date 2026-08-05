@@ -9,6 +9,7 @@ context: Nasceu como projeto meu; a Datlaz adotou e virou produto
 period: '2026'
 status: Adotado como produto pela empresa
 cover: ../../../assets/projects/solar-app.png
+coverFit: contain
 order: 30
 summary: >-
   Você desenha uma área no mapa e o sistema devolve, marcado, cada painel solar que

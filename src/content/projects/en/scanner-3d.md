@@ -9,6 +9,7 @@ context: A need at Octus Forge, my resin printing company
 period: '2026'
 status: Working prototype · one piece scanned and approved
 cover: ../../../assets/projects/scanner-3d.png
+coverFit: contain
 order: 35
 summary: >-
   You photograph a painted miniature with your phone and get back its mesh, ready for

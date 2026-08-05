@@ -9,6 +9,7 @@ context: Datlaz — contract work
 period: '2026'
 status: In production since July 2026
 cover: ../../../assets/projects/captcha-limpeza.png
+coverFit: contain
 order: 115
 summary: >-
   Brazilian public environmental portals demand a CAPTCHA for every single file you
