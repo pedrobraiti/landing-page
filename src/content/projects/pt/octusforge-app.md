@@ -16,6 +16,7 @@ measure:
   value: 7 etapas
   label: do pedido do cliente à caixa fechada, cada uma com responsável e checklist
   condition: em produção, com funcionários operando pedidos reais
+  kind: fact
 stack:
   - React
   - Vite

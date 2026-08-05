@@ -13,9 +13,13 @@ summary: >-
   You write the alphabet once on a drawing tablet and the tool generates any text in
   your handwriting — pen pressure included.
 measure:
-  value: by pressure
-  label: stroke thickness comes from the pen, not from a fixed value
-  condition: real samples captured on a drawing tablet, with per-letter variation
+  value: '720'
+  label: >-
+    samples of my own handwriting, ten per glyph — this is what makes the same word come
+    out differently twice
+  condition: >-
+    72 glyphs across lowercase, uppercase, digits, punctuation and accents · captured on a
+    drawing tablet, with stroke thickness taken from pen pressure
 stack:
   - Python
   - Drawing tablet capture

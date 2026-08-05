@@ -16,6 +16,7 @@ measure:
   value: May 28, 2026
   label: live and taking real payments ever since, with no downtime
   condition: Pix, card and boleto · multi-franchise finance isolated by RLS
+  kind: fact
 gallery:
   - src: ../../../assets/projects/emais-app-1.png
     caption: Event schedule, with tickets and filtering by region

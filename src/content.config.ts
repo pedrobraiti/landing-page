@@ -2,14 +2,19 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 /*
-  A "medida" é obrigatória em todo projeto. Cada coisa que o Pedro construiu tem um
-  número que ele apurou e a condição em que apurou — é a assinatura do site e o que
-  separa este portfólio de uma lista de repositórios.
+  A "medida" é obrigatória em todo projeto — é a assinatura do site e o que separa este
+  portfólio de uma lista de repositórios.
+
+  `kind` existe porque nem tudo que vale destacar foi apurado. Um projeto pode ter um
+  parâmetro que o define (quantas classes, quantas etapas) sem ter um número medido, e
+  chamar isso de "Medido" seria a mesma propaganda que a régua existe para evitar. O
+  padrão é `measured`; `fact` troca o rótulo e não promete apuração nenhuma.
 */
 const measure = z.object({
   value: z.string(),
   label: z.string(),
   condition: z.string(),
+  kind: z.enum(['measured', 'fact']).default('measured'),
 });
 
 /*

@@ -13,9 +13,13 @@ summary: >-
   Você escreve o alfabeto uma vez na mesa digitalizadora e a ferramenta gera qualquer
   texto com a sua letra — inclusive a pressão da caneta.
 measure:
-  value: por pressão
-  label: a espessura do traço vem da caneta, não de um valor fixo
-  condition: amostras reais capturadas em mesa digitalizadora, com variação por letra
+  value: '720'
+  label: >-
+    amostras da minha letra, dez de cada glifo — é o que faz a mesma palavra sair
+    diferente duas vezes
+  condition: >-
+    72 glifos entre minúsculas, maiúsculas, números, pontuação e acentos · capturados em
+    mesa digitalizadora, com a espessura do traço vinda da pressão da caneta
 stack:
   - Python
   - Captura por mesa digitalizadora

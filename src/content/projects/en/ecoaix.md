@@ -21,6 +21,7 @@ measure:
   value: 4 classes
   label: with the box computed from the symbol's own geometry, not drawn by hand
   condition: disconnect switch, breaker, surge arrester and current transformer · the box expands per type, and any example falling outside the frame is discarded
+  kind: fact
 stack:
   - Python
   - FastAPI

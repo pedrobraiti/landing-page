@@ -13,9 +13,10 @@ summary: >-
   A full compiler, from lexical analysis to ARMv7 Assembly that runs on the simulator —
   in plain Python, with no dependencies.
 measure:
-  value: ARMv7
-  label: from reverse Polish notation to assembly that runs on the simulator
-  condition: strong static typing, attributed syntax tree, documented EBNF grammar
+  value: 55/55
+  label: tests passing, from token recognition to the assembly that runs on the simulator
+  condition: >-
+    pytest on the repository tree · 17 lexer, 12 parser, 18 type system and 8 end-to-end
 stack:
   - Python
   - ARMv7 Assembly

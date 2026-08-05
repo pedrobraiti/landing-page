@@ -14,9 +14,11 @@ summary: >-
   Você dá um tema. Ele escreve o roteiro, narra com voz clonada, gera as imagens,
   sincroniza a legenda, anima o mascote e entrega o MP4 pronto para publicar.
 measure:
-  value: zero
-  label: "números financeiros vindos da IA de imagem: a regra que impede o vídeo de mentir"
-  condition: todo gráfico é renderizado por código, nunca desenhado por modelo generativo
+  value: '48'
+  label: vídeos montados do tema ao MP4, sem nenhuma etapa manual no meio
+  condition: >-
+    9:16, cerca de um minuto · roteiro, narração, imagens, legenda, mascote e montagem
+    numa passada só · nenhum número financeiro sai do modelo de imagem
 stack:
   - Python 3.12
   - Kokoro-82M

@@ -16,6 +16,7 @@ measure:
   value: 7 stages
   label: from customer order to sealed box, each with an owner and a checklist
   condition: in production, with employees running real orders
+  kind: fact
 stack:
   - React
   - Vite

@@ -21,6 +21,7 @@ export const ui = {
     'hero.cta.contact': 'Falar comigo',
     'hero.caption': 'Pedro Braiti · Curitiba, Brasil',
     'measure.eyebrow': 'Medido',
+    'measure.eyebrow.fact': 'Do projeto',
     'measure.condition': 'Condição',
     'section.selected': 'Trabalho selecionado',
     'section.selected.lede':
@@ -80,6 +81,7 @@ export const ui = {
     'hero.cta.contact': 'Get in touch',
     'hero.caption': 'Pedro Braiti · Curitiba, Brazil',
     'measure.eyebrow': 'Measured',
+    'measure.eyebrow.fact': 'From the project',
     'measure.condition': 'Conditions',
     'section.selected': 'Selected work',
     'section.selected.lede':

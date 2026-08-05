@@ -10,19 +10,22 @@ interface Props {
   value: string;
   label: string;
   condition: string;
+  /* `fact` é o dado que define o projeto sem ter sido apurado. Ver `content.config.ts`. */
+  kind?: 'measured' | 'fact';
   lang: Locale;
   size?: 'md' | 'lg';
 }
 
-const { value, label, condition, lang, size = 'md' } = Astro.props;
+const { value, label, condition, kind = 'measured', lang, size = 'md' } = Astro.props;
 const t = useTranslations(lang);
+const eyebrow = kind === 'fact' ? t('measure.eyebrow.fact') : t('measure.eyebrow');
 const valueSize = size === 'lg' ? 'text-5xl sm:text-6xl md:text-7xl' : 'text-4xl sm:text-5xl';
 ---
 
 <figure class="grid-paper relative border border-line bg-surface/70 p-6 sm:p-8">
   <span class="absolute -top-px left-6 h-px w-16 bg-measure" aria-hidden="true"></span>
 
-  <figcaption class="rule mb-4 text-measure">{t('measure.eyebrow')}</figcaption>
+  <figcaption class="rule mb-4 text-measure">{eyebrow}</figcaption>
 
   <p
     class={`font-display font-extrabold leading-none tracking-tight text-measure tabular-nums ${valueSize}`}

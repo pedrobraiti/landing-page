@@ -21,6 +21,7 @@ measure:
   value: 4 classes
   label: com a caixa já calculada da geometria do símbolo, não desenhada à mão
   condition: chave seccionadora, disjuntor, para-raio e TC · a caixa se expande por tipo, e exemplo que sai do quadro é descartado
+  kind: fact
 stack:
   - Python
   - FastAPI

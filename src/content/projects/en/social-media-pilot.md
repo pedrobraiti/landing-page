@@ -14,9 +14,11 @@ summary: >-
   You give it a topic. It writes the script, narrates it with a cloned voice, generates
   the images, syncs the captions, animates the mascot and delivers the MP4 ready to publish.
 measure:
-  value: zero
-  label: financial numbers coming from the image model — the rule that keeps the video from lying
-  condition: every chart is rendered by code, never drawn by a generative model
+  value: '48'
+  label: videos assembled from topic to MP4, with no manual step in between
+  condition: >-
+    9:16, about a minute each · script, narration, images, captions, mascot and assembly
+    in a single pass · no financial number ever comes out of the image model
 stack:
   - Python 3.12
   - Kokoro-82M

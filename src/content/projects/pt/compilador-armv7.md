@@ -13,9 +13,11 @@ summary: >-
   Um compilador completo, da análise léxica ao Assembly ARMv7 que roda no simulador —
   em Python puro, sem dependência nenhuma.
 measure:
-  value: ARMv7
-  label: da notação polonesa reversa até o assembly que roda no simulador
-  condition: tipagem estática e forte, árvore sintática atribuída, gramática EBNF documentada
+  value: 55/55
+  label: os testes passando, do reconhecimento do token ao assembly que roda no simulador
+  condition: >-
+    pytest na árvore do repositório · 17 de léxico, 12 de sintaxe, 18 do sistema de tipos
+    e 8 de ponta a ponta
 stack:
   - Python
   - Assembly ARMv7

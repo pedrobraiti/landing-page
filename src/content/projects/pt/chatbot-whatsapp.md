@@ -13,9 +13,12 @@ summary: >-
   Atendimento automatizado no WhatsApp que responde o cliente, qualifica o lead e só
   chama uma pessoa quando vale a pena.
 measure:
-  value: triagem
-  label: o lead chega qualificado, e a pessoa só entra quando vale a pena
-  condition: atendimento automatizado no WhatsApp, com escalonamento para humano
+  value: sem número
+  label: é o projeto do qual eu tenho menos registro — foi entregue, funcionou, e eu não guardei medida nenhuma
+  condition: >-
+    código privado, feito em dupla · prefiro dizer isso a inventar um número para
+    preencher o campo
+  kind: fact
 stack:
   - Python
   - WhatsApp Business API

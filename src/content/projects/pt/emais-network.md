@@ -16,6 +16,7 @@ measure:
   value: 28 mai 2026
   label: no ar recebendo pagamentos reais desde então, sem interrupção
   condition: Pix, cartão e boleto · financeiro multi-franquia isolado por RLS
+  kind: fact
 gallery:
   - src: ../../../assets/projects/emais-app-1.png
     caption: Agenda de eventos, com ingresso e filtro por região

@@ -13,9 +13,12 @@ summary: >-
   Automated WhatsApp support that answers the customer, qualifies the lead, and only
   pulls in a person when it's worth it.
 measure:
-  value: triage
-  label: the lead arrives qualified, and a person only steps in when it's worth it
-  condition: automated WhatsApp support, with escalation to a human
+  value: no number
+  label: this is the project I kept the least record of — it shipped, it worked, and I have no measurement to show
+  condition: >-
+    private code, built as a pair · I would rather say so than invent a number to fill
+    the field
+  kind: fact
 stack:
   - Python
   - WhatsApp Business API
