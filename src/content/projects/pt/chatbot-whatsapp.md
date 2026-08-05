@@ -13,11 +13,11 @@ summary: >-
   Atendimento automatizado no WhatsApp que responde na hora, qualifica o lead, alimenta
   o CRM sozinho e só chama uma pessoa quando vale a pena.
 measure:
-  value: mais de 3.000
-  label: clientes atendidos pelo bot antes de a conversa chegar em alguém do time
+  value: 2% → 3,6%
+  label: a conversão da empresa antes e depois do bot, num negócio de ticket médio alto
   condition: >-
-    contagem informada pela operação · eu não opero o painel e não apurei esse número
-    pessoalmente
+    números informados pelo cliente, não apurados por mim · mais de 3.000 clientes
+    atendidos · atendimento humanizado, com escalonamento para pessoa
   kind: fact
 stack:
   - Python
@@ -47,11 +47,18 @@ vendedor até responde rápido, mas não registra, e a informação morre no apa
 O ponto nunca foi automatizar o atendimento inteiro. Era garantir que, quando alguém do
 time entra na conversa, o contexto já está levantado e o lead já foi filtrado.
 
-## O que eu não posso provar
+## O resultado
 
-O efeito na conversão da empresa é real, mas eu não tenho o antes e o depois medidos, e
-não vou apresentar como se tivesse. O mesmo vale para a contagem de atendimentos: o número
-veio da operação, não de um painel que eu tenha aberto.
+A conversão da empresa saiu de **2% para 3,6%** — num negócio de ticket médio alto, onde
+cada ponto percentual vale bastante. Mais de três mil clientes passaram pelo bot antes de
+qualquer conversa chegar numa pessoa.
+
+## De onde vêm esses números
+
+**Do cliente, não de um teste meu.** Não montei experimento controlado, não tenho o painel
+na mão, e não vou apresentar esses números como se eu mesmo os tivesse apurado. É a razão
+de esta ficha dizer "do projeto" e não "medido" — são números reais e verificáveis com
+quem opera, mas o crédito da apuração não é meu.
 
 Foi feito **em dupla** pela [Dark Marlin](https://www.instagram.com/darkmarlin.dev).
 Dividi a implementação com outra pessoa; não é um projeto que eu tenha escrito sozinho e

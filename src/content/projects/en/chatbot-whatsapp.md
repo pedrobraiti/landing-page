@@ -13,11 +13,11 @@ summary: >-
   Automated WhatsApp support that answers instantly, qualifies the lead, feeds the CRM on
   its own, and only pulls in a person when it's worth it.
 measure:
-  value: over 3,000
-  label: customers handled by the bot before the conversation ever reached someone on the team
+  value: 2% → 3.6%
+  label: the company's conversion rate before and after the bot, in a high-ticket business
   condition: >-
-    count reported by the people running it · I do not operate the dashboard and did not
-    verify this number myself
+    figures reported by the client, not measured by me · over 3,000 customers handled ·
+    conversation reads as human, with escalation to a person
   kind: fact
 stack:
   - Python
@@ -48,12 +48,19 @@ The goal was never to automate support end to end. It was to make sure that when
 from the team joins the conversation, the context is already gathered and the lead is
 already filtered.
 
-## What I cannot prove
+## The result
 
-The effect on the company's conversion is real, but I do not have a measured before and
-after, and I will not present it as though I did. The same goes for the number of
-conversations: it came from the people running the operation, not from a dashboard I
-opened myself.
+The company's conversion rate went from **2% to 3.6%** — in a high-average-ticket business,
+where every percentage point is worth a lot. More than three thousand customers went
+through the bot before any conversation reached a person.
+
+## Where those numbers come from
+
+**From the client, not from a test of mine.** I did not run a controlled experiment, I do
+not have the dashboard in hand, and I will not present these figures as though I had
+measured them myself. That is why this card says "from the project" rather than "measured"
+— the numbers are real and checkable with the people running it, but the credit for
+measuring them is not mine.
 
 It was built **in a pair**, at [Dark Marlin](https://www.instagram.com/darkmarlin.dev). I
 split the implementation with another person; this isn't a project I wrote alone and I

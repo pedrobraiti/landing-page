@@ -25,11 +25,11 @@ stack:
   - CCXT
   - pytest
 links:
-  - label: Valet — execução
+  - label: Valet — execução · GitHub
     href: https://github.com/pedrobraiti/agentic-trading-mcp
-  - label: Scout — dados
+  - label: Scout — dados · GitHub
     href: https://github.com/pedrobraiti/market-research-mcp
-  - label: Vizier — decisão
+  - label: Vizier — decisão · GitHub
     href: https://github.com/pedrobraiti/vizier-trading-skill
 ---
 

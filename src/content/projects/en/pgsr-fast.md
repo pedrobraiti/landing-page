@@ -8,15 +8,17 @@ role: Author, open source contribution
 context: Optimization on top of an academic 3D reconstruction project
 period: '2026'
 status: Public, with a reproducible benchmark
-cover: ../../../assets/projects/pgsr-bench.png
+cover: ../../../assets/projects/pgsr-bench-en.png
 order: 50
 summary: >-
   Thirteen surgical fixes that make surface reconstruction training faster without
   changing a comma of the final result.
 measure:
-  value: 1.095×
-  label: faster in the training loop, with identical geometry
-  condition: RTX 4090 · real scene of 469 photos at 12 MP · loss parity within the noise floor
+  value: ≈10%
+  label: more iterations per second in the training loop, with identical geometry
+  condition: >-
+    +9.5% across four interleaved runs on the same RTX 4090 · real scene of 469 photos at
+    12 MP · loss at parity within the measurement noise
 stack:
   - Python
   - PyTorch
@@ -52,8 +54,14 @@ test doesn't turn into a "performance gain".
 
 ## The result
 
-**1.095× faster** in the training loop, with loss at parity within the measurement noise
-— validated afterwards on a full 23,000-iteration training run, not just a short segment.
+**+9.5% iterations per second** in the training loop, with loss at parity within the
+measurement noise — validated afterwards on a full 23,000-iteration training run, not just
+a short segment.
+
+And that has a price attached. Rented GPU is billed by the hour, so a faster iteration is a
+smaller invoice at the end of the month: the same 23,000 iterations finish in **8.7% less
+time**, and the hour you don't run is the hour you don't pay for. It is the kind of gain
+that never shows up on screen and always shows up on the bill.
 
 Along the way, two defects in the original project turned up: an operator precedence
 error in the moving-average logging, and a crash. Both fixed.

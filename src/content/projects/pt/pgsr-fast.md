@@ -8,15 +8,17 @@ role: Autor, contribuição open source
 context: Otimização sobre um projeto acadêmico de reconstrução 3D
 period: '2026'
 status: Público, com benchmark reproduzível
-cover: ../../../assets/projects/pgsr-bench.png
+cover: ../../../assets/projects/pgsr-bench-pt.png
 order: 50
 summary: >-
   Treze correções cirúrgicas que deixam o treino de reconstrução de superfície mais
   rápido sem mudar uma vírgula do resultado final.
 measure:
-  value: 1,095×
-  label: mais rápido no laço de treino, com a geometria idêntica
-  condition: RTX 4090 · cena real de 469 fotos a 12 MP · paridade de perda dentro do ruído
+  value: ≈10%
+  label: mais iterações por segundo no laço de treino, com a geometria idêntica
+  condition: >-
+    +9,5% em quatro execuções intercaladas na mesma RTX 4090 · cena real de 469 fotos a
+    12 MP · perda em paridade dentro do ruído de medição
 stack:
   - Python
   - PyTorch
@@ -51,9 +53,14 @@ performance".
 
 ## O resultado
 
-**1,095× mais rápido** no laço de treino, com a perda em paridade dentro do ruído de
-medição — validado depois num treino completo de 23 mil iterações, não só num trecho
-curto.
+**+9,5% de iterações por segundo** no laço de treino, com a perda em paridade dentro do
+ruído de medição — validado depois num treino completo de 23 mil iterações, não só num
+trecho curto.
+
+E isso tem preço. GPU alugada se cobra por hora, então iteração mais rápida é conta menor
+no fim do mês: as mesmas 23 mil iterações terminam em **8,7% menos tempo**, e a hora que
+não roda é hora que não se paga. É o tipo de ganho que não aparece na tela e aparece na
+fatura.
 
 No caminho, dois defeitos do projeto original apareceram: um erro de precedência de
 operador no registro da média móvel, e um crash. Ambos corrigidos.
