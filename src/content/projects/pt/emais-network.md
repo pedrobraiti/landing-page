@@ -13,10 +13,11 @@ summary: >-
   Plataforma de gestão de networking empresarial presencial — eventos, ingressos,
   adesão de membros e financeiro multi-franquia, transacionando dinheiro de verdade.
 measure:
-  value: 28 mai 2026
-  label: no ar recebendo pagamentos reais desde então, sem interrupção
-  condition: Pix, cartão e boleto · financeiro multi-franquia isolado por RLS
-  kind: fact
+  value: quase 200
+  label: membros ativos usando a plataforma para pagar adesão e entrar em evento
+  condition: >-
+    em agosto de 2026, quase três meses depois de entrar no ar · Pix, cartão e boleto ·
+    financeiro multi-franquia isolado por RLS
 gallery:
   - src: ../../../assets/projects/emais-app-1.png
     caption: Agenda de eventos, com ingresso e filtro por região
@@ -63,7 +64,8 @@ o pior erro possível deixa de ser possível.
 ## O resultado
 
 No ar desde **28 de maio de 2026**, com pagamentos reais via Pix, cartão e boleto, sem
-interrupção. Cobertura de ponta a ponta com Playwright nos fluxos que envolvem dinheiro —
-checkout, renovação e desconto — porque é onde um bug custa caro de verdade.
+interrupção, e com quase **200 membros ativos** hoje. Cobertura de ponta a ponta com
+Playwright nos fluxos que envolvem dinheiro — checkout, renovação e desconto — porque é
+onde um bug custa caro de verdade.
 
 O mérito é dividido: fiz a plataforma junto com o João, meu sócio na Dark Marlin.

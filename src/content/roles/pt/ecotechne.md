@@ -13,7 +13,8 @@ href: https://www.linkedin.com/company/ecotechnee/
 summary: >-
   Empresa de projetos de energias renováveis — subestações, linhas de transmissão e
   armazenamento. Hoje construo a automação interna dela com agentes: catorze skills que
-  ligam o CRM ao ERP, conciliam extrato bancário e fecham o mês, cada uma parando para
-  aprovação humana antes de gravar qualquer coisa. Antes disso montei a ecoAIx, um sistema de visão
-  computacional que acha os componentes dentro do diagrama unifilar.
+  cobrem comercial, financeiro e projetos — do negócio ganho no CRM virando conta a
+  receber no ERP até o fechamento do mês —, cada uma parando para aprovação humana antes
+  de gravar qualquer coisa. Antes disso montei a ecoAIx, um sistema de visão computacional
+  que acha os componentes dentro do diagrama unifilar.
 ---

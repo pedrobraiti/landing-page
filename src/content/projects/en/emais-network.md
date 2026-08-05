@@ -13,10 +13,11 @@ summary: >-
   Management platform for in-person business networking — events, tickets, membership
   and multi-franchise finance, moving real money.
 measure:
-  value: May 28, 2026
-  label: live and taking real payments ever since, with no downtime
-  condition: Pix, card and boleto · multi-franchise finance isolated by RLS
-  kind: fact
+  value: nearly 200
+  label: active members using the platform to pay dues and get into events
+  condition: >-
+    as of August 2026, almost three months after launch · Pix, card and boleto ·
+    multi-franchise finance isolated by RLS
 gallery:
   - src: ../../../assets/projects/emais-app-1.png
     caption: Event schedule, with tickets and filtering by region
@@ -64,7 +65,8 @@ The gain is that the worst possible mistake stops being possible.
 ## The result
 
 Live since **May 28, 2026**, with real payments via Pix, card and boleto, with no
-downtime. End-to-end coverage with Playwright on the flows that involve money — checkout,
-renewal and discount — because that's where a bug actually costs money.
+downtime, and close to **200 active members** today. End-to-end coverage with Playwright on
+the flows that involve money — checkout, renewal and discount — because that's where a bug
+actually costs money.
 
 The credit is shared: I built the platform together with João, my partner at Dark Marlin.
