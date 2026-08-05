@@ -1,8 +1,16 @@
 ---
 /*
   A ficha de medida — o elemento que assina o site inteiro.
-  Todo projeto do Pedro tem um número que ele apurou e a condição em que apurou.
-  Mostrar a condição junto do valor é o ponto: número sem condição é propaganda.
+
+  Ela é desenhada como uma **cota de desenho técnico**, e não como um cartão de
+  estatística: o valor fica preso à esquerda por uma linha de chamada com marca de
+  extremidade, e a condição pendura embaixo dela como anotação. É o vocabulário do
+  próprio trabalho do Pedro — quem modela peça e lê diagrama unifilar lê cota o dia
+  inteiro — e é o que separa esta ficha de um número grande e dourado qualquer.
+
+  A linha de chamada é decoração: ela cresce na entrada, mas o conteúdo já está
+  visível antes de o script existir. Regra da casa — animação nunca é o que torna o
+  conteúdo visível.
 */
 import { useTranslations, type Locale } from '../lib/i18n';
 
@@ -16,32 +24,68 @@ interface Props {
   size?: 'md' | 'lg';
 }
 
-const { value, label, condition, kind = 'measured', lang, size = 'md' } = Astro.props;
+const { value, label, condition, kind = 'measured', lang, size = 'lg' } = Astro.props;
 const t = useTranslations(lang);
 const eyebrow = kind === 'fact' ? t('measure.eyebrow.fact') : t('measure.eyebrow');
-const valueSize = size === 'lg' ? 'text-5xl sm:text-6xl md:text-7xl' : 'text-4xl sm:text-5xl';
+const valueSize =
+  size === 'lg' ? 'text-5xl sm:text-6xl lg:text-7xl' : 'text-4xl sm:text-5xl';
 ---
 
-<figure class="grid-paper relative border border-line bg-surface/70 p-6 sm:p-8">
-  <span class="absolute -top-px left-6 h-px w-16 bg-measure" aria-hidden="true"></span>
+<figure class="grid-paper relative flex h-full flex-col justify-center border border-line bg-surface/70 p-6 sm:p-8">
+  <figcaption class="flex items-center gap-3">
+    <span class="rule shrink-0 text-measure">{eyebrow}</span>
+    <span class="measure-lead h-px flex-1 bg-line" aria-hidden="true"></span>
+  </figcaption>
 
-  <figcaption class="rule mb-4 text-measure">{eyebrow}</figcaption>
+  <div class="mt-6 flex items-start gap-4 sm:gap-5">
+    {/* A marca de extremidade da cota: só ela é âmbar, e ancora o número. */}
+    <span
+      class="mt-1.5 w-px shrink-0 self-stretch bg-measure sm:mt-2"
+      aria-hidden="true"
+    ></span>
 
-  <p
-    class={`font-display font-extrabold leading-none tracking-tight text-measure tabular-nums ${valueSize}`}
-    translate="no"
-  >
-    {value}
-  </p>
+    <p
+      class={`font-display font-extrabold leading-[0.9] tracking-tight text-measure tabular-nums ${valueSize}`}
+      translate="no"
+    >
+      {value}
+    </p>
+  </div>
 
-  <p class="mt-4 max-w-prose text-base leading-relaxed text-ink sm:text-lg">
+  <p class="mt-5 max-w-prose text-pretty text-base leading-relaxed text-ink sm:text-lg">
     {label}
   </p>
 
-  <dl class="mt-6 border-t border-line pt-4">
+  <dl class="mt-7 border-t border-line pt-4">
     <dt class="rule text-ref">{t('measure.condition')}</dt>
     <dd class="mt-2 font-mono text-xs leading-relaxed break-words text-dim sm:text-sm">
       {condition}
     </dd>
   </dl>
 </figure>
+
+<style>
+  /*
+    A linha de chamada corre da etiqueta até a borda quando a ficha entra na tela.
+    `scaleX` a partir da esquerda, uma vez só, e nada depende dela para ser lido.
+  */
+  .measure-lead {
+    transform-origin: left center;
+    animation: measure-lead-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes measure-lead-draw {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .measure-lead {
+      animation: none;
+    }
+  }
+</style>

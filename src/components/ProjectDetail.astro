@@ -40,6 +40,9 @@ const { Content } = await render(project);
 */
 const isPhoneShots = gallery.length >= 3;
 
+/* Capa só de card (a da Emais) não entra na abertura: a galeria já mostra as telas. */
+const hasHeroCover = Boolean(cover) && !coverCardOnly;
+
 /*
   `context` costuma nomear a empresa ("Cliente da Dark Marlin"), e o Pedro pediu que
   toda citação de empresa fosse clicável. No corpo do texto o link está escrito no
@@ -68,45 +71,64 @@ const facts = [
       <p class="rule mt-10 text-ref">{familyLabels[lang][family]}</p>
       <h1 class="mt-4 max-w-4xl text-section">{title}</h1>
       <p class="mt-6 max-w-2xl text-xl text-dim">{summary}</p>
+    </div>
+  </header>
 
-      <dl class="mt-12 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+  {/*
+    A abertura do case é a **prova visual ao lado da leitura**, não a ficha de
+    metadados. Antes o leitor batia numa tabela de Papel/Contexto/Período/Situação
+    antes de ver uma linha do trabalho, e o case abria com cara de currículo. Papel e
+    contexto continuam ali — em uma tira discreta, logo abaixo, onde quem procura
+    encontra e quem não procura não tropeça.
+  */}
+  <div class="border-b border-line bg-surface/50">
+    <div class="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
+      <div
+        class:list={
+          hasHeroCover
+            ? 'grid gap-px bg-line lg:grid-cols-[1.35fr_1fr]'
+            : 'max-w-3xl'
+        }
+      >
+        {
+          hasHeroCover && (
+            /*
+              `contain` e não `cover`: quase todas as capas são capturas de interface,
+              e recortar uma tela esconde exatamente o que ela deveria provar.
+            */
+            <div class="grid-paper flex items-center justify-center bg-page p-5 sm:p-8">
+              <Image
+                src={cover}
+                alt={coverAlt ?? title}
+                widths={[640, 1024, 1600]}
+                sizes="(min-width: 1024px) 56rem, 100vw"
+                class="max-h-[58vh] w-full object-contain"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+          )
+        }
+
+        <Measure {...measure} lang={lang} />
+      </div>
+
+      <dl class="mt-8 flex flex-wrap items-baseline gap-x-8 gap-y-3">
         {
           facts.map((fact) => (
-            <div class="min-w-0 border-t border-line pt-4">
-              <dt class="rule">{fact.label}</dt>
+            <div class="flex min-w-0 flex-wrap items-baseline gap-x-2">
+              <dt class="rule text-ref">{fact.label}</dt>
               {fact.html ? (
-                <dd class="mt-2 text-pretty text-ink" set:html={fact.value} />
+                <dd class="font-mono text-xs text-dim sm:text-sm" set:html={fact.value} />
               ) : (
-                <dd class="mt-2 text-pretty text-ink">{fact.value}</dd>
+                <dd class="font-mono text-xs text-dim sm:text-sm">{fact.value}</dd>
               )}
             </div>
           ))
         }
       </dl>
     </div>
-  </header>
-
-  {
-    cover && !coverCardOnly && (
-      /*
-        `contain` e não `cover`: quase todas as capas são capturas de interface, e
-        recortar uma tela esconde exatamente o que ela deveria provar.
-      */
-      <div class="border-b border-line bg-surface">
-        <div class="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14">
-          <Image
-            src={cover}
-            alt={coverAlt ?? title}
-            widths={[640, 1024, 1600]}
-            sizes="(min-width: 1024px) 64rem, 100vw"
-            class="max-h-[68vh] w-full border border-line object-contain"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </div>
-      </div>
-    )
-  }
+  </div>
 
   {
     (gallery.length > 0 || video) && (
@@ -197,8 +219,6 @@ const facts = [
       </div>
 
       <aside class="flex flex-col gap-8 lg:sticky lg:top-24 lg:self-start">
-        <Measure {...measure} lang={lang} />
-
         <div>
           <p class="rule text-ref">{t('project.stack')}</p>
           <ul class="mt-4 flex flex-wrap gap-2">
