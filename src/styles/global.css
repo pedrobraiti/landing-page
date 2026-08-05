@@ -86,6 +86,30 @@
 
 @layer components {
   /*
+    A carta clara. Ela não usa uma paleta nova: inverte as duas cores centrais do site —
+    o fundo vira a cor da tinta, e a tinta vira a cor do fundo. Como as utilidades do
+    Tailwind 4 leem as variáveis, redefinir o escopo recolore tudo de dentro de uma vez,
+    inclusive o papel pontilhado, que é derivado de `line` e `ref`.
+
+    Âmbar e ciano precisam escurecer: #ffb02e sobre claro dá 1,6:1. Os valores abaixo
+    foram calculados, não escolhidos a olho — âmbar 5,64:1, ciano 6,31:1, `dim` 6,88:1,
+    tinta 16,4:1.
+
+    Existe porque, com todas as divisórias iguais, não dava para saber qual imagem
+    pertencia a qual texto. Carta de uma cor só resolve isso antes de qualquer linha.
+  */
+  .tone-light {
+    --color-page: #f4f6f8;
+    --color-surface: #e6eaef;
+    --color-raised: #d8dee6;
+    --color-line: #cbd3dc;
+    --color-ink: #14181f;
+    --color-dim: #4c5663;
+    --color-measure: #8f5400;
+    --color-ref: #0b6470;
+  }
+
+  /*
     Papel milimetrado, versão pontilhada.
 
     A primeira versão desenhava a grade inteira, linha a linha, e o Pedro achou

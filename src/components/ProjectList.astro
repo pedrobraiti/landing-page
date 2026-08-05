@@ -62,7 +62,12 @@ const families = (['sistemas', 'pesquisa', 'fabricacao', 'ferramentas'] as const
               group.items.length % 2 === 1 && index === group.items.length - 1;
             return (
               <div class:list={['flex', fillsRow && 'lg:col-span-2']}>
-                <ProjectCard project={project} lang={lang} featured={fillsRow} />
+                <ProjectCard
+                  project={project}
+                  lang={lang}
+                  featured={fillsRow}
+                  tone={index % 2 === 0 ? 'dark' : 'light'}
+                />
               </div>
             );
           })}

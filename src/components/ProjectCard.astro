@@ -7,9 +7,15 @@ interface Props {
   project: CollectionEntry<'projects'>;
   lang: Locale;
   featured?: boolean;
+  /*
+    Carta clara e carta escura se alternam na grade. Não é enfeite: com todas as
+    divisórias iguais, a janela de mídia lia como uma célula separada do texto, e não
+    dava para saber o que pertencia a quê. Uma carta de uma cor só resolve isso.
+  */
+  tone?: 'dark' | 'light';
 }
 
-const { project, lang, featured = false } = Astro.props;
+const { project, lang, featured = false, tone = 'dark' } = Astro.props;
 const t = useTranslations(lang);
 const { title, slug, summary, measure, family, status, cover, coverFit, gallery, stack } =
   project.data;
@@ -34,7 +40,8 @@ const href = localizePath(`/projetos/${slug}`, lang);
 */}
 <article
   class:list={[
-    'group relative flex h-full w-full flex-col bg-page transition-colors duration-300 hover:bg-surface',
+    'group relative flex h-full w-full flex-col bg-page text-ink transition-colors duration-300 hover:bg-surface',
+    tone === 'light' && 'tone-light',
     featured && 'md:flex-row',
   ]}
 >
@@ -42,8 +49,8 @@ const href = localizePath(`/projetos/${slug}`, lang);
     class:list={[
       'relative overflow-hidden border-line',
       featured
-        ? 'aspect-[16/10] md:aspect-auto md:w-1/2 md:border-r border-b md:border-b-0'
-        : 'aspect-[16/10] border-b',
+        ? 'aspect-[16/10] md:aspect-auto md:w-1/2'
+        : 'aspect-[16/10]',
     ]}
   >
     {
