@@ -133,7 +133,7 @@ const isBand = variant === 'band';
       : 'mt-16 border-t border-line pt-10'
   }
 >
-  <div class:list={isBand && 'mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28'}>
+  <div class:list={isBand && 'mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-28'}>
     {
       isBand ? (
         <header class="max-w-3xl">
@@ -149,7 +149,7 @@ const isBand = variant === 'band';
   <ul class:list={['flex flex-col divide-y divide-line', isBand ? 'mt-12' : 'mt-8']}>
     {
       resolved.map((skill) => (
-        <li class="grid gap-x-8 gap-y-3 py-7 first:pt-0 last:pb-0 sm:grid-cols-[minmax(0,15rem)_1fr]">
+        <li class="grid gap-x-8 gap-y-3 py-5 first:pt-0 last:pb-0 sm:py-7 sm:grid-cols-[minmax(0,15rem)_1fr]">
           <h3 class="font-display text-lg font-bold tracking-tight text-ink">
             {skill.copy.title}
           </h3>

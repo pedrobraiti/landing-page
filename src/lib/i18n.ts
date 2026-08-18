@@ -48,6 +48,8 @@ export const ui = {
     'section.3d.lede':
       'Trinta peças no ArtStation e uma empresa de impressão em resina. A mesma cabeça, outro material.',
     'section.more': 'Outros projetos',
+    'home.fold.projects': 'Ver todos os projetos',
+    'home.fold.research': 'Ver os cinco estudos',
     'projects.all': 'Todos',
     'projects.count': 'projetos',
     'project.role': 'Papel',
@@ -111,6 +113,8 @@ export const ui = {
     'section.3d.lede':
       'Thirty pieces on ArtStation and a resin printing company. Same mind, different medium.',
     'section.more': 'Other projects',
+    'home.fold.projects': 'See all the projects',
+    'home.fold.research': 'See all five studies',
     'projects.all': 'All',
     'projects.count': 'projects',
     'project.role': 'Role',

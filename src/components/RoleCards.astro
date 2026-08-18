@@ -42,7 +42,7 @@ const groups = (['own', 'hired', 'independent'] as const)
   .filter((group) => group.roles.length > 0);
 ---
 
-<div class="mt-14 flex flex-col gap-16">
+<div class="mt-10 flex flex-col gap-10 sm:mt-14 sm:gap-16">
   {
     groups.map((group) => (
       <section>
@@ -86,7 +86,7 @@ const groups = (['own', 'hired', 'independent'] as const)
                   </div>
                 )}
 
-                <div class="flex flex-1 flex-col gap-5 p-6 sm:flex-row sm:p-7">
+                <div class="flex flex-1 flex-col gap-4 p-5 sm:flex-row sm:gap-5 sm:p-7">
                   {/*
                     Sem marca — caso da modelagem 3D e do desenvolvimento de jogos, que
                     não são empresa — entra a inicial. Inventar um logotipo seria pior.
@@ -144,7 +144,7 @@ const groups = (['own', 'hired', 'independent'] as const)
 
                     {/* O resumo cita outras empresas ("cliente da Dark Marlin"); elas linkam. */}
                     <p
-                      class="mt-4 text-pretty text-dim [&_a]:text-ink"
+                      class="mt-4 line-clamp-3 text-pretty text-dim lg:line-clamp-none [&_a]:text-ink"
                       set:html={linkOrgsInText(role.data.summary)}
                     />
 
@@ -153,7 +153,7 @@ const groups = (['own', 'hired', 'independent'] as const)
                         href={role.data.href}
                         rel="noopener"
                         target="_blank"
-                        class="mt-4 inline-block font-mono text-xs text-ref transition-colors hover:text-measure"
+                        class="mt-4 hidden font-mono text-xs text-ref transition-colors hover:text-measure lg:inline-block"
                       >
                         {role.data.href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')} ↗
                       </a>

@@ -43,7 +43,7 @@ const artstation = {
 */}
 <Skills lang={lang} variant="band" />
 
-<section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+<section class="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-28">
   <header class="max-w-3xl">
     <p class="rule text-ref">{t('section.selected')}</p>
     <h2 class="mt-5 text-section">{t('section.selected.lede')}</h2>
@@ -55,8 +55,13 @@ const artstation = {
         /* Ímpar no fim ocupa a linha inteira, para não sobrar meia fileira vazia. */
         const fillsRow =
           index === 0 || (featured.length % 2 === 0 && index === featured.length - 1);
+        /*
+          No celular a home mostra três casos e manda o resto para /projetos, que já
+          tem os dezessete. Não é conteúdo apagado: é dobra. A grade inteira só
+          cabia em quase cinco telas de rolagem, e o contato ficava atrás dela.
+        */
         return (
-          <div class:list={['flex', fillsRow && 'lg:col-span-2']}>
+          <div class:list={[index >= 3 ? 'hidden lg:flex' : 'flex', fillsRow && 'lg:col-span-2']}>
             <ProjectCard
               project={project}
               lang={lang}
@@ -68,10 +73,21 @@ const artstation = {
       })
     }
   </div>
+
+  {
+    featured.length > 3 && (
+      <a
+        href={localizePath('/projetos', lang)}
+        class="mt-10 inline-block border border-line px-6 py-3 font-mono text-sm transition-colors hover:border-measure hover:text-measure lg:hidden"
+      >
+        {t('home.fold.projects')} →
+      </a>
+    )
+  }
 </section>
 
 <section class="border-y border-line bg-surface/30">
-  <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+  <div class="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-28">
     <header class="max-w-3xl">
       <p class="rule text-ref">{t('section.timeline')}</p>
       <h2 class="mt-5 text-section">{t('section.timeline.lede')}</h2>
@@ -90,7 +106,7 @@ const artstation = {
 
 {
   research.length > 0 && (
-    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+    <section class="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-28">
       <header class="max-w-3xl">
         <p class="rule text-ref">{t('section.research')}</p>
         <h2 class="mt-5 text-section">{t('section.research.lede')}</h2>
@@ -100,7 +116,7 @@ const artstation = {
           const fillsRow =
             research.length % 2 === 1 && index === research.length - 1;
           return (
-            <div class:list={['flex', fillsRow && 'lg:col-span-2']}>
+            <div class:list={[index >= 1 ? 'hidden lg:flex' : 'flex', fillsRow && 'lg:col-span-2']}>
               <ProjectCard
               project={project}
               lang={lang}
@@ -111,12 +127,21 @@ const artstation = {
           );
         })}
       </div>
+
+      {research.length > 1 && (
+        <a
+          href={localizePath('/projetos', lang)}
+          class="mt-10 inline-block border border-line px-6 py-3 font-mono text-sm transition-colors hover:border-measure hover:text-measure lg:hidden"
+        >
+          {t('home.fold.research')} →
+        </a>
+      )}
     </section>
   )
 }
 
 <section class="border-t border-line bg-surface/30">
-  <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+  <div class="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-28">
     <!--
       O cubo fica ao lado do título, não dentro da grade. Na grade ele virava a
       quarta peça do portfólio e perdia feio para três esculturas de verdade; aqui
