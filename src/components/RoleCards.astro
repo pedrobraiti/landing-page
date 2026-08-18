@@ -20,9 +20,16 @@ import { linkOrgsInText } from '../lib/orgLinks.mjs';
 interface Props {
   lang: Locale;
   showRelated?: boolean;
+  /*
+    `compact` é a versão da HOME no celular: resumo em três linhas e endereço
+    escondido, porque ali a lista existe para dar a ver a amplitude, e a home
+    inteira não cabia. Em /trabalho ela é SEMPRE falsa — aquela página é o destino
+    do "ver cada vínculo em detalhe", e truncar o detalhe no destino é o defeito.
+  */
+  compact?: boolean;
 }
 
-const { lang, showRelated = false } = Astro.props;
+const { lang, showRelated = false, compact = false } = Astro.props;
 const t = useTranslations(lang);
 
 const roles = await getRoles(lang);
@@ -144,7 +151,10 @@ const groups = (['own', 'hired', 'independent'] as const)
 
                     {/* O resumo cita outras empresas ("cliente da Dark Marlin"); elas linkam. */}
                     <p
-                      class="mt-4 line-clamp-3 text-pretty text-dim lg:line-clamp-none [&_a]:text-ink"
+                      class:list={[
+                        'mt-4 text-pretty text-dim [&_a]:text-ink',
+                        compact && 'line-clamp-3 lg:line-clamp-none',
+                      ]}
                       set:html={linkOrgsInText(role.data.summary)}
                     />
 
@@ -153,7 +163,10 @@ const groups = (['own', 'hired', 'independent'] as const)
                         href={role.data.href}
                         rel="noopener"
                         target="_blank"
-                        class="mt-4 hidden font-mono text-xs text-ref transition-colors hover:text-measure lg:inline-block"
+                        class:list={[
+                          'mt-4 font-mono text-xs text-ref transition-colors hover:text-measure',
+                          compact ? 'hidden lg:inline-block' : 'inline-block',
+                        ]}
                       >
                         {role.data.href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')} ↗
                       </a>
