@@ -50,8 +50,7 @@ benchmark.
 ## The decision that changed the project
 
 I had 653 tests passing and green CI in all three repositories — the count as of July
-2026, before the order. I sent a **two-dollar**
-order on a real account, just to see.
+2026, before the order. I placed a **two-dollar** order on a live account, just to see.
 
 The order exposed a unit bug: the system treated a value in **dollars** as if it were a
 **number of shares**. On a sell, that would have placed a stop selling more stock than the
@@ -67,6 +66,6 @@ The bug was fixed in the two affected repositories and became a recorded decisio
 **integration is proven in production, with small amounts of money.** Tests prove logic; they don't
 prove you understood the other end.
 
-The same principle took down another problem later — the server hung on the first call
+The same principle solved another problem later — the server hung on the first call
 because the data libraries were blocking the async loop. The fix wasn't to raise the
 timeout: it was to warm up the libraries at startup, attacking the cause.

@@ -38,17 +38,16 @@ per download — brute force, and every retry is a request hitting someone else'
 
 ## The part that decided the outcome
 
-The server tells you whether your answer was right. That's a free labeller: instead of
+The server tells you whether your answer was right. That's a free labeler: instead of
 annotating images by hand, I let the collector build its own training set. It produced
 **1,154 confirmed examples in fifty minutes**, at roughly one second between requests
 and with no files downloaded during collection — the bottleneck was politeness, not
 speed.
 
 The second finding changed the architecture. I suspected the server was case-sensitive
-and tested it: submitted everything lowercase, then everything uppercase: about **3% accepted in each
+and tested it, submitting everything lowercase, then everything uppercase: about **3% accepted in each
 run, 6% across both** — exactly what chance predicts for five characters, since 2⁻⁵ is
-3.1% per attempt. Which means
-an OCR that ignores case is capped at around 7% there, no matter how well it reads the
+3.1% per attempt. That means an OCR that ignores case is capped at around 7% there, no matter how well it reads the
 letters.
 
 So the model has two heads: one decides **which** letter it is, the other decides

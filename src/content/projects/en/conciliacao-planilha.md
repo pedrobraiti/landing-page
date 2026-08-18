@@ -11,12 +11,12 @@ status: Delivered, running on the finance team's machine
 order: 120
 summary: >-
   Two Excel macros that post the month's progress billing and match every ERP invoice to the
-  right spreadsheet row — tested against the real spreadsheet before going anywhere near
+  right spreadsheet row — tested against the actual spreadsheet before going anywhere near
   it.
 measure:
   value: 20/20
   label: >-
-    asserts passing on a throwaway copy of the real spreadsheet — and getting there
+    asserts passing on a throwaway copy of the actual spreadsheet — and getting there
     surfaced a bug that was already running
   condition: >-
     Excel 16 driven over COM, on the actual spreadsheet with real invoices · including two
@@ -41,13 +41,13 @@ the range was written.
 
 Reading the ERP tab used `End(xlUp)` to find where the data ended — the canonical way, and
 it was in code that was already running. But that tab tends to sit in **filter mode**, and
-with a filter active `End(xlUp)` returned row 967 when the last real row was 1104.
+with a filter active `End(xlUp)` returned row 967 when the last row with data was 1104.
 
 So the most recent invoices — exactly the ones that matter at month-end close — vanished
 from the reconciliation silently. Nothing raised an error. The total just came out lower.
 
 I replaced it with `UsedRange` in both macros. That is the finding of this project, and it
-only showed up because the test ran against the real spreadsheet rather than a clean
+only showed up because the test ran against the actual spreadsheet rather than a clean
 example.
 
 ## The decisions

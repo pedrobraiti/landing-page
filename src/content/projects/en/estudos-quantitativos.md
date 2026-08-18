@@ -43,7 +43,7 @@ links:
 
 Five independent studies, each with its own hypothesis: an empirical replication of
 Fama & French (2004) — the survey *"The CAPM: Theory and Evidence"*, not the 1993
-three-factor model —, with the GRS test and the Betting-Against-Beta anomaly; Volume
+three-factor model — with the GRS test and the Betting-Against-Beta anomaly; Volume
 Profile put through falsification across 17 to 33 years of data; an expectancy backtester
 with R-multiples and risk-of-ruin computation; the GOLD11 premium arbitrage on the
 Brazilian exchange; and the constant-dollar rebalancing rule. All public, all with a PDF

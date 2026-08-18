@@ -16,7 +16,7 @@ summary: >-
   that roof — in any city covered by satellite imagery.
 measure:
   value: '0.887'
-  label: the real mAP, after I found out my test set was contaminated
+  label: the true mAP, after I found out my test set was contaminated
   condition: 240 of the 270 images in the test set came from training · the memorized number was 0.997
 gallery:
   - src: ../../../assets/projects/solar-antes.png
@@ -50,14 +50,14 @@ detection shows the confidence.
 
 ## The decision that changed the project
 
-The first model gave me **mAP 0.997**. A number like that is not a reason to celebrate,
+The first model gave me **mAP 0.997**. A number like that is not a reason to celebrate;
 it's a reason to be suspicious.
 
-I went to check the "frozen" test set: **240 of the 270 images were already in
+I checked the "frozen" test set: **240 of the 270 images were already in
 training.** The model hadn't learned to detect panels — it had memorized the answers to
-the exam. I redid the split and the real number showed up: **0.887**.
+the exam. I redid the split and the true number showed up: **0.887**.
 
-Losing 11 points of a metric in a report is embarrassing. Finding that out after the
+Losing 11 points on a metric in a report is embarrassing. Finding that out after the
 model was already in production would have been much worse.
 
 A second detail cost me hours: post-processing needs **per-class sigmoid**, not softmax.
@@ -70,7 +70,7 @@ I trained the detector on about 1,100 images from 10 areas across 8 Brazilian ci
 6.7 cm per pixel. [**Datlaz**](https://www.linkedin.com/company/datlaz/), the company I contract for, adopted the model and turned it
 into a product.
 
-The pipeline responds as a stream, with a real per-tile progress bar, and tolerates
+The pipeline responds as a stream, with an actual per-tile progress bar, and tolerates
 partial failure: one tile that fails to load doesn't bring down the whole analysis.
 
 ## Where it runs

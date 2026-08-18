@@ -82,13 +82,13 @@ decides whether it complies, with the dollar cost accounted per batch. **Six PDF
 eleven pages, 219 seconds**, end to end.
 
 The code is genuinely hexagonal — domain, application and adapters kept apart — which is
-what allowed swapping the reading stage without touching the rules. And the inference
+what made it possible to swap the reading stage without touching the rules. And the inference
 environment switches off seven models that ship enabled by default and are never used,
 so it does not download gigabytes for nothing.
 
 ## What I cannot show
 
-The real material is transmission substation drawings. They identify the utility, the
+The actual material is transmission substation drawings. They identify the utility, the
 installation and the responsible engineer — they are not going into a portfolio, not
 even cropped. The images here come from a sample diagram with no client, and everything
 I show of the generator is synthetic by construction.
